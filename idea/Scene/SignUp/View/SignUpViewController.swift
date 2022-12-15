@@ -8,11 +8,23 @@
 import UIKit
 import Then
 import SnapKit
+import RxCocoa
+import RxSwift
 
 class SignUpViewController: BaseViewController<SignUpViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self,selector: #selector(textDidChange(_:)),name: UITextField.textDidChangeNotification,object: emailTextField)
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        let input = SignUpViewModel.Input(
+            loginButtonTap: goLoginButton.rx.tap.asObservable(),
+            signUpButtonTap: signUpButton.rx.tap.asObservable()
+        )
+        viewModel.transVC(input: input)
     }
     
     let signUpText = UILabel().then {

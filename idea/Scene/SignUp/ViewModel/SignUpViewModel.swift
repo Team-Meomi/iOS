@@ -16,12 +16,33 @@ final class SignUpViewModel: BaseViewModel {
         self.coordinator = coordinator
     }
 
-    struct Input {
+    func transVC(input: Input) {
+        input.loginButtonTap.subscribe(
+        onNext: pushLoginVC
+        ) .disposed(by: disposeBag)
         
+        input.signUpButtonTap.subscribe(
+        onNext: pushSignUpVC
+        ) .disposed(by: disposeBag)
+    }
+    
+    private func pushLoginVC() {
+        coordinator.pushLoginVC()
+    }
+    private func pushSignUpVC() {
+        coordinator.pushMainVC()
+    }
+    
+}
+
+extension SignUpViewModel: ViewModelType{
+
+    struct Input {
+        let loginButtonTap: Observable<Void>
+        let signUpButtonTap: Observable<Void>
     }
 
     struct Output {
         
     }
-    
 }

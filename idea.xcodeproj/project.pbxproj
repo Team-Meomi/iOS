@@ -22,6 +22,8 @@
 		7753E631294B41320067A263 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E630294B41320067A263 /* ViewModelProtocol.swift */; };
 		7753E633294B5A5A0067A263 /* S&CShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E632294B5A5A0067A263 /* S&CShadow.swift */; };
 		7753E635294B67A60067A263 /* S&CTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E634294B67A60067A263 /* S&CTextField.swift */; };
+		7753E63A294B72C30067A263 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E639294B72C30067A263 /* MainViewController.swift */; };
+		7753E63C294B74000067A263 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E63B294B74000067A263 /* MainViewModel.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -54,6 +56,8 @@
 		7753E630294B41320067A263 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		7753E632294B5A5A0067A263 /* S&CShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "S&CShadow.swift"; sourceTree = "<group>"; };
 		7753E634294B67A60067A263 /* S&CTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "S&CTextField.swift"; sourceTree = "<group>"; };
+		7753E639294B72C30067A263 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7753E63B294B74000067A263 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +178,31 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		7753E636294B72A70067A263 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7753E638294B72B30067A263 /* ViewModel */,
+				7753E637294B72AD0067A263 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7753E637294B72AD0067A263 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7753E639294B72C30067A263 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7753E638294B72B30067A263 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7753E63B294B74000067A263 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		77BF4CFE29400DC800330346 = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +263,7 @@
 		77BF4D362940660500330346 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				7753E636294B72A70067A263 /* Main */,
 				7753E627294B3E9D0067A263 /* SignUp */,
 				7753E601294B2FBD0067A263 /* Login */,
 				77BF4D382940661C00330346 /* Base */,
@@ -392,8 +422,10 @@
 				77BF4D332940659000330346 /* BaseViewController.swift in Sources */,
 				7753E631294B41320067A263 /* ViewModelProtocol.swift in Sources */,
 				7753E633294B5A5A0067A263 /* S&CShadow.swift in Sources */,
+				7753E63C294B74000067A263 /* MainViewModel.swift in Sources */,
 				7753E607294B2FF00067A263 /* LoginViewModel.swift in Sources */,
 				7753E62C294B3EC50067A263 /* SignUpViewController.swift in Sources */,
+				7753E63A294B72C30067A263 /* MainViewController.swift in Sources */,
 				77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */,
 				7753E635294B67A60067A263 /* S&CTextField.swift in Sources */,
 			);
