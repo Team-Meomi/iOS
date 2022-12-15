@@ -15,6 +15,15 @@ class IntroViewController: BaseViewController<IntroViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        let input = IntroViewModel.Input(
+            loginButtonTap: loginButton.rx.tap.asObservable(),
+            signUpButtonTap: signUpButton.rx.tap.asObservable()
+        )
+        viewModel.transVC(input: input)
     }
     
     let studyText = UILabel().then {

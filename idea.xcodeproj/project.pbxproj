@@ -17,6 +17,9 @@
 		7753E624294B39CE0067A263 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7753E61E294B31DF0067A263 /* NotoSansKR-Medium.otf */; };
 		7753E625294B39CE0067A263 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7753E61D294B31DE0067A263 /* NotoSansKR-Bold.otf */; };
 		7753E626294B39CE0067A263 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7753E619294B31DE0067A263 /* NotoSansKR-Thin.otf */; };
+		7753E62C294B3EC50067A263 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E62B294B3EC50067A263 /* SignUpViewController.swift */; };
+		7753E62E294B3ECF0067A263 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E62D294B3ECF0067A263 /* SignUpViewModel.swift */; };
+		7753E631294B41320067A263 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E630294B41320067A263 /* ViewModelProtocol.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -44,6 +47,9 @@
 		7753E61D294B31DE0067A263 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		7753E61E294B31DF0067A263 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		7753E61F294B345E0067A263 /* S&CColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "S&CColor.swift"; sourceTree = "<group>"; };
+		7753E62B294B3EC50067A263 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7753E62D294B3ECF0067A263 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		7753E630294B41320067A263 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		7753E608294B31150067A263 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7753E62F294B41230067A263 /* Protocol */,
 				7753E609294B311F0067A263 /* Extension */,
 			);
 			path = Utils;
@@ -126,6 +133,39 @@
 				7753E619294B31DE0067A263 /* NotoSansKR-Thin.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		7753E627294B3E9D0067A263 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				7753E62A294B3EB60067A263 /* ViewModel */,
+				7753E629294B3EA80067A263 /* View */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		7753E629294B3EA80067A263 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7753E62B294B3EC50067A263 /* SignUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7753E62A294B3EB60067A263 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7753E62D294B3ECF0067A263 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7753E62F294B41230067A263 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7753E630294B41320067A263 /* ViewModelProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		77BF4CFE29400DC800330346 = {
@@ -188,6 +228,7 @@
 		77BF4D362940660500330346 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				7753E627294B3E9D0067A263 /* SignUp */,
 				7753E601294B2FBD0067A263 /* Login */,
 				77BF4D382940661C00330346 /* Base */,
 				77BF4D372940661600330346 /* Intro */,
@@ -338,11 +379,14 @@
 				77BF4D1F2940645B00330346 /* MainCoordinator.swift in Sources */,
 				77BF4D2C294064E300330346 /* Coordinator.swift in Sources */,
 				77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */,
+				7753E62E294B3ECF0067A263 /* SignUpViewModel.swift in Sources */,
 				77BF4D35294065A000330346 /* BaseViewModel.swift in Sources */,
 				7753E60B294B31310067A263 /* S&CFont.swift in Sources */,
 				7753E620294B345E0067A263 /* S&CColor.swift in Sources */,
 				77BF4D332940659000330346 /* BaseViewController.swift in Sources */,
+				7753E631294B41320067A263 /* ViewModelProtocol.swift in Sources */,
 				7753E607294B2FF00067A263 /* LoginViewModel.swift in Sources */,
+				7753E62C294B3EC50067A263 /* SignUpViewController.swift in Sources */,
 				77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
