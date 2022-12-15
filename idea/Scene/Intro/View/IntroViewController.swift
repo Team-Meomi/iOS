@@ -47,7 +47,7 @@ class IntroViewController: BaseViewController<IntroViewModel> {
     lazy var loginButton = UIButton().then {
         let text = NSAttributedString(string: "Login")
         $0.setAttributedTitle(text, for: .normal)
-        $0.titleLabel?.font = UIFont.SCFont(size: 12, family: .Bold)
+        $0.titleLabel?.font = UIFont.SCFont(size: 14, family: .Bold)
         $0.setTitleColor(UIColor.Main, for: .normal)
         $0.backgroundColor = .white
         $0.layer.borderColor = UIColor.Main?.cgColor
@@ -58,7 +58,7 @@ class IntroViewController: BaseViewController<IntroViewModel> {
     lazy var signUpButton = UIButton().then {
         let text = NSAttributedString(string: "SignUp")
         $0.setAttributedTitle(text, for: .normal)
-        $0.titleLabel?.font = UIFont.SCFont(size: 12, family: .Bold)
+        $0.titleLabel?.font = UIFont.SCFont(size: 14, family: .Bold)
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .Main
         $0.layer.cornerRadius = 5
@@ -90,13 +90,12 @@ class IntroViewController: BaseViewController<IntroViewModel> {
             $0.top.equalTo(conferenceText.snp.bottom).offset((bounds.height) / 2.62)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(50)
-            $0.leading.trailing.equalToSuperview().inset(44)
+            $0.leading.trailing.equalToSuperview().inset((bounds.width) / 8.5)
         }
         signUpButton.snp.makeConstraints {
             $0.top.equalTo(loginButton.snp.bottom).offset(18)
-            $0.centerX.equalToSuperview()
             $0.height.equalTo(50)
-            $0.leading.trailing.equalToSuperview().inset(44)
+            $0.leading.trailing.equalToSuperview().inset((bounds.width) / 8.5)
         }
     }
 
