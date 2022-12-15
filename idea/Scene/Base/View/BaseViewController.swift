@@ -13,7 +13,7 @@ class BaseViewController<T>: UIViewController {
     let viewModel: T
     var disposeBag = DisposeBag()
     let bounds = UIScreen.main.bounds
-
+    let maxLength = 6;
     
     init(_ viewModel: T) {
         self.viewModel = viewModel

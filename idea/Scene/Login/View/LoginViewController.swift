@@ -11,8 +11,6 @@ import SnapKit
 
 class LoginViewController: BaseViewController<LoginViewModel> {
     
-    let maxLength = 6;
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,selector: #selector(textDidChange(_:)),name: UITextField.textDidChangeNotification,object: emailTextField)
