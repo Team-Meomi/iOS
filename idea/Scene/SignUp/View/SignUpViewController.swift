@@ -16,18 +16,9 @@ class SignUpViewController: BaseViewController<SignUpViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,selector: #selector(textDidChange(_:)),name: UITextField.textDidChangeNotification,object: emailTextField)
-        bindViewModel()
     }
     
-    private func bindViewModel() {
-        let input = SignUpViewModel.Input(
-            loginButtonTap: goLoginButton.rx.tap.asObservable(),
-            signUpButtonTap: signUpButton.rx.tap.asObservable()
-        )
-        viewModel.transVC(input: input)
-    }
-    
-    let signUpText = UILabel().then {
+    private let signUpText = UILabel().then {
         $0.text = "Sign up"
         $0.font = UIFont.SCFont(size: 24, family: .Regular)
         $0.tintColor = .black
@@ -108,6 +99,11 @@ class SignUpViewController: BaseViewController<SignUpViewModel> {
         $0.titleLabel?.font = UIFont.SCFont(size: 12,family:.Bold)
         $0.setTitleColor(UIColor(red: 119/255, green: 203/255, blue: 158/255, alpha: 1.00), for: .normal)
         $0.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+        $0.addTarget(self, action: #selector(goLoginBtnDidTap), for: .touchUpInside)
+    }
+    
+    @objc func goLoginBtnDidTap() {
+        viewModel.pushLoginVC()
     }
     
     @objc private func textDidChange(_ notification: Notification) {
