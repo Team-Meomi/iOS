@@ -25,6 +25,8 @@
 		7753E63A294B72C30067A263 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E639294B72C30067A263 /* MainViewController.swift */; };
 		7753E63C294B74000067A263 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E63B294B74000067A263 /* MainViewModel.swift */; };
 		7753E63F294C3E020067A263 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7753E63E294C3E020067A263 /* Moya */; };
+		7753E643294C3EB30067A263 /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E642294C3EB30067A263 /* GeneralAPI.swift */; };
+		7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E644294C3FBC0067A263 /* NetworkResult.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -59,6 +61,8 @@
 		7753E634294B67A60067A263 /* S&CTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "S&CTextField.swift"; sourceTree = "<group>"; };
 		7753E639294B72C30067A263 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7753E63B294B74000067A263 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		7753E642294C3EB30067A263 /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
+		7753E644294C3FBC0067A263 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +209,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7753E640294C3E760067A263 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				7753E641294C3E890067A263 /* APIServices */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		7753E641294C3E890067A263 /* APIServices */ = {
+			isa = PBXGroup;
+			children = (
+				7753E642294C3EB30067A263 /* GeneralAPI.swift */,
+				7753E644294C3FBC0067A263 /* NetworkResult.swift */,
+			);
+			path = APIServices;
+			sourceTree = "<group>";
+		};
 		77BF4CFE29400DC800330346 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +245,7 @@
 		77BF4D0929400DC800330346 /* idea */ = {
 			isa = PBXGroup;
 			children = (
+				7753E640294C3E760067A263 /* Resource */,
 				77BF4D2D294064F400330346 /* App */,
 				7753E608294B31150067A263 /* Utils */,
 				77BF4D362940660500330346 /* Scene */,
@@ -419,7 +441,9 @@
 				77BF4D1F2940645B00330346 /* MainCoordinator.swift in Sources */,
 				77BF4D2C294064E300330346 /* Coordinator.swift in Sources */,
 				77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */,
+				7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */,
 				7753E62E294B3ECF0067A263 /* SignUpViewModel.swift in Sources */,
+				7753E643294C3EB30067A263 /* GeneralAPI.swift in Sources */,
 				77BF4D35294065A000330346 /* BaseViewModel.swift in Sources */,
 				7753E60B294B31310067A263 /* S&CFont.swift in Sources */,
 				7753E620294B345E0067A263 /* S&CColor.swift in Sources */,
