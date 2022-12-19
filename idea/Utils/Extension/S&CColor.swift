@@ -10,5 +10,6 @@ import UIKit
 extension UIColor {
     static let Main = UIColor(named: "Main")
     static let Background = UIColor(named: "Background")
+    static let LightMain = UIColor(named: "LightMain")
 }
 
