@@ -16,10 +16,12 @@ class SignUpViewController: BaseViewController<SignUpViewModel> {
     
     let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
     var userData: SignupModel?
+    var essentialFieldList = [UITextField]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,selector: #selector(textDidChange(_:)),name: UITextField.textDidChangeNotification,object: emailTextField)
+        essentialFieldList = [emailTextField,pwTextField,nameTextField,numberTextField]
     }
     
     private let signUpText = UILabel().then {
@@ -107,8 +109,44 @@ class SignUpViewController: BaseViewController<SignUpViewModel> {
         $0.addTarget(self, action: #selector(goLoginBtnDidTap), for: .touchUpInside)
     }
     
+    func signUpAlert(_ field: UITextField) {
+        DispatchQueue.main.async {
+            switch field {
+            case self.emailTextField:
+                self.emailTextField.layer.borderWidth = 1
+                self.emailTextField.layer.borderColor = UIColor(red: 236/255, green: 149/255, blue: 149/255, alpha: 1).cgColor
+                break
+            case self.pwTextField:
+                self.pwTextField.layer.borderWidth = 1
+                self.pwTextField.layer.borderColor = UIColor(red: 236/255, green: 149/255, blue: 149/255, alpha: 1).cgColor
+                break
+            case self.nameTextField:
+                self.nameTextField.layer.borderWidth = 1
+                self.nameTextField.layer.borderColor = UIColor(red: 236/255, green: 149/255, blue: 149/255, alpha: 1).cgColor
+                break
+            case self.numberTextField:
+                self.numberTextField.layer.borderWidth = 1
+                self.numberTextField.layer.borderColor = UIColor(red: 236/255, green: 149/255, blue: 149/255, alpha: 1).cgColor
+                break
+            default:
+                print("error")
+            }
+        }
+    }
+    func isFilled(_ textField: UITextField) -> Bool {
+        guard let text = textField.text, !text.isEmpty else {
+            return false
+        }
+        return true
+    }
+    
     @objc func signUpBtnDidTap() {
-        viewModel.pushMainVC()
+        for field in essentialFieldList {
+            if !isFilled(field) {
+                signUpAlert(field)
+            }
+        }
+        signUp()
     }
     
     @objc func goLoginBtnDidTap() {
