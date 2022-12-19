@@ -62,6 +62,15 @@ class MainViewController: BaseViewController<MainViewModel> {
         $0.tintColor = .black
     }
     
+    let searchTextField = UITextField().then {
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.Main?.cgColor
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 10
+        $0.addRightImage(UIImage(systemName: "magnifyingglass")!, x: -5.5, y: 3.5)
+        $0.addLeftPadding()
+    }
+    
     override func addView() {
         [scrollView].forEach {
             view.addSubview($0)
@@ -69,7 +78,8 @@ class MainViewController: BaseViewController<MainViewModel> {
     }
     
     func addScrollView() {
-        [createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage].forEach {
+        [createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage
+        ,searchTextField].forEach {
             scrollView.addSubview($0)
         }
     }
@@ -83,8 +93,8 @@ class MainViewController: BaseViewController<MainViewModel> {
     
     func setScrollViewLayout() {
         createconBtn.snp.makeConstraints {
-            $0.top.equalTo(scrollView.snp.top).offset((bounds.height) / 6.39)
-            $0.leading.equalTo(scrollView.snp.leading).offset(33)
+            $0.top.equalTo(scrollView.snp.top).offset((bounds.height) / 14)
+            $0.leading.equalTo(view.snp.leading).offset(33)
             $0.height.width.equalTo(140)
         }
         conText.snp.makeConstraints {
@@ -101,7 +111,7 @@ class MainViewController: BaseViewController<MainViewModel> {
             $0.height.width.equalTo(28)
         }
         createstudyBtn.snp.makeConstraints {
-            $0.top.equalTo(scrollView.snp.top).offset((bounds.height) / 6.39)
+            $0.top.equalTo(scrollView.snp.top).offset((bounds.height) / 14)
             $0.trailing.equalTo(view.snp.trailing).inset(33)
             $0.height.width.equalTo(140)
         }
@@ -117,6 +127,12 @@ class MainViewController: BaseViewController<MainViewModel> {
             $0.bottom.equalTo(createstudyBtn.snp.bottom).inset(7)
             $0.trailing.equalTo(createstudyBtn.snp.trailing).inset(7)
             $0.height.width.equalTo(28)
+        }
+        searchTextField.snp.makeConstraints {
+            $0.top.equalTo(createconBtn.snp.bottom).offset(40)
+            $0.centerX.equalToSuperview()
+            $0.trailing.leading.equalToSuperview().inset(33)
+            $0.height.equalTo(40)
         }
     }
 

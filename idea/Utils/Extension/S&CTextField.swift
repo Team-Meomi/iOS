@@ -8,9 +8,19 @@
 import UIKit
 
 extension UITextField {
-  func addLeftPadding() {
-    let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 19, height: self.frame.height))
-    self.leftView = paddingView
-    self.leftViewMode = ViewMode.always
-  }
+    func addLeftPadding() {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 19, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = ViewMode.always
+    }
+
+    func addRightImage(_ image: UIImage, x: Float, y: Float) {
+        let iconView = UIImageView(frame:CGRect(x: CGFloat(x), y: CGFloat(y), width: image.size.width, height: image.size.height))
+        iconView.image = image
+        iconView.tintColor = .Main
+        let iconContainerView: UIView = UIView(frame:CGRect(x: 0, y: 0, width: 28, height: 28))
+        iconContainerView.addSubview(iconView)
+        rightView = iconContainerView
+        rightViewMode = .always
+    }
 }
