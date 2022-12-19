@@ -27,6 +27,11 @@
 		7753E63F294C3E020067A263 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7753E63E294C3E020067A263 /* Moya */; };
 		7753E643294C3EB30067A263 /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E642294C3EB30067A263 /* GeneralAPI.swift */; };
 		7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E644294C3FBC0067A263 /* NetworkResult.swift */; };
+		7753E64829500E3F0067A263 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E64729500E3F0067A263 /* LoginModel.swift */; };
+		7753E64A29500EC60067A263 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E64929500EC60067A263 /* LoginRequest.swift */; };
+		7753E64C29500FD20067A263 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E64B29500FD20067A263 /* LoginServices.swift */; };
+		7753E64E29500FF60067A263 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E64D29500FF60067A263 /* SignUpModel.swift */; };
+		7753E650295010050067A263 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E64F295010050067A263 /* SignUpRequest.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -63,6 +68,11 @@
 		7753E63B294B74000067A263 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7753E642294C3EB30067A263 /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
 		7753E644294C3FBC0067A263 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		7753E64729500E3F0067A263 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		7753E64929500EC60067A263 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		7753E64B29500FD20067A263 /* LoginServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
+		7753E64D29500FF60067A263 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		7753E64F295010050067A263 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +232,11 @@
 			children = (
 				7753E642294C3EB30067A263 /* GeneralAPI.swift */,
 				7753E644294C3FBC0067A263 /* NetworkResult.swift */,
+				7753E64729500E3F0067A263 /* LoginModel.swift */,
+				7753E64929500EC60067A263 /* LoginRequest.swift */,
+				7753E64B29500FD20067A263 /* LoginServices.swift */,
+				7753E64D29500FF60067A263 /* SignUpModel.swift */,
+				7753E64F295010050067A263 /* SignUpRequest.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -438,12 +453,17 @@
 				7753E605294B2FE40067A263 /* LoginViewController.swift in Sources */,
 				77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */,
 				77BF4D312940655E00330346 /* IntroViewModel.swift in Sources */,
+				7753E64829500E3F0067A263 /* LoginModel.swift in Sources */,
 				77BF4D1F2940645B00330346 /* MainCoordinator.swift in Sources */,
 				77BF4D2C294064E300330346 /* Coordinator.swift in Sources */,
 				77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */,
+				7753E650295010050067A263 /* SignUpRequest.swift in Sources */,
 				7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */,
 				7753E62E294B3ECF0067A263 /* SignUpViewModel.swift in Sources */,
+				7753E64A29500EC60067A263 /* LoginRequest.swift in Sources */,
 				7753E643294C3EB30067A263 /* GeneralAPI.swift in Sources */,
+				7753E64C29500FD20067A263 /* LoginServices.swift in Sources */,
+				7753E64E29500FF60067A263 /* SignUpModel.swift in Sources */,
 				77BF4D35294065A000330346 /* BaseViewModel.swift in Sources */,
 				7753E60B294B31310067A263 /* S&CFont.swift in Sources */,
 				7753E620294B345E0067A263 /* S&CColor.swift in Sources */,
