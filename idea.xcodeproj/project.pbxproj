@@ -32,6 +32,8 @@
 		7753E64C29500FD20067A263 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E64B29500FD20067A263 /* LoginServices.swift */; };
 		7753E64E29500FF60067A263 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E64D29500FF60067A263 /* SignUpModel.swift */; };
 		7753E650295010050067A263 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E64F295010050067A263 /* SignUpRequest.swift */; };
+		7753E653295024B60067A263 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E652295024B60067A263 /* SignUp.swift */; };
+		7753E655295027BE0067A263 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E654295027BE0067A263 /* Login.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -73,6 +75,8 @@
 		7753E64B29500FD20067A263 /* LoginServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
 		7753E64D29500FF60067A263 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		7753E64F295010050067A263 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		7753E652295024B60067A263 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		7753E654295027BE0067A263 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 		7753E609294B311F0067A263 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7753E651295024A40067A263 /* Network */,
 				7753E60A294B31310067A263 /* S&CFont.swift */,
 				7753E61F294B345E0067A263 /* S&CColor.swift */,
 				7753E632294B5A5A0067A263 /* S&CShadow.swift */,
@@ -239,6 +244,15 @@
 				7753E64F295010050067A263 /* SignUpRequest.swift */,
 			);
 			path = APIServices;
+			sourceTree = "<group>";
+		};
+		7753E651295024A40067A263 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7753E652295024B60067A263 /* SignUp.swift */,
+				7753E654295027BE0067A263 /* Login.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		77BF4CFE29400DC800330346 = {
@@ -457,6 +471,7 @@
 				77BF4D1F2940645B00330346 /* MainCoordinator.swift in Sources */,
 				77BF4D2C294064E300330346 /* Coordinator.swift in Sources */,
 				77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */,
+				7753E655295027BE0067A263 /* Login.swift in Sources */,
 				7753E650295010050067A263 /* SignUpRequest.swift in Sources */,
 				7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */,
 				7753E62E294B3ECF0067A263 /* SignUpViewModel.swift in Sources */,
@@ -475,6 +490,7 @@
 				7753E62C294B3EC50067A263 /* SignUpViewController.swift in Sources */,
 				7753E63A294B72C30067A263 /* MainViewController.swift in Sources */,
 				77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */,
+				7753E653295024B60067A263 /* SignUp.swift in Sources */,
 				7753E635294B67A60067A263 /* S&CTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

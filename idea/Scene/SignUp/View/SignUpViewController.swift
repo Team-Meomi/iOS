@@ -10,8 +10,12 @@ import Then
 import SnapKit
 import RxCocoa
 import RxSwift
+import Moya
 
 class SignUpViewController: BaseViewController<SignUpViewModel> {
+    
+    let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
+    var userData: SignupModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +89,7 @@ class SignUpViewController: BaseViewController<SignUpViewModel> {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .Main
         $0.layer.cornerRadius = 5
+        $0.addTarget(self, action: #selector(signUpBtnDidTap), for: .touchUpInside)
     }
     
     let goLogin = UILabel().then {
@@ -100,6 +105,10 @@ class SignUpViewController: BaseViewController<SignUpViewModel> {
         $0.setTitleColor(UIColor(red: 119/255, green: 203/255, blue: 158/255, alpha: 1.00), for: .normal)
         $0.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
         $0.addTarget(self, action: #selector(goLoginBtnDidTap), for: .touchUpInside)
+    }
+    
+    @objc func signUpBtnDidTap() {
+        viewModel.pushMainVC()
     }
     
     @objc func goLoginBtnDidTap() {

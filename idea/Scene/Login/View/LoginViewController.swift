@@ -10,21 +10,18 @@ import Then
 import SnapKit
 import RxSwift
 import RxCocoa
+import Moya
 
 class LoginViewController: BaseViewController<LoginViewModel> {
+    var essentialFieldList = [UITextField]()
+    var check: Bool?
+    let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
+    var userData: LoginModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,selector: #selector(textDidChange(_:)),name: UITextField.textDidChangeNotification,object: emailTextField)
-        bindViewModel()
-    }
-    
-    private func bindViewModel() {
-        let input = LoginViewModel.Input(
-            loginButtonTap: loginButton.rx.tap.asObservable(),
-            signUpButtonTap: goSignUpButton.rx.tap.asObservable()
-        )
-        viewModel.transVC(input: input)
+        essentialFieldList = [emailTextField,pwTextField]
     }
     
     let loginText = UILabel().then {
@@ -74,6 +71,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .Main
         $0.layer.cornerRadius = 5
+        $0.addTarget(self, action: #selector(loginBtnDidTap), for: .touchUpInside)
     }
     
     let goSignUp = UILabel().then {
@@ -88,6 +86,44 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         $0.titleLabel?.font = UIFont.SCFont(size: 12,family:.Bold)
         $0.setTitleColor(UIColor(red: 119/255, green: 203/255, blue: 158/255, alpha: 1.00), for: .normal)
         $0.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+        $0.addTarget(self, action: #selector(goSignUpBtnDidTap), for: .touchUpInside)
+    }
+    
+    func LoginAlert(_ field: UITextField) {
+        DispatchQueue.main.async {
+            switch field {
+            case self.emailTextField:
+                self.emailTextField.layer.borderWidth = 1
+                self.emailTextField.layer.borderColor = UIColor(red: 236/255, green: 149/255, blue: 149/255, alpha: 1).cgColor
+                break
+            case self.pwTextField:
+                self.pwTextField.layer.borderWidth = 1
+                self.pwTextField.layer.borderColor = UIColor(red: 236/255, green: 149/255, blue: 149/255, alpha: 1).cgColor
+                break
+            default:
+                print("error")
+            }
+        }
+    }
+    func isFilled(_ textField: UITextField) -> Bool {
+        guard let text = textField.text, !text.isEmpty else {
+            return false
+        }
+        return true
+    }
+    
+    @objc func loginBtnDidTap() {
+        for field in essentialFieldList {
+            if !isFilled(field) {
+                LoginAlert(field)
+            }
+            
+        }
+        login()
+    }
+    
+    @objc func goSignUpBtnDidTap(){
+        viewModel.pushSignUpVC()
     }
     
     @objc private func textDidChange(_ notification: Notification) {

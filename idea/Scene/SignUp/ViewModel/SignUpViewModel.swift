@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Moya
 
 final class SignUpViewModel: BaseViewModel {
     var coordinator: MainCoordinator
@@ -19,7 +20,8 @@ final class SignUpViewModel: BaseViewModel {
     func pushLoginVC() {
         coordinator.pushLoginVC()
     }
-    func pushSignUpVC() {
+    
+    func pushMainVC() {
         coordinator.pushMainVC()
     }
     

@@ -9,8 +9,8 @@ import Foundation
 
 
 struct LoginRequest: Codable {
-    var email: String
-    var password: String
+    let email: String
+    let password: String
     
     init(_ id: String,_ password: String) {
         self.email = id
