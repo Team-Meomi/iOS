@@ -82,6 +82,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.layer.borderColor = UIColor.Main?.cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 8
+        $0.keyboardType = .numberPad
     }
     
     lazy var feBtn = UIButton().then {
@@ -139,8 +140,17 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.layer.borderWidth = 1
     }
     
+    lazy var makeBtn = UIButton().then {
+        let text = NSAttributedString(string: "만들기")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont.SCFont(size: 14, family: .Bold)
+        $0.setTitleColor(UIColor.white, for: .normal)
+        $0.backgroundColor = .Main
+        $0.layer.cornerRadius = 8
+    }
+    
     override func addView() {
-        [titleTextField,titleTextFieldLine,explainTextView,selectDateBtn,countTextField,feBtn,beBtn,iosBtn,aosBtn,etcBtn].forEach{
+        [titleTextField,titleTextFieldLine,explainTextView,selectDateBtn,countTextField,feBtn,beBtn,iosBtn,aosBtn,etcBtn,makeBtn].forEach{
             view.addSubview($0)
         }
     }
@@ -201,6 +211,11 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
             $0.leading.equalTo(aosBtn.snp.trailing).offset(12)
             $0.height.equalTo(35)
             $0.width.equalTo(55)
+        }
+        makeBtn.snp.makeConstraints {
+            $0.bottom.equalTo(view.snp.bottom).inset((bounds.height) / 11.9)
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(45)
         }
     }
 
