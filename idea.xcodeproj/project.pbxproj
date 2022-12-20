@@ -37,6 +37,10 @@
 		7753E657295145080067A263 /* MainServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E656295145080067A263 /* MainServices.swift */; };
 		7753E659295146420067A263 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E658295146420067A263 /* ListModel.swift */; };
 		7753E65B295146520067A263 /* ListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E65A295146520067A263 /* ListRequest.swift */; };
+		7753E660295178E10067A263 /* CreateConViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E65F295178E10067A263 /* CreateConViewController.swift */; };
+		7753E662295178ED0067A263 /* CreateConViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E661295178ED0067A263 /* CreateConViewModel.swift */; };
+		7753E66729517B230067A263 /* CreateStuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E66629517B230067A263 /* CreateStuViewController.swift */; };
+		7753E66929517B300067A263 /* CreateStuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E66829517B300067A263 /* CreateStuViewModel.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -83,6 +87,10 @@
 		7753E656295145080067A263 /* MainServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServices.swift; sourceTree = "<group>"; };
 		7753E658295146420067A263 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		7753E65A295146520067A263 /* ListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRequest.swift; sourceTree = "<group>"; };
+		7753E65F295178E10067A263 /* CreateConViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateConViewController.swift; sourceTree = "<group>"; };
+		7753E661295178ED0067A263 /* CreateConViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateConViewModel.swift; sourceTree = "<group>"; };
+		7753E66629517B230067A263 /* CreateStuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStuViewController.swift; sourceTree = "<group>"; };
+		7753E66829517B300067A263 /* CreateStuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStuViewModel.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +272,56 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		7753E65C2951788E0067A263 /* CreateCon */ = {
+			isa = PBXGroup;
+			children = (
+				7753E65E295178CF0067A263 /* ViewModel */,
+				7753E65D295178C70067A263 /* View */,
+			);
+			path = CreateCon;
+			sourceTree = "<group>";
+		};
+		7753E65D295178C70067A263 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7753E65F295178E10067A263 /* CreateConViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7753E65E295178CF0067A263 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7753E661295178ED0067A263 /* CreateConViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7753E66329517AFB0067A263 /* CreateStu */ = {
+			isa = PBXGroup;
+			children = (
+				7753E66529517B080067A263 /* ViewModel */,
+				7753E66429517B040067A263 /* View */,
+			);
+			path = CreateStu;
+			sourceTree = "<group>";
+		};
+		7753E66429517B040067A263 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7753E66629517B230067A263 /* CreateStuViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7753E66529517B080067A263 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7753E66829517B300067A263 /* CreateStuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		77BF4CFE29400DC800330346 = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +383,8 @@
 		77BF4D362940660500330346 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				7753E66329517AFB0067A263 /* CreateStu */,
+				7753E65C2951788E0067A263 /* CreateCon */,
 				7753E636294B72A70067A263 /* Main */,
 				7753E627294B3E9D0067A263 /* SignUp */,
 				7753E601294B2FBD0067A263 /* Login */,
@@ -476,6 +536,7 @@
 				7753E605294B2FE40067A263 /* LoginViewController.swift in Sources */,
 				77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */,
 				77BF4D312940655E00330346 /* IntroViewModel.swift in Sources */,
+				7753E66929517B300067A263 /* CreateStuViewModel.swift in Sources */,
 				7753E64829500E3F0067A263 /* LoginModel.swift in Sources */,
 				77BF4D1F2940645B00330346 /* MainCoordinator.swift in Sources */,
 				77BF4D2C294064E300330346 /* Coordinator.swift in Sources */,
@@ -484,6 +545,7 @@
 				7753E65B295146520067A263 /* ListRequest.swift in Sources */,
 				7753E650295010050067A263 /* SignUpRequest.swift in Sources */,
 				7753E659295146420067A263 /* ListModel.swift in Sources */,
+				7753E660295178E10067A263 /* CreateConViewController.swift in Sources */,
 				7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */,
 				7753E62E294B3ECF0067A263 /* SignUpViewModel.swift in Sources */,
 				7753E64A29500EC60067A263 /* LoginRequest.swift in Sources */,
@@ -491,6 +553,7 @@
 				7753E64C29500FD20067A263 /* LoginServices.swift in Sources */,
 				7753E64E29500FF60067A263 /* SignUpModel.swift in Sources */,
 				77BF4D35294065A000330346 /* BaseViewModel.swift in Sources */,
+				7753E66729517B230067A263 /* CreateStuViewController.swift in Sources */,
 				7753E60B294B31310067A263 /* S&CFont.swift in Sources */,
 				7753E620294B345E0067A263 /* S&CColor.swift in Sources */,
 				77BF4D332940659000330346 /* BaseViewController.swift in Sources */,
@@ -502,6 +565,7 @@
 				7753E63A294B72C30067A263 /* MainViewController.swift in Sources */,
 				77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */,
 				7753E657295145080067A263 /* MainServices.swift in Sources */,
+				7753E662295178ED0067A263 /* CreateConViewModel.swift in Sources */,
 				7753E653295024B60067A263 /* SignUp.swift in Sources */,
 				7753E635294B67A60067A263 /* S&CTextField.swift in Sources */,
 			);

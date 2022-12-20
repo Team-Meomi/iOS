@@ -16,5 +16,7 @@ struct LoginModel: Codable {
 }
 
 struct LoginResponse: Codable {
-    let email: String
+    let accessToken: String
+    let refreshToken: String
+    let expiredAt: String
 }

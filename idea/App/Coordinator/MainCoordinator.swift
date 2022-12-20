@@ -47,4 +47,16 @@ class MainCoordinator:Coordinator {
         let mainVC = MainViewController(mainVM)
         navigationController.pushViewController(mainVC, animated: true)
     }
+    
+    func pushCreateConVC() {
+        let conVM = CreateConViewModel(coordinator: self)
+        let conVC = CreateConViewController(conVM)
+        navigationController.pushViewController(conVC, animated: true)
+    }
+    
+    func pushCreateStuVC() {
+        let stuVM = CreateStuViewModel(coordinator: self)
+        let stuVC = CreateStuViewController(stuVM)
+        navigationController.pushViewController(stuVC, animated: true)
+    }
 }
