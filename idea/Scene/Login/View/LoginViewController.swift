@@ -62,6 +62,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         $0.layer.applySketchShadow(color: .black, alpha: 0.08, x: 0, y: 0, blur: 13, spread: 0)
         $0.layer.cornerRadius = 14
         $0.addLeftPadding()
+        $0.isSecureTextEntry = true
     }
     
     lazy var loginButton = UIButton().then {

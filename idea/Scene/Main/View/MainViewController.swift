@@ -71,6 +71,17 @@ class MainViewController: BaseViewController<MainViewModel> {
         $0.addLeftPadding()
     }
     
+    let profileIcon = UIImageView().then {
+        $0.image = UIImage(systemName: "person.circle.fill")
+        $0.tintColor = .Main
+    }
+    
+    let myText = UILabel().then {
+        $0.text = "My"
+        $0.font = UIFont.SCFont(size:12,family:.Medium)
+        $0.textColor = .Main
+    }
+    
     override func addView() {
         [scrollView].forEach {
             view.addSubview($0)
@@ -78,8 +89,7 @@ class MainViewController: BaseViewController<MainViewModel> {
     }
     
     func addScrollView() {
-        [createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage
-        ,searchTextField].forEach {
+        [profileIcon,createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage,searchTextField,myText].forEach {
             scrollView.addSubview($0)
         }
     }
@@ -92,8 +102,18 @@ class MainViewController: BaseViewController<MainViewModel> {
     }
     
     func setScrollViewLayout() {
+        profileIcon.snp.makeConstraints {
+            $0.top.equalTo(scrollView.snp.top).offset(0)
+            $0.trailing.equalToSuperview().inset(33)
+            $0.height.equalTo(31)
+            $0.width.equalTo(31)
+        }
+        myText.snp.makeConstraints {
+            $0.top.equalTo(profileIcon.snp.bottom).offset(0)
+            $0.centerX.equalTo(profileIcon.snp.centerX).offset(0)
+        }
         createconBtn.snp.makeConstraints {
-            $0.top.equalTo(scrollView.snp.top).offset((bounds.height) / 14)
+            $0.top.equalTo(myText.snp.bottom).offset(25)
             $0.leading.equalTo(view.snp.leading).offset(33)
             $0.height.width.equalTo(140)
         }
@@ -111,7 +131,7 @@ class MainViewController: BaseViewController<MainViewModel> {
             $0.height.width.equalTo(28)
         }
         createstudyBtn.snp.makeConstraints {
-            $0.top.equalTo(scrollView.snp.top).offset((bounds.height) / 14)
+            $0.top.equalTo(myText.snp.bottom).offset(25)
             $0.trailing.equalTo(view.snp.trailing).inset(33)
             $0.height.width.equalTo(140)
         }
