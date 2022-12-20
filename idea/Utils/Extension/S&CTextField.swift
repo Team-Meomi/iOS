@@ -23,4 +23,15 @@ extension UITextField {
         rightView = iconContainerView
         rightViewMode = .always
     }
+    
+    func addLeftImage(_ image: UIImage, x: Float, y: Float) {
+        let iconView = UIImageView(frame:CGRect(x: CGFloat(x), y: CGFloat(y), width: image.size.width, height: image.size.height))
+        iconView.image = image
+        iconView.tintColor = .Main
+        let iconContainerView: UIView = UIView(frame:CGRect(x: 0, y: 0, width: 46, height: 26))
+        iconContainerView.addSubview(iconView)
+        leftView = iconContainerView
+        leftViewMode = .always
+    }
+
 }
