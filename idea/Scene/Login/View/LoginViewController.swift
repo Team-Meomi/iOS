@@ -45,7 +45,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         $0.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
         $0.layer.applySketchShadow(color: .black, alpha: 0.08, x: 0, y: 0, blur: 13, spread: 0)
         $0.layer.cornerRadius = 14
-        $0.addLeftPadding()
+        $0.addLeftPadding(width: 18)
     }
     
     let emailText = UILabel().then {
@@ -61,7 +61,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         $0.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
         $0.layer.applySketchShadow(color: .black, alpha: 0.08, x: 0, y: 0, blur: 13, spread: 0)
         $0.layer.cornerRadius = 14
-        $0.addLeftPadding()
+        $0.addLeftPadding(width: 18)
         $0.isSecureTextEntry = true
     }
     

@@ -11,6 +11,8 @@ class CreateStuViewController: BaseViewController<CreateStuViewModel>{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "스터디"
+        self.navigationController?.navigationBar.topItem?.title = ""
     }
 
     override func addView() {

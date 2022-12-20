@@ -70,7 +70,7 @@ class MainViewController: BaseViewController<MainViewModel> {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 10
         $0.addRightImage(UIImage(systemName: "magnifyingglass")!, x: -5.5, y: 3.5)
-        $0.addLeftPadding()
+        $0.addLeftPadding(width: 18)
     }
     
     let profileIcon = UIImageView().then {
