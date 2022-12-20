@@ -20,7 +20,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel> {
     }
     
     override func setLayout() {
-        <#code#>
+        
     }
 
 }

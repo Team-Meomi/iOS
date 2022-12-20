@@ -25,6 +25,7 @@ class MainViewController: BaseViewController<MainViewModel> {
     lazy var createconBtn = UIButton().then {
         $0.backgroundColor = .LightMain
         $0.layer.cornerRadius = 10
+        $0.addTarget(self, action: #selector(createconBtnDidTap), for: .touchUpInside)
     }
     
     let conText = UILabel().then {
@@ -45,6 +46,7 @@ class MainViewController: BaseViewController<MainViewModel> {
     lazy var createstudyBtn = UIButton().then {
         $0.backgroundColor = .LightMain
         $0.layer.cornerRadius = 10
+        $0.addTarget(self, action: #selector(createstudyBtnDidTap), for: .touchUpInside)
     }
     
     let studyText = UILabel().then {
@@ -80,6 +82,14 @@ class MainViewController: BaseViewController<MainViewModel> {
         $0.text = "My"
         $0.font = UIFont.SCFont(size:12,family:.Medium)
         $0.textColor = .Main
+    }
+    
+    @objc func createconBtnDidTap() {
+        viewModel.pushCreateCon()
+    }
+    
+    @objc func createstudyBtnDidTap() {
+        viewModel.pushCreateStu()
     }
     
     override func addView() {
