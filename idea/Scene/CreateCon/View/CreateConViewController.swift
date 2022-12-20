@@ -84,8 +84,63 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.layer.cornerRadius = 8
     }
     
+    lazy var feBtn = UIButton().then {
+        let text = NSAttributedString(string: "FE")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont.SCFont(size: 12, family: .Bold)
+        $0.setTitleColor(UIColor(red: 82/255, green: 82/255, blue: 87/255, alpha: 1), for: .normal)
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 8
+        $0.layer.borderColor = UIColor.Main?.cgColor
+        $0.layer.borderWidth = 1
+    }
+    
+    lazy var beBtn = UIButton().then {
+        let text = NSAttributedString(string: "BE")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont.SCFont(size: 12, family: .Bold)
+        $0.setTitleColor(UIColor(red: 82/255, green: 82/255, blue: 87/255, alpha: 1), for: .normal)
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 8
+        $0.layer.borderColor = UIColor.Main?.cgColor
+        $0.layer.borderWidth = 1
+    }
+    
+    lazy var iosBtn = UIButton().then {
+        let text = NSAttributedString(string: "iOS")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont.SCFont(size: 12, family: .Bold)
+        $0.setTitleColor(UIColor(red: 82/255, green: 82/255, blue: 87/255, alpha: 1), for: .normal)
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 8
+        $0.layer.borderColor = UIColor.Main?.cgColor
+        $0.layer.borderWidth = 1
+    }
+    
+    lazy var aosBtn = UIButton().then {
+        let text = NSAttributedString(string: "AOS")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont.SCFont(size: 12, family: .Bold)
+        $0.setTitleColor(UIColor(red: 82/255, green: 82/255, blue: 87/255, alpha: 1), for: .normal)
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 8
+        $0.layer.borderColor = UIColor.Main?.cgColor
+        $0.layer.borderWidth = 1
+    }
+    
+    lazy var etcBtn = UIButton().then {
+        let text = NSAttributedString(string: "기타")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont.SCFont(size: 12, family: .Bold)
+        $0.setTitleColor(UIColor(red: 82/255, green: 82/255, blue: 87/255, alpha: 1), for: .normal)
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 8
+        $0.layer.borderColor = UIColor.Main?.cgColor
+        $0.layer.borderWidth = 1
+    }
+    
     override func addView() {
-        [titleTextField,titleTextFieldLine,explainTextView,selectDateBtn,countTextField].forEach{
+        [titleTextField,titleTextFieldLine,explainTextView,selectDateBtn,countTextField,feBtn,beBtn,iosBtn,aosBtn,etcBtn].forEach{
             view.addSubview($0)
         }
     }
@@ -116,6 +171,36 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
             $0.top.equalTo(selectDateBtn.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(40)
+        }
+        feBtn.snp.makeConstraints {
+            $0.top.equalTo(countTextField.snp.bottom).offset(24)
+            $0.leading.equalTo(view.snp.leading).offset(26)
+            $0.height.equalTo(35)
+            $0.width.equalTo(55)
+        }
+        beBtn.snp.makeConstraints {
+            $0.top.equalTo(countTextField.snp.bottom).offset(24)
+            $0.leading.equalTo(feBtn.snp.trailing).offset(12)
+            $0.height.equalTo(35)
+            $0.width.equalTo(55)
+        }
+        iosBtn.snp.makeConstraints {
+            $0.top.equalTo(countTextField.snp.bottom).offset(24)
+            $0.leading.equalTo(beBtn.snp.trailing).offset(12)
+            $0.height.equalTo(35)
+            $0.width.equalTo(55)
+        }
+        aosBtn.snp.makeConstraints {
+            $0.top.equalTo(countTextField.snp.bottom).offset(24)
+            $0.leading.equalTo(iosBtn.snp.trailing).offset(12)
+            $0.height.equalTo(35)
+            $0.width.equalTo(55)
+        }
+        etcBtn.snp.makeConstraints {
+            $0.top.equalTo(countTextField.snp.bottom).offset(24)
+            $0.leading.equalTo(aosBtn.snp.trailing).offset(12)
+            $0.height.equalTo(35)
+            $0.width.equalTo(55)
         }
     }
 
