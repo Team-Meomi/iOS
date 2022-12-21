@@ -10,7 +10,14 @@ import Then
 import SnapKit
 
 class CreateConViewController: BaseViewController<CreateConViewModel>,UITextViewDelegate{
-
+    
+    var postMajor:String = ""
+    var guardFeTap:Bool = false
+    var guardBeTap:Bool = false
+    var guardiOSTap:Bool = false
+    var guardAosTap:Bool = false
+    var guardEtcTap:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "컨퍼런스"
@@ -44,7 +51,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         explainTextView.text = "설명"
         explainTextView.textColor = UIColor.lightGray
     }
-        
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if explainTextView.textColor == UIColor.lightGray {
             explainTextView.text = nil
@@ -80,6 +87,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.layer.cornerRadius = 8
         $0.layer.borderColor = UIColor.Main?.cgColor
         $0.layer.borderWidth = 1
+        $0.addTarget(self, action: #selector(feBtnDidTap), for: .touchUpInside)
     }
     
     lazy var beBtn = UIButton().then {
@@ -91,6 +99,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.layer.cornerRadius = 8
         $0.layer.borderColor = UIColor.Main?.cgColor
         $0.layer.borderWidth = 1
+        $0.addTarget(self, action: #selector(beBtnDidTap), for: .touchUpInside)
     }
     
     lazy var iosBtn = UIButton().then {
@@ -102,6 +111,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.layer.cornerRadius = 8
         $0.layer.borderColor = UIColor.Main?.cgColor
         $0.layer.borderWidth = 1
+        $0.addTarget(self, action: #selector(iOSBtnDidTap), for: .touchUpInside)
     }
     
     lazy var aosBtn = UIButton().then {
@@ -113,6 +123,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.layer.cornerRadius = 8
         $0.layer.borderColor = UIColor.Main?.cgColor
         $0.layer.borderWidth = 1
+        $0.addTarget(self, action: #selector(aosBtnDidTap), for: .touchUpInside)
     }
     
     lazy var etcBtn = UIButton().then {
@@ -124,6 +135,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.layer.cornerRadius = 8
         $0.layer.borderColor = UIColor.Main?.cgColor
         $0.layer.borderWidth = 1
+        $0.addTarget(self, action: #selector(etcBtnDidTap), for: .touchUpInside)
     }
     
     lazy var makeBtn = UIButton().then {
@@ -161,13 +173,106 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.translatesAutoresizingMaskIntoConstraints = true
         $0.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
     }
-
+    
+    
+    @objc func feBtnDidTap() {
+        guard guardFeTap != true else{
+            feBtn.setTitleColor(UIColor(red: 82/255, green: 82/255, blue: 87/255, alpha: 1), for: .normal)
+            feBtn.layer.borderColor = UIColor.Main?.cgColor
+            feBtn.layer.borderWidth = 1
+            feBtn.backgroundColor = .white
+            self.postMajor = ""
+            self.guardFeTap = false
+            return
+        }
+        guard guardBeTap != true && guardiOSTap != true && guardAosTap != true && guardEtcTap != true else{return}
+        feBtn.layer.borderColor = UIColor.FE?.cgColor
+        feBtn.backgroundColor = .FE
+        feBtn.setTitleColor(UIColor.white,for: .normal)
+        self.postMajor = "FE"
+        self.guardFeTap = true
+    }
+    
+    @objc func beBtnDidTap() {
+        guard guardBeTap != true else{
+            beBtn.setTitleColor(UIColor(red: 82/255, green: 82/255, blue: 87/255, alpha: 1), for: .normal)
+            beBtn.layer.borderColor = UIColor.Main?.cgColor
+            beBtn.layer.borderWidth = 1
+            beBtn.backgroundColor = .white
+            self.postMajor = ""
+            self.guardBeTap = false
+            return
+        }
+        guard guardFeTap != true && guardiOSTap != true && guardAosTap != true && guardEtcTap != true else{return}
+        beBtn.layer.borderColor = UIColor.BE?.cgColor
+        beBtn.backgroundColor = .BE
+        beBtn.setTitleColor(UIColor.white,for: .normal)
+        self.postMajor = "BE"
+        self.guardBeTap = true
+    }
+    
+    @objc func iOSBtnDidTap() {
+        guard guardiOSTap != true else{
+            iosBtn.setTitleColor(UIColor(red: 82/255, green: 82/255, blue: 87/255, alpha: 1), for: .normal)
+            iosBtn.layer.borderColor = UIColor.Main?.cgColor
+            iosBtn.layer.borderWidth = 1
+            iosBtn.backgroundColor = .white
+            self.postMajor = ""
+            self.guardiOSTap = false
+            return
+        }
+        guard guardFeTap != true && guardBeTap != true && guardAosTap != true && guardEtcTap != true else{return}
+        iosBtn.layer.borderColor = UIColor.iOS?.cgColor
+        iosBtn.backgroundColor = .iOS
+        iosBtn.setTitleColor(UIColor.white,for: .normal)
+        self.postMajor = "iOS"
+        self.guardiOSTap = true
+    }
+    
+    @objc func aosBtnDidTap() {
+        guard guardAosTap != true else{
+            aosBtn.setTitleColor(UIColor(red: 82/255, green: 82/255, blue: 87/255, alpha: 1), for: .normal)
+            aosBtn.layer.borderColor = UIColor.Main?.cgColor
+            aosBtn.layer.borderWidth = 1
+            aosBtn.backgroundColor = .white
+            self.postMajor = ""
+            self.guardAosTap = false
+            return
+        }
+        guard guardFeTap != true && guardBeTap != true && guardiOSTap != true && guardEtcTap != true else{return}
+        aosBtn.layer.borderColor = UIColor.AOS?.cgColor
+        aosBtn.backgroundColor = .AOS
+        aosBtn.setTitleColor(UIColor.white,for: .normal)
+        self.postMajor = "AOS"
+        self.guardAosTap = true
+    }
+    
+    @objc func etcBtnDidTap() {
+        guard guardEtcTap != true else{
+            etcBtn.setTitleColor(UIColor(red: 82/255, green: 82/255, blue: 87/255, alpha: 1), for: .normal)
+            etcBtn.layer.borderColor = UIColor.Main?.cgColor
+            etcBtn.layer.borderWidth = 1
+            etcBtn.backgroundColor = .white
+            self.postMajor = ""
+            self.guardEtcTap = false
+            return
+        }
+        guard guardFeTap != true && guardBeTap != true && guardiOSTap != true && guardAosTap != true else{return}
+        etcBtn.layer.borderColor = UIColor.Etc?.cgColor
+        etcBtn.backgroundColor = .Etc
+        etcBtn.setTitleColor(UIColor.white,for: .normal)
+        self.postMajor = "기타"
+        self.guardEtcTap = true
+    }
+    
     @objc func handleDatePicker() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         selectText.text = dateFormatter.string(from: datePicker.date)
         print(datePicker.date)
     }
+    
+    
     override func addView() {
         [titleTextField,titleTextFieldLine,explainTextView,countTextField,selectView,selectText,calenderIcon,datePicker,feBtn,beBtn,iosBtn,aosBtn,etcBtn,makeBtn].forEach{
             view.addSubview($0)
