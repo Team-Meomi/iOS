@@ -39,20 +39,20 @@ class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextView
         $0.textAlignment = .left
     }
     
-    private func placeholderSetting() {
+    func placeholderSetting() {
         explainTextView.delegate = self
         explainTextView.text = "설명"
         explainTextView.textColor = UIColor.lightGray
     }
         
-    private func textViewDidBeginEditing(_ textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         if explainTextView.textColor == UIColor.lightGray {
             explainTextView.text = nil
             explainTextView.textColor = UIColor.black
         }
         
     }
-    private func textViewDidEndEditing(_ textView: UITextView) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         if explainTextView.text.isEmpty {
             explainTextView.text = "설명"
             explainTextView.textColor = UIColor.lightGray

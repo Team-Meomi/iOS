@@ -45,37 +45,23 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         explainTextView.textColor = UIColor.lightGray
     }
         
-    private func textViewDidBeginEditing(_ textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         if explainTextView.textColor == UIColor.lightGray {
             explainTextView.text = nil
             explainTextView.textColor = UIColor.black
         }
         
     }
-    private func textViewDidEndEditing(_ textView: UITextView) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         if explainTextView.text.isEmpty {
             explainTextView.text = "설명"
             explainTextView.textColor = UIColor.lightGray
         }
     }
-
-    lazy var selectDateBtn = UIButton().then {
-        let text = NSAttributedString(string: "  날짜를 선택해주세요")
-        $0.setAttributedTitle(text, for: .normal)
-        $0.titleLabel?.font = UIFont.SCFont(size: 14, family: .Medium)
-        $0.setTitleColor(UIColor.black, for: .normal)
-        $0.backgroundColor = .white
-        $0.layer.cornerRadius = 8
-        $0.layer.borderColor = UIColor.Main?.cgColor
-        $0.layer.borderWidth = 1
-        $0.setImage(UIImage(systemName: "calendar"), for: .normal)
-        $0.tintColor = .Main
-//        $0.addTarget(self, action: #selector(signUpBtnDidTap), for: .touchUpInside)
-    }
     
     private let countTextField = UITextField().then {
         $0.backgroundColor = .white
-        $0.attributedPlaceholder = NSAttributedString(string: "최대 인원 수를 입력해주세요.", attributes: [NSAttributedString.Key.foregroundColor : UIColor(red: 163/255, green: 163/255, blue: 163/255, alpha: 1.00)])
+        $0.attributedPlaceholder = NSAttributedString(string: "최대 인원 수", attributes: [NSAttributedString.Key.foregroundColor : UIColor(red: 163/255, green: 163/255, blue: 163/255, alpha: 1.00)])
         $0.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         $0.font = UIFont.SCFont(size:14, family:.Medium)
         $0.addLeftImage(UIImage(systemName: "person.2.fill")!, x: 13, y:6)
@@ -149,8 +135,41 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.layer.cornerRadius = 8
     }
     
+    private let selectText = UILabel().then {
+        $0.text = "날짜를 선택해 주세요"
+        $0.textColor = UIColor(red: 163/255, green: 163/255, blue: 163/255, alpha: 1.00)
+        $0.font = UIFont.SCFont(size:14,family:.Medium)
+    }
+    
+    private let calenderIcon = UIImageView().then {
+        $0.image = UIImage(systemName: "calendar")
+        $0.tintColor = .Main
+    }
+    
+    private let selectView = UIView().then {
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 8
+        $0.layer.borderColor = UIColor.Main?.cgColor
+        $0.layer.borderWidth = 1
+    }
+    
+    private let datePicker = UIDatePicker().then {
+        $0.preferredDatePickerStyle = .compact
+        $0.datePickerMode = .date
+        $0.locale = Locale(identifier: "ko-KR")
+        $0.timeZone = .autoupdatingCurrent
+        $0.translatesAutoresizingMaskIntoConstraints = true
+        $0.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+    }
+
+    @objc func handleDatePicker() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        selectText.text = dateFormatter.string(from: datePicker.date)
+        print(datePicker.date)
+    }
     override func addView() {
-        [titleTextField,titleTextFieldLine,explainTextView,selectDateBtn,countTextField,feBtn,beBtn,iosBtn,aosBtn,etcBtn,makeBtn].forEach{
+        [titleTextField,titleTextFieldLine,explainTextView,countTextField,selectView,selectText,calenderIcon,datePicker,feBtn,beBtn,iosBtn,aosBtn,etcBtn,makeBtn].forEach{
             view.addSubview($0)
         }
     }
@@ -172,13 +191,27 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo((bounds.height) / 7.73)
         }
-        selectDateBtn.snp.makeConstraints {
-            $0.top.equalTo(explainTextView.snp.bottom).offset(31)
+        selectView.snp.makeConstraints {
+            $0.top.equalTo(explainTextView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(40)
         }
+        selectText.snp.makeConstraints {
+            $0.centerY.equalTo(selectView.snp.centerY).offset(0)
+            $0.leading.equalTo(selectView.snp.leading).offset(45)
+        }
+        calenderIcon.snp.makeConstraints {
+            $0.centerY.equalTo(selectView.snp.centerY).offset(0)
+            $0.leading.equalTo(selectView.snp.leading).offset(14)
+            $0.height.equalTo(24)
+            $0.width.equalTo(24)
+        }
+        datePicker.snp.makeConstraints {
+            $0.centerY.equalTo(selectView.snp.centerY).offset(0)
+            $0.trailing.equalTo(selectView.snp.trailing).inset(2)
+        }
         countTextField.snp.makeConstraints {
-            $0.top.equalTo(selectDateBtn.snp.bottom).offset(20)
+            $0.top.equalTo(datePicker.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(40)
         }
