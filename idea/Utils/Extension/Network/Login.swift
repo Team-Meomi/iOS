@@ -27,9 +27,10 @@ extension LoginViewController {
         print(param)
         authProvider.request(.login(param: param)) {response in
             switch response {
-            case .success(let result):
+            case let .success(result):
                 do {
-                    self.userData = try result.map(LoginModel.self)
+                    self.userData = try result.map(LoginResponse.self)
+                    print(self.userData?.accessToken)
                 } catch(let err) {
                     print(err.localizedDescription)
                 }

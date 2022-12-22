@@ -22,9 +22,9 @@ extension LoginServices: TargetType {
     var path: String {
         switch self {
         case .signUp:
-            return "/user/auth/signup"
+            return "/auth/signup"
         case .login:
-            return "/user/auth/signin"
+            return "/auth/signin"
         }
     }
     
