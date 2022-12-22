@@ -14,8 +14,6 @@ import Moya
 
 class LoginViewController: BaseViewController<LoginViewModel> {
     var essentialFieldList = [UITextField]()
-    var check: Bool?
-    let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
     var userData: LoginResponse?
     
     override func viewDidLoad() {

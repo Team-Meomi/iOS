@@ -22,7 +22,7 @@ extension MainServices: TargetType{
     var path: String {
         switch self{
         case .getList:
-            return "/api/v1/user/mainpage"
+            return "/api/v1/mainpage"
         }
     }
     

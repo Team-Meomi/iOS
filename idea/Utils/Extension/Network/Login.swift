@@ -25,12 +25,11 @@ extension LoginViewController {
     func login() {
         let param = LoginRequest.init(self.emailTextField.text! + "@gsm.hs.kr", self.pwTextField.text!)
         print(param)
-        authProvider.request(.login(param: param)) {response in
+        BaseVC.authProvider.request(.login(param: param)) {response in
             switch response {
             case let .success(result):
                 do {
                     self.userData = try result.map(LoginResponse.self)
-                    print(self.userData?.accessToken)
                 } catch(let err) {
                     print(err.localizedDescription)
                 }

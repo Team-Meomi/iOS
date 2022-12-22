@@ -31,7 +31,7 @@ extension SignUpViewController {
         let number = Int(numberTextField.text!) ?? 0
         let param = SignUpRequest.init(self.emailTextField.text! + "@gsm.hs.kr", self.pwTextField.text!, self.nameTextField.text!, number)
         print(param)
-        authProvider.request(.signUp(param: param)) {response in
+        BaseVC.authProvider.request(.signUp(param: param)) {response in
             switch response {
             case .success(let result):
                 do {

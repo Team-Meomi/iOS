@@ -13,9 +13,7 @@ import RxSwift
 import Moya
 
 class SignUpViewController: BaseViewController<SignUpViewModel> {
-    
-    let authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
-    var userData: SignupModel?
+    var userData: SignupResponse?
     var essentialFieldList = [UITextField]()
     
     override func viewDidLoad() {

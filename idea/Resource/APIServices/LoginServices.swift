@@ -11,6 +11,7 @@ import Moya
 enum LoginServices {
     case signUp(param: SignUpRequest)
     case login(param: LoginRequest)
+    case refresh(param: RefreshRequest)
 }
 
 
@@ -25,6 +26,8 @@ extension LoginServices: TargetType {
             return "/auth/signup"
         case .login:
             return "/auth/signin"
+        case .refresh:
+            return "/"
         }
     }
     
@@ -33,6 +36,8 @@ extension LoginServices: TargetType {
         case .signUp,
              .login:
             return .post
+        case .refresh:
+            return .patch
         }
     }
     
@@ -46,6 +51,8 @@ extension LoginServices: TargetType {
             return .requestJSONEncodable(param)
         case .login(let param):
             return .requestJSONEncodable(param)
+        case .refresh(_):
+            return .requestPlain
         }
     }
     

@@ -6,12 +6,10 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
+import Moya
 
 class BaseViewController<T>: UIViewController {
     let viewModel: T
-    var disposeBag = DisposeBag()
     let bounds = UIScreen.main.bounds
     let maxLength = 6;
     
@@ -44,4 +42,7 @@ class BaseViewController<T>: UIViewController {
         self.view.endEditing(true)
     }
 
+}
+struct BaseVC {
+    static var authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
 }
