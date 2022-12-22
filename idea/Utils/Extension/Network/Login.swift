@@ -29,7 +29,7 @@ extension LoginViewController {
             switch response {
             case let .success(result):
                 do {
-                    self.userData = try result.map(LoginResponse.self)
+                    BaseVC.userData = try result.map(LoginResponse.self)
                 } catch(let err) {
                     print(err.localizedDescription)
                 }

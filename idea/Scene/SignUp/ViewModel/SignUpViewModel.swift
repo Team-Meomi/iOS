@@ -21,8 +21,8 @@ final class SignUpViewModel: BaseViewModel {
         coordinator.pushLoginVC()
     }
     
-    func pushMainVC() {
-        coordinator.pushMainVC()
+    func pushIntroVC() {
+        coordinator.pushIntroVC()
     }
     
 }

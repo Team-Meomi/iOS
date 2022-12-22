@@ -14,7 +14,6 @@ import Moya
 
 class LoginViewController: BaseViewController<LoginViewModel> {
     var essentialFieldList = [UITextField]()
-    var userData: LoginResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()

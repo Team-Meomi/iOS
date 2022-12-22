@@ -14,9 +14,4 @@ struct SignupModel: Codable {
     let status: Int
     let success: Bool
     let message: String
-    let data: SignupResponse
-}
-
-struct SignupResponse: Codable {
-    let email: String
 }

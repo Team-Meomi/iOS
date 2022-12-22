@@ -15,6 +15,7 @@ class IntroViewController: BaseViewController<IntroViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         bindViewModel()
     }
     

@@ -36,6 +36,12 @@ class MainCoordinator:Coordinator {
         navigationController.pushViewController(loginVC, animated: true)
     }
     
+    func pushIntroVC() {
+        let introVM = IntroViewModel(coordinator: self)
+        let introVC = IntroViewController(introVM)
+        navigationController.pushViewController(introVC, animated: true)
+    }
+    
     func pushSignUpVC() {
         let signUpVM = SignUpViewModel(coordinator: self)
         let signUpVC = SignUpViewController(signUpVM)

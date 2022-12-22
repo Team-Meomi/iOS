@@ -13,7 +13,6 @@ import RxSwift
 import Moya
 
 class SignUpViewController: BaseViewController<SignUpViewModel> {
-    var userData: SignupResponse?
     var essentialFieldList = [UITextField]()
     
     override func viewDidLoad() {

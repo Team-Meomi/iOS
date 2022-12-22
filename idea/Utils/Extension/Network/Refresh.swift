@@ -9,23 +9,29 @@ import UIKit
 import Moya
 
 extension UIViewController {
+//    func success() {
+//        @objc
+//    }
+//    func failure() {
+//
+//    }
     func Refresh() {
-        let param = RefreshRequest.init(String)
+        let param = RefreshRequest.init(BaseVC.userData!.refreshToken)
         print(param)
         BaseVC.authProvider.request(.refresh(param: param)) {response in
             switch response {
             case let .success(result):
                 do {
-                    self.userData = try result.map(LoginResponse.self)
+                    BaseVC.userData = try result.map(LoginResponse.self)
                 } catch(let err) {
                     print(err.localizedDescription)
                 }
                 let statusCode = result.statusCode
                 switch statusCode {
-                case 200..<300:
-                    self.success()
-                default:
-                    self.failure()
+                case 200..<300: break
+//                    self.success()
+                default: break
+//                    self.failure()
                 }
             case .failure(let err):
                 print(err.localizedDescription)

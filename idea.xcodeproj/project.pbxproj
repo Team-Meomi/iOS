@@ -397,8 +397,8 @@
 				7753E636294B72A70067A263 /* Main */,
 				7753E627294B3E9D0067A263 /* SignUp */,
 				7753E601294B2FBD0067A263 /* Login */,
-				77BF4D382940661C00330346 /* Base */,
 				77BF4D372940661600330346 /* Intro */,
+				77BF4D382940661C00330346 /* Base */,
 			);
 			path = Scene;
 			sourceTree = "<group>";

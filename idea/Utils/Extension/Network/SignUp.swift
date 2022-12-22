@@ -10,7 +10,12 @@ import Moya
 
 extension SignUpViewController {
     func success() {
-        viewModel.pushMainVC()
+        let successAlert = UIAlertController(title: nil, message: "회원가입이 완료되었습니다!", preferredStyle: .alert)
+        let successAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
+            self.viewModel.pushIntroVC()
+        }
+        successAlert.addAction(successAction)
+        self.present(successAlert, animated: true, completion: nil)
     }
     func failure() {
         let faliureAlert = UIAlertController(title: nil, message: "정보를 다 입력해주세요", preferredStyle: .alert)
@@ -34,11 +39,6 @@ extension SignUpViewController {
         BaseVC.authProvider.request(.signUp(param: param)) {response in
             switch response {
             case .success(let result):
-                do {
-                    self.userData = try result.map(SignupModel.self)
-                } catch(let err) {
-                    print(err.localizedDescription)
-                }
                 let statusCode = result.statusCode
                 switch statusCode {
                 case 200..<300:
