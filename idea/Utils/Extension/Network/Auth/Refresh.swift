@@ -28,10 +28,12 @@ extension UIViewController {
                 }
                 let statusCode = result.statusCode
                 switch statusCode {
-                case 200..<300: break
+                case 200..<300:
 //                    self.success()
-                default: break
+                    break
+                default:
 //                    self.failure()
+                    break
                 }
             case .failure(let err):
                 print(err.localizedDescription)
