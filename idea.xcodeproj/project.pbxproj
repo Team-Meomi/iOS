@@ -44,6 +44,10 @@
 		7753E66F29546D950067A263 /* RefreshModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E66E29546D950067A263 /* RefreshModel.swift */; };
 		7753E67129546DF80067A263 /* RefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E67029546DF80067A263 /* RefreshRequest.swift */; };
 		7753E6732954715D0067A263 /* Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6722954715D0067A263 /* Refresh.swift */; };
+		7753E67B295535CC0067A263 /* CheckHomebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E67A295535CC0067A263 /* CheckHomebaseModel.swift */; };
+		7753E67E295535DA0067A263 /* CheckHomebaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E67D295535DA0067A263 /* CheckHomebaseRequest.swift */; };
+		7753E680295535E40067A263 /* CheckAudiovisualModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E67F295535E40067A263 /* CheckAudiovisualModel.swift */; };
+		7753E682295535F50067A263 /* CheckAudiovisualRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E681295535F50067A263 /* CheckAudiovisualRequest.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -97,6 +101,10 @@
 		7753E66E29546D950067A263 /* RefreshModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshModel.swift; sourceTree = "<group>"; };
 		7753E67029546DF80067A263 /* RefreshRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshRequest.swift; sourceTree = "<group>"; };
 		7753E6722954715D0067A263 /* Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
+		7753E67A295535CC0067A263 /* CheckHomebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHomebaseModel.swift; sourceTree = "<group>"; };
+		7753E67D295535DA0067A263 /* CheckHomebaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHomebaseRequest.swift; sourceTree = "<group>"; };
+		7753E67F295535E40067A263 /* CheckAudiovisualModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAudiovisualModel.swift; sourceTree = "<group>"; };
+		7753E681295535F50067A263 /* CheckAudiovisualRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAudiovisualRequest.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,18 +263,10 @@
 		7753E641294C3E890067A263 /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
-				7753E642294C3EB30067A263 /* GeneralAPI.swift */,
-				7753E644294C3FBC0067A263 /* NetworkResult.swift */,
-				7753E64729500E3F0067A263 /* LoginModel.swift */,
-				7753E64929500EC60067A263 /* LoginRequest.swift */,
-				7753E64B29500FD20067A263 /* LoginServices.swift */,
-				7753E64D29500FF60067A263 /* SignUpModel.swift */,
-				7753E64F295010050067A263 /* SignUpRequest.swift */,
-				7753E656295145080067A263 /* MainServices.swift */,
-				7753E658295146420067A263 /* ListModel.swift */,
-				7753E65A295146520067A263 /* ListRequest.swift */,
-				7753E66E29546D950067A263 /* RefreshModel.swift */,
-				7753E67029546DF80067A263 /* RefreshRequest.swift */,
+				7753E677295535A70067A263 /* Create */,
+				7753E676295535950067A263 /* Main */,
+				7753E675295535840067A263 /* General */,
+				7753E674295535590067A263 /* auth */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -329,6 +329,50 @@
 				7753E66829517B300067A263 /* CreateStuViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7753E674295535590067A263 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				7753E66E29546D950067A263 /* RefreshModel.swift */,
+				7753E67029546DF80067A263 /* RefreshRequest.swift */,
+				7753E64729500E3F0067A263 /* LoginModel.swift */,
+				7753E64929500EC60067A263 /* LoginRequest.swift */,
+				7753E64B29500FD20067A263 /* LoginServices.swift */,
+				7753E64D29500FF60067A263 /* SignUpModel.swift */,
+				7753E64F295010050067A263 /* SignUpRequest.swift */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		7753E675295535840067A263 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				7753E642294C3EB30067A263 /* GeneralAPI.swift */,
+				7753E644294C3FBC0067A263 /* NetworkResult.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		7753E676295535950067A263 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7753E656295145080067A263 /* MainServices.swift */,
+				7753E658295146420067A263 /* ListModel.swift */,
+				7753E65A295146520067A263 /* ListRequest.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7753E677295535A70067A263 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				7753E67A295535CC0067A263 /* CheckHomebaseModel.swift */,
+				7753E67D295535DA0067A263 /* CheckHomebaseRequest.swift */,
+				7753E67F295535E40067A263 /* CheckAudiovisualModel.swift */,
+				7753E681295535F50067A263 /* CheckAudiovisualRequest.swift */,
+			);
+			path = Create;
 			sourceTree = "<group>";
 		};
 		77BF4CFE29400DC800330346 = {
@@ -550,11 +594,14 @@
 				77BF4D1F2940645B00330346 /* MainCoordinator.swift in Sources */,
 				77BF4D2C294064E300330346 /* Coordinator.swift in Sources */,
 				77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */,
+				7753E680295535E40067A263 /* CheckAudiovisualModel.swift in Sources */,
 				7753E655295027BE0067A263 /* Login.swift in Sources */,
 				7753E66F29546D950067A263 /* RefreshModel.swift in Sources */,
 				7753E65B295146520067A263 /* ListRequest.swift in Sources */,
 				7753E6732954715D0067A263 /* Refresh.swift in Sources */,
+				7753E67B295535CC0067A263 /* CheckHomebaseModel.swift in Sources */,
 				7753E650295010050067A263 /* SignUpRequest.swift in Sources */,
+				7753E682295535F50067A263 /* CheckAudiovisualRequest.swift in Sources */,
 				7753E659295146420067A263 /* ListModel.swift in Sources */,
 				7753E660295178E10067A263 /* CreateConViewController.swift in Sources */,
 				7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */,
@@ -576,6 +623,7 @@
 				7753E62C294B3EC50067A263 /* SignUpViewController.swift in Sources */,
 				7753E63A294B72C30067A263 /* MainViewController.swift in Sources */,
 				77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */,
+				7753E67E295535DA0067A263 /* CheckHomebaseRequest.swift in Sources */,
 				7753E657295145080067A263 /* MainServices.swift in Sources */,
 				7753E662295178ED0067A263 /* CreateConViewModel.swift in Sources */,
 				7753E653295024B60067A263 /* SignUp.swift in Sources */,
