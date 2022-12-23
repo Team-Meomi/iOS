@@ -11,8 +11,8 @@ import Moya
 
 enum MainServices{
     case getList
-    case checkAudiovisual(param: CheckAudiovisualRequest, Authorization: String)
-    case checkHomebase(param: CheckHomebaseRequest, Authorzation: String)
+    case checkAudiovisual(param: CheckAudiovisualRequest, authorization: String)
+    case checkHomebase(param: CheckHomebaseRequest, authorization: String)
 }
 
 extension MainServices: TargetType{
@@ -24,11 +24,11 @@ extension MainServices: TargetType{
     var path: String {
         switch self{
         case .getList:
-            return "/api/v1/study"
+            return "/study"
         case .checkAudiovisual:
-            return "/api/v1/study/audiovisual"
+            return "/study/audiovisual"
         case .checkHomebase:
-            return "/api/v1/study/homebase"
+            return "/study/homebase"
         }
     }
     
@@ -50,17 +50,23 @@ extension MainServices: TargetType{
         switch self {
         case .getList:
             return .requestPlain
-        case .checkHomebase(let CheckHomebaseRequest, _):
-            return .requestJSONEncodable(CheckHomebaseRequest)
-        case .checkAudiovisual(let CheckAudiovisualRequest,_):
-            return .requestJSONEncodable(CheckAudiovisualRequest)
+
+        case .checkHomebase(let param,_):
+            return .requestParameters(parameters: [
+                "date": param.date
+            ], encoding: URLEncoding.queryString)
+
+        case .checkAudiovisual(let param,_):
+            return .requestParameters(parameters: [
+                "date": param.date
+            ], encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .checkHomebase(_, let Authorzation):
-            return["Content-Type" :"application/json","Authorzation" : Authorzation]
+        case .checkHomebase(_,let authorization):
+            return["Content-Type" :"application/json","Authorization" : authorization]
         default:
             return["Content-Type" :"application/json"]
         }

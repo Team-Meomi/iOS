@@ -49,6 +49,7 @@
 		7753E68929554E740067A263 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E68829554E740067A263 /* MainViewController.swift */; };
 		7753E68B29554E920067A263 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E68A29554E920067A263 /* MainViewModel.swift */; };
 		7753E68D29554EE50067A263 /* CheckHomebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E68C29554EE50067A263 /* CheckHomebase.swift */; };
+		7753E68F29557C420067A263 /* CheckAudiovisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E68E29557C420067A263 /* CheckAudiovisual.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -107,6 +108,7 @@
 		7753E68829554E740067A263 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7753E68A29554E920067A263 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7753E68C29554EE50067A263 /* CheckHomebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckHomebase.swift; sourceTree = "<group>"; };
+		7753E68E29557C420067A263 /* CheckAudiovisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAudiovisual.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				7753E68C29554EE50067A263 /* CheckHomebase.swift */,
+				7753E68E29557C420067A263 /* CheckAudiovisual.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7753E605294B2FE40067A263 /* LoginViewController.swift in Sources */,
+				7753E68F29557C420067A263 /* CheckAudiovisual.swift in Sources */,
 				77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */,
 				77BF4D312940655E00330346 /* IntroViewModel.swift in Sources */,
 				7753E66929517B300067A263 /* CreateStuViewModel.swift in Sources */,

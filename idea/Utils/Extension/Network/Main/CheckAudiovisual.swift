@@ -1,14 +1,14 @@
 //
-//  CheckHomebase.swift
+//  CheckAudiovisual.swift
 //  idea
 //
 //  Created by 선민재 on 2022/12/23.
 //
 
-import UIKit
+import Foundation
 import Moya
 
-extension CreateStuViewController {
+extension CreateConViewController{
     func success() {
         print(dateFormatter.string(from: datePicker.date))
     }
@@ -19,7 +19,7 @@ extension CreateStuViewController {
     
     func accessTokenError() {
         Refresh()
-        self.checkHomebase()
+        self.checkAudiovisual()
     }
     
     func notFind() {
@@ -30,7 +30,7 @@ extension CreateStuViewController {
         print("error")
     }
     
-    func checkHomebase() {
+    func checkAudiovisual() {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.string(from: datePicker.date)
         let param = CheckHomebaseRequest.init(BaseVC.userData!.accessToken, date)

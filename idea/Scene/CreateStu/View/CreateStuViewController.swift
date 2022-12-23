@@ -15,9 +15,12 @@
 import UIKit
 import Then
 import SnapKit
+import Moya
 
 class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextViewDelegate{
+    var checkProvider = MoyaProvider<MainServices>(plugins: [NetworkLoggerPlugin()])
     
+    let dateFormatter = DateFormatter()
     var postMajor:String = ""
     var guardFeTap:Bool = false
     var guardBeTap:Bool = false
@@ -159,7 +162,7 @@ class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextView
         $0.layer.borderWidth = 1
     }
     
-    private let datePicker = UIDatePicker().then {
+    let datePicker = UIDatePicker().then {
         $0.preferredDatePickerStyle = .compact
         $0.datePickerMode = .date
         $0.locale = Locale(identifier: "ko-KR")
@@ -260,10 +263,10 @@ class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextView
     }
     
     @objc func handleDatePicker() {
-        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         selectText.text = dateFormatter.string(from: datePicker.date)
         print(datePicker.date)
+        checkHomebase()
     }
     
     
