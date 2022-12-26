@@ -27,7 +27,7 @@ extension LoginServices: TargetType {
         case .login:
             return "/auth/signin"
         case .refresh:
-            return "/auth"
+            return "/auth/"
         }
     }
     

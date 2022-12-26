@@ -17,7 +17,8 @@ import Then
 import SnapKit
 import Moya
 
-class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextViewDelegate{    
+class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextViewDelegate{
+    lazy var date = dateFormatter.string(from: datePicker.date)
     let dateFormatter = DateFormatter()
     var postMajor:String = ""
     var guardFeTap:Bool = false
@@ -35,18 +36,18 @@ class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextView
         textViewDidEndEditing(explainTextView)
     }
     
-    private let titleTextField = UITextField().then {
+    let titleTextField = UITextField().then {
         $0.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
         $0.attributedPlaceholder = NSAttributedString(string: "제목", attributes: [NSAttributedString.Key.foregroundColor : UIColor(red: 113/255, green: 113/255, blue: 113/255, alpha: 1.00)])
         $0.font = UIFont.SCFont(size:20, family:.Regular)
         $0.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.00)
     }
     
-    private let titleTextFieldLine = UIView().then {
+    let titleTextFieldLine = UIView().then {
         $0.backgroundColor = .Main
     }
     
-    private let explainTextView = UITextView().then {
+    let explainTextView = UITextView().then {
         $0.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
         $0.font = UIFont.SCFont(size:14, family:.Regular)
         $0.textColor = .black
@@ -54,7 +55,7 @@ class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextView
         $0.textAlignment = .left
     }
     
-    private func placeholderSetting() {
+    func placeholderSetting() {
         explainTextView.delegate = self
         explainTextView.text = "설명"
         explainTextView.textColor = UIColor.lightGray
@@ -140,20 +141,21 @@ class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextView
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .Main
         $0.layer.cornerRadius = 8
+        $0.addTarget(self, action: #selector(makeBtnDidTap), for: .touchUpInside)
     }
     
-    private let selectText = UILabel().then {
+    let selectText = UILabel().then {
         $0.text = "날짜를 선택해 주세요"
         $0.textColor = UIColor(red: 163/255, green: 163/255, blue: 163/255, alpha: 1.00)
         $0.font = UIFont.SCFont(size:14,family:.Medium)
     }
     
-    private let calenderIcon = UIImageView().then {
+    let calenderIcon = UIImageView().then {
         $0.image = UIImage(systemName: "calendar")
         $0.tintColor = .Main
     }
     
-    private let selectView = UIView().then {
+    let selectView = UIView().then {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 8
         $0.layer.borderColor = UIColor.Main?.cgColor
@@ -167,6 +169,10 @@ class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextView
         $0.timeZone = .autoupdatingCurrent
         $0.translatesAutoresizingMaskIntoConstraints = true
         $0.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+    }
+    
+    @objc func makeBtnDidTap() {
+        CreateStu()
     }
     
     

@@ -148,6 +148,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .Main
         $0.layer.cornerRadius = 8
+        $0.addTarget(self, action: #selector(makeBtnDidTap), for: .touchUpInside)
     }
     
     let selectText = UILabel().then {

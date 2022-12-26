@@ -25,12 +25,12 @@ extension MainServices: TargetType{
     var path: String {
         switch self{
         case .getList,.create:
-            return "/study"
+            return "/study/"
         case .checkAudiovisual:
             return "/study/audiovisual"
         case .checkHomebase:
             return "/study/homebase"
-        }
+        } 
     }
     
     var method: Moya.Method {

@@ -1,5 +1,5 @@
 //
-//  Create.swift
+//  CreateStu.swift
 //  idea
 //
 //  Created by 선민재 on 2022/12/26.
@@ -8,10 +8,10 @@
 import UIKit
 import Moya
 
-extension CreateConViewController {
+extension CreateStuViewController {
     
     func createSuccess() {
-        let createSuccessAlert = UIAlertController(title: nil, message: "컨퍼런스가 생성되었습니다.", preferredStyle: .alert)
+        let createSuccessAlert = UIAlertController(title: nil, message: "스터디가 생성되었습니다.", preferredStyle: .alert)
         let createSuccessAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
             self.viewModel.pushMainVC()
         }
@@ -27,9 +27,9 @@ extension CreateConViewController {
         self.present(createFailureAlert, animated: true, completion: nil)
     }
     
-    func CreateCon() {
-        let count = Int(countTextField.text!) ?? 0
-        let studyType:String = "컨퍼런스"
+    func CreateStu() {
+        let count:Int = 5
+        let studyType:String = "스터디"
         let param = CreateRequest.init(BaseVC.userData!.accessToken,
                                        self.titleTextField.text!,
                                        self.explainTextView.text!,

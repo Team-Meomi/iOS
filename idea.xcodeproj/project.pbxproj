@@ -53,6 +53,7 @@
 		7753E69129591DEC0067A263 /* CreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E69029591DEC0067A263 /* CreateModel.swift */; };
 		7753E69329591E1E0067A263 /* CreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E69229591E1E0067A263 /* CreateRequest.swift */; };
 		7753E696295921FD0067A263 /* CreateCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E695295921FD0067A263 /* CreateCon.swift */; };
+		7753E698295939EE0067A263 /* CreateStu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E697295939EE0067A263 /* CreateStu.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -115,6 +116,7 @@
 		7753E69029591DEC0067A263 /* CreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateModel.swift; sourceTree = "<group>"; };
 		7753E69229591E1E0067A263 /* CreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequest.swift; sourceTree = "<group>"; };
 		7753E695295921FD0067A263 /* CreateCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCon.swift; sourceTree = "<group>"; };
+		7753E697295939EE0067A263 /* CreateStu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStu.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 				7753E68C29554EE50067A263 /* CheckHomebase.swift */,
 				7753E68E29557C420067A263 /* CheckAudiovisual.swift */,
 				7753E695295921FD0067A263 /* CreateCon.swift */,
+				7753E697295939EE0067A263 /* CreateStu.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				7753E643294C3EB30067A263 /* GeneralAPI.swift in Sources */,
 				7753E64C29500FD20067A263 /* LoginServices.swift in Sources */,
 				7753E64E29500FF60067A263 /* SignUpModel.swift in Sources */,
+				7753E698295939EE0067A263 /* CreateStu.swift in Sources */,
 				77BF4D35294065A000330346 /* BaseViewModel.swift in Sources */,
 				7753E66729517B230067A263 /* CreateStuViewController.swift in Sources */,
 				7753E60B294B31310067A263 /* S&CFont.swift in Sources */,

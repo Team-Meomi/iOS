@@ -8,5 +8,5 @@
 import Foundation
 
 struct GeneralAPI{
-    static let baseURL = "https://port-0-server-3sojxk2ilbyavxer.gksl2.cloudtype.app"
+    static let baseURL = "http://10.82.20.18:8080/api/v1"
 }
