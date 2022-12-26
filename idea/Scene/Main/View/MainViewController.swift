@@ -18,6 +18,8 @@ class MainViewController: BaseViewController<MainViewModel> {
         setScrollViewLayout()
     }
     
+    let cells = ["동아리 잡탕 컨퍼런스입니다.","백엔드 공부해보실 분 구해요"]
+    
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .Background
     }
@@ -84,6 +86,19 @@ class MainViewController: BaseViewController<MainViewModel> {
         $0.textColor = .Main
     }
     
+    let mainTableView = UITableView().then {
+        $0.register(MainTabelViewCell.self, forCellReuseIdentifier: "MainTabelViewCell")
+        $0.separatorStyle = .none
+        $0.rowHeight = 75
+        $0.layer.cornerRadius = 8
+    }
+    
+    func configureVC() {
+        view.backgroundColor = .init(red: 1, green: 1, blue: 1, alpha: 1)
+        mainTableView.dataSource = self
+        mainTableView.delegate = self
+    }
+    
     @objc func createconBtnDidTap() {
         viewModel.pushCreateCon()
     }
@@ -99,7 +114,7 @@ class MainViewController: BaseViewController<MainViewModel> {
     }
     
     func addScrollView() {
-        [profileIcon,createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage,searchTextField,myText].forEach {
+        [profileIcon,createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage,searchTextField,myText,mainTableView].forEach {
             scrollView.addSubview($0)
         }
     }
@@ -164,6 +179,31 @@ class MainViewController: BaseViewController<MainViewModel> {
             $0.trailing.leading.equalToSuperview().inset(33)
             $0.height.equalTo(40)
         }
+        mainTableView.snp.makeConstraints {
+            $0.top.equalTo(searchTextField.snp.bottom).offset(40)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(100)
+            $0.bottom.equalToSuperview().inset(98)
+        }
     }
 
+}
+
+
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cells.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTabelViewCell", for: indexPath) as? MainTabelViewCell else { return UITableViewCell()}
+        
+        cell.titleText.text = cells[indexPath.row]
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        viewModel.cellDidSelect(index: indexPath.row)
+    }
 }

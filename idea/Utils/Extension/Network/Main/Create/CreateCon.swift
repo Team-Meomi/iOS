@@ -58,7 +58,7 @@ extension CreateConViewController {
                 case 400:
                     self.createFailure()
                 default:
-                    self.CreateCon()
+                    self.CreateCon ()
                 }
             case .failure(let err):
                 print(err.localizedDescription)
