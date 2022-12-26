@@ -46,4 +46,5 @@ class BaseViewController<T>: UIViewController {
 struct BaseVC {
     static var authProvider = MoyaProvider<LoginServices>(plugins: [NetworkLoggerPlugin()])
     static var userData: LoginResponse?
+    static var mainProvider = MoyaProvider<MainServices>(plugins: [NetworkLoggerPlugin()])
 }

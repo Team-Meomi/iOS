@@ -38,10 +38,9 @@ extension CreateConViewController{
     
     func checkAudiovisual() {
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        var date = dateFormatter.string(from: datePicker.date)
         let param = CheckHomebaseRequest.init(BaseVC.userData!.accessToken, date)
         print(param)
-        self.checkProvider.request(.checkHomebase(
+        BaseVC.mainProvider.request(.checkHomebase(
             param: param,
             authorization: BaseVC.userData!.accessToken
         )) { response in
@@ -52,12 +51,12 @@ extension CreateConViewController{
                 case 200..<300:
                     self.success()
                 case 400:
-                    date = ""
+                    self.date = ""
                     self.cantborrow()
                 case 403:
                     self.accessTokenError()
                 case 404:
-                    date = ""
+                    self.date = ""
                     self.notFind()
                 default:
                     self.error()

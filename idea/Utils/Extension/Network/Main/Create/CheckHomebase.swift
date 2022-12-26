@@ -39,7 +39,7 @@ extension CreateStuViewController {
         var date = dateFormatter.string(from: datePicker.date)
         let param = CheckHomebaseRequest.init(BaseVC.userData!.accessToken, date)
         print(param)
-        self.checkProvider.request(.checkHomebase(
+        BaseVC.mainProvider.request(.checkHomebase(
             param: param,
             authorization: BaseVC.userData!.accessToken
         )) { response in

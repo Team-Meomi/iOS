@@ -17,9 +17,7 @@ import Then
 import SnapKit
 import Moya
 
-class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextViewDelegate{
-    var checkProvider = MoyaProvider<MainServices>(plugins: [NetworkLoggerPlugin()])
-    
+class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextViewDelegate{    
     let dateFormatter = DateFormatter()
     var postMajor:String = ""
     var guardFeTap:Bool = false

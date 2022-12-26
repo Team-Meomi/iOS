@@ -15,6 +15,9 @@ final class CreateStuViewModel: BaseViewModel {
     init(coordinator: MainCoordinator){
         self.coordinator = coordinator
     }
+    func pushMainVC() {
+        coordinator.pushMainVC()
+    }
 
 }
 

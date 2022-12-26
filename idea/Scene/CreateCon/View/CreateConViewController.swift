@@ -11,9 +11,9 @@ import SnapKit
 import Moya
 
 class CreateConViewController: BaseViewController<CreateConViewModel>,UITextViewDelegate{
-    var checkProvider = MoyaProvider<MainServices>(plugins: [NetworkLoggerPlugin()])
     let dateFormatter = DateFormatter()
-
+    
+    lazy var date = dateFormatter.string(from: datePicker.date)
     var postMajor:String = ""
     var guardFeTap:Bool = false
     var guardBeTap:Bool = false
@@ -30,18 +30,18 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         textViewDidEndEditing(explainTextView)
     }
     
-    private let titleTextField = UITextField().then {
+    let titleTextField = UITextField().then {
         $0.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
         $0.attributedPlaceholder = NSAttributedString(string: "제목", attributes: [NSAttributedString.Key.foregroundColor : UIColor(red: 113/255, green: 113/255, blue: 113/255, alpha: 1.00)])
         $0.font = UIFont.SCFont(size:20, family:.Regular)
         $0.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.00)
     }
     
-    private let titleTextFieldLine = UIView().then {
+    let titleTextFieldLine = UIView().then {
         $0.backgroundColor = .Main
     }
     
-    private let explainTextView = UITextView().then {
+    let explainTextView = UITextView().then {
         $0.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
         $0.font = UIFont.SCFont(size:14, family:.Regular)
         $0.textColor = .black
@@ -49,7 +49,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.textAlignment = .left
     }
     
-    private func placeholderSetting() {
+    func placeholderSetting() {
         explainTextView.delegate = self
         explainTextView.text = "설명"
         explainTextView.textColor = UIColor.lightGray
@@ -69,7 +69,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         }
     }
     
-    private let countTextField = UITextField().then {
+    let countTextField = UITextField().then {
         $0.backgroundColor = .white
         $0.attributedPlaceholder = NSAttributedString(string: "최대 인원 수", attributes: [NSAttributedString.Key.foregroundColor : UIColor(red: 163/255, green: 163/255, blue: 163/255, alpha: 1.00)])
         $0.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -150,18 +150,18 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.layer.cornerRadius = 8
     }
     
-    private let selectText = UILabel().then {
+    let selectText = UILabel().then {
         $0.text = "날짜를 선택해 주세요"
         $0.textColor = UIColor(red: 163/255, green: 163/255, blue: 163/255, alpha: 1.00)
         $0.font = UIFont.SCFont(size:14,family:.Medium)
     }
     
-    private let calenderIcon = UIImageView().then {
+    let calenderIcon = UIImageView().then {
         $0.image = UIImage(systemName: "calendar")
         $0.tintColor = .Main
     }
     
-    private let selectView = UIView().then {
+    let selectView = UIView().then {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 8
         $0.layer.borderColor = UIColor.Main?.cgColor
@@ -177,6 +177,9 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
         $0.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
     }
     
+    @objc func makeBtnDidTap() {
+        CreateCon()
+    }
     
     @objc func feBtnDidTap() {
         guard guardFeTap != true else{

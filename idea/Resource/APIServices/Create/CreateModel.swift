@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct CreateConModel: Codable {
+struct CreateModel: Codable {
     let status: Int
     let success: Bool
     let message: String

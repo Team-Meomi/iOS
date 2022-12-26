@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CreateConRequest: Codable {
+struct CreateRequest: Codable {
     let Authorization: String
     let title: String // 제목
     let content: String // 설명

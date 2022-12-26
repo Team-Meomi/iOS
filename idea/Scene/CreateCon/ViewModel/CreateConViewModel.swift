@@ -15,6 +15,9 @@ final class CreateConViewModel: BaseViewModel {
     init(coordinator: MainCoordinator){
         self.coordinator = coordinator
     }
+    func pushMainVC() {
+        coordinator.pushMainVC()
+    }
 
 }
 
