@@ -18,5 +18,6 @@ extension UIColor {
     static let Study = UIColor(named: "Study")
     static let Con = UIColor(named: "Con")
     static let Etc = UIColor(named: "Etc")
+    static let TypeColor = UIColor(named: "TypeColor")
 }
 

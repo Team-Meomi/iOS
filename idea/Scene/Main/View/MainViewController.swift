@@ -16,6 +16,7 @@ class MainViewController: BaseViewController<MainViewModel> {
         self.navigationItem.hidesBackButton = true
         addScrollView()
         setScrollViewLayout()
+        configureVC()
     }
     
     let cells = ["동아리 잡탕 컨퍼런스입니다.","백엔드 공부해보실 분 구해요"]
@@ -94,7 +95,7 @@ class MainViewController: BaseViewController<MainViewModel> {
     }
     
     func configureVC() {
-        view.backgroundColor = .init(red: 1, green: 1, blue: 1, alpha: 1)
+        view.backgroundColor = .white
         mainTableView.dataSource = self
         mainTableView.delegate = self
     }
@@ -181,9 +182,9 @@ class MainViewController: BaseViewController<MainViewModel> {
         }
         mainTableView.snp.makeConstraints {
             $0.top.equalTo(searchTextField.snp.bottom).offset(40)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(100)
-            $0.bottom.equalToSuperview().inset(98)
+            $0.leading.trailing.equalToSuperview().inset(33)
+            $0.height.equalTo(75 * (cells.count))
+            $0.bottom.equalToSuperview().inset(0)
         }
     }
 
