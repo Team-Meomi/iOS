@@ -18,13 +18,20 @@ extension CreateConViewController {
         createSuccessAlert.addAction(createSuccessAction)
         self.present(createSuccessAlert, animated: true, completion: nil)
     }
-    
     func createFailure() {
-        let createFailureAlert = UIAlertController(title: nil, message: "에러", preferredStyle: .alert)
+        let createFailureAlert = UIAlertController(title: nil, message: "정보를 전부 입력해주세요", preferredStyle: .alert)
         let createFailureAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
         }
         createFailureAlert.addAction(createFailureAction)
         self.present(createFailureAlert, animated: true, completion: nil)
+    }
+    
+    func createError() {
+        let createErrorAlert = UIAlertController(title: nil, message: "에러", preferredStyle: .alert)
+        let createErrorAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
+        }
+        createErrorAlert.addAction(createErrorAction)
+        self.present(createErrorAlert, animated: true, completion: nil)
     }
     
     func CreateCon() {
@@ -48,8 +55,10 @@ extension CreateConViewController {
                 switch statusCode {
                 case 200..<300:
                     self.createSuccess()
-                default:
+                case 400:
                     self.createFailure()
+                default:
+                    self.CreateCon()
                 }
             case .failure(let err):
                 print(err.localizedDescription)
