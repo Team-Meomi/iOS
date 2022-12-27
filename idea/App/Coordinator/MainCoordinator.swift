@@ -71,4 +71,10 @@ class MainCoordinator:Coordinator {
         let searchVC = SearchViewController(searchVM)
         navigationController.pushViewController(searchVC, animated: true)
     }
+    
+    func pushProfileVC() {
+        let profileVM = ProfileViewModel(coordinator: self)
+        let profileVC = ProfileViewController(profileVM)
+        navigationController.pushViewController(profileVC, animated: true)
+    }
 }

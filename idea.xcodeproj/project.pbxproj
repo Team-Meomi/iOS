@@ -58,6 +58,8 @@
 		7753E69D295AB7510067A263 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E69C295AB7510067A263 /* List.swift */; };
 		7753E69F295B141A0067A263 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E69E295B141A0067A263 /* SearchViewController.swift */; };
 		7753E6A5295B143F0067A263 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6A4295B143F0067A263 /* SearchViewModel.swift */; };
+		7753E6AB295B45D10067A263 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6AA295B45D10067A263 /* ProfileViewController.swift */; };
+		7753E6AD295B45E20067A263 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6AC295B45E20067A263 /* ProfileViewModel.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -125,6 +127,8 @@
 		7753E69C295AB7510067A263 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		7753E69E295B141A0067A263 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7753E6A4295B143F0067A263 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		7753E6AA295B45D10067A263 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7753E6AC295B45E20067A263 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -468,6 +472,39 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		7753E6A6295B45670067A263 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7753E6A9295B45800067A263 /* Cell */,
+				7753E6A8295B45750067A263 /* VM */,
+				7753E6A7295B456F0067A263 /* VC */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		7753E6A7295B456F0067A263 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				7753E6AA295B45D10067A263 /* ProfileViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		7753E6A8295B45750067A263 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				7753E6AC295B45E20067A263 /* ProfileViewModel.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		7753E6A9295B45800067A263 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		77BF4CFE29400DC800330346 = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +566,7 @@
 		77BF4D362940660500330346 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				7753E6A6295B45670067A263 /* Profile */,
 				7753E6A0295B141D0067A263 /* Search */,
 				7753E68529554E3F0067A263 /* Main */,
 				7753E66329517AFB0067A263 /* CreateStu */,
@@ -710,8 +748,10 @@
 				7753E643294C3EB30067A263 /* GeneralAPI.swift in Sources */,
 				7753E64C29500FD20067A263 /* LoginServices.swift in Sources */,
 				7753E64E29500FF60067A263 /* SignUpModel.swift in Sources */,
+				7753E6AD295B45E20067A263 /* ProfileViewModel.swift in Sources */,
 				7753E698295939EE0067A263 /* CreateStu.swift in Sources */,
 				77BF4D35294065A000330346 /* BaseViewModel.swift in Sources */,
+				7753E6AB295B45D10067A263 /* ProfileViewController.swift in Sources */,
 				7753E66729517B230067A263 /* CreateStuViewController.swift in Sources */,
 				7753E60B294B31310067A263 /* S&CFont.swift in Sources */,
 				7753E620294B345E0067A263 /* S&CColor.swift in Sources */,

@@ -27,6 +27,7 @@ class MainViewController: BaseViewController<MainViewModel> {
     lazy var profileBtn = UIButton().then {
         $0.setImage(UIImage(named: "profileIcon.svg"), for: .normal)
         $0.tintColor = .Main
+        $0.addTarget(self, action: #selector(profileBtnDidTap), for: .touchUpInside)
     }
     
     lazy var searchBtn = UIButton().then {
@@ -107,6 +108,10 @@ class MainViewController: BaseViewController<MainViewModel> {
 
     @objc func searchBtnDidTap() {
         viewModel.pushSearch()
+    }
+    
+    @objc func profileBtnDidTap() {
+        viewModel.pushProfile()
     }
     
     override func addView() {

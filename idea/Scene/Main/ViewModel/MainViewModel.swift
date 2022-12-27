@@ -27,6 +27,10 @@ final class MainViewModel: BaseViewModel {
     func pushSearch() {
         coordinator.pushSearchVC()
     }
+    
+    func pushProfile() {
+        coordinator.pushProfileVC()
+    }
 
 }
 
