@@ -132,7 +132,7 @@ class MainViewController: BaseViewController<MainViewModel> {
         }
         searchBtn.snp.makeConstraints {
             $0.top.equalTo(scrollView.snp.top).offset(0)
-            $0.trailing.equalTo(profileBtn.snp.leading).inset(-8)
+            $0.trailing.equalTo(profileBtn.snp.leading).inset(-10)
             $0.height.equalTo(31)
             $0.width.equalTo(31)
         }
@@ -179,6 +179,7 @@ class MainViewController: BaseViewController<MainViewModel> {
         mainTableView.snp.makeConstraints {
             $0.top.equalTo(createstudyBtn.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(33)
+            $0.centerX.equalToSuperview()
             $0.height.equalTo(75 * 3)
             $0.bottom.equalToSuperview().inset(0)
         }

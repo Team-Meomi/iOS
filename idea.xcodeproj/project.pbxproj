@@ -56,6 +56,8 @@
 		7753E698295939EE0067A263 /* CreateStu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E697295939EE0067A263 /* CreateStu.swift */; };
 		7753E69B295970230067A263 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E69A295970230067A263 /* MainTableViewCell.swift */; };
 		7753E69D295AB7510067A263 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E69C295AB7510067A263 /* List.swift */; };
+		7753E69F295B141A0067A263 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E69E295B141A0067A263 /* SearchViewController.swift */; };
+		7753E6A5295B143F0067A263 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6A4295B143F0067A263 /* SearchViewModel.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -121,6 +123,8 @@
 		7753E697295939EE0067A263 /* CreateStu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStu.swift; sourceTree = "<group>"; };
 		7753E69A295970230067A263 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		7753E69C295AB7510067A263 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		7753E69E295B141A0067A263 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		7753E6A4295B143F0067A263 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -431,6 +435,39 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		7753E6A0295B141D0067A263 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7753E6A3295B142C0067A263 /* Cell */,
+				7753E6A2295B14260067A263 /* VM */,
+				7753E6A1295B14220067A263 /* VC */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7753E6A1295B14220067A263 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				7753E69E295B141A0067A263 /* SearchViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		7753E6A2295B14260067A263 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				7753E6A4295B143F0067A263 /* SearchViewModel.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		7753E6A3295B142C0067A263 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		77BF4CFE29400DC800330346 = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +529,7 @@
 		77BF4D362940660500330346 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				7753E6A0295B141D0067A263 /* Search */,
 				7753E68529554E3F0067A263 /* Main */,
 				7753E66329517AFB0067A263 /* CreateStu */,
 				7753E65C2951788E0067A263 /* CreateCon */,
@@ -645,6 +683,7 @@
 				7753E605294B2FE40067A263 /* LoginViewController.swift in Sources */,
 				7753E68F29557C420067A263 /* CheckAudiovisual.swift in Sources */,
 				77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */,
+				7753E69F295B141A0067A263 /* SearchViewController.swift in Sources */,
 				77BF4D312940655E00330346 /* IntroViewModel.swift in Sources */,
 				7753E66929517B300067A263 /* CreateStuViewModel.swift in Sources */,
 				7753E64829500E3F0067A263 /* LoginModel.swift in Sources */,
@@ -659,6 +698,7 @@
 				7753E66F29546D950067A263 /* RefreshModel.swift in Sources */,
 				7753E65B295146520067A263 /* ListRequest.swift in Sources */,
 				7753E6732954715D0067A263 /* Refresh.swift in Sources */,
+				7753E6A5295B143F0067A263 /* SearchViewModel.swift in Sources */,
 				7753E67B295535CC0067A263 /* CheckHomebaseModel.swift in Sources */,
 				7753E650295010050067A263 /* SignUpRequest.swift in Sources */,
 				7753E682295535F50067A263 /* CheckAudiovisualRequest.swift in Sources */,
