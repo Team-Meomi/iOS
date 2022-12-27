@@ -33,6 +33,7 @@ class MainViewController: BaseViewController<MainViewModel> {
         $0.setImage(UIImage(named: "searchIcon.svg"), for: .normal)
         $0.tintColor = .Main
         $0.layer.cornerRadius = 50
+        $0.addTarget(self, action: #selector(searchBtnDidTap), for: .touchUpInside)
     }
     
     lazy var createconBtn = UIButton().then {
@@ -102,6 +103,10 @@ class MainViewController: BaseViewController<MainViewModel> {
     
     @objc func createstudyBtnDidTap() {
         viewModel.pushCreateStu()
+    }
+
+    @objc func searchBtnDidTap() {
+        viewModel.pushSearch()
     }
     
     override func addView() {

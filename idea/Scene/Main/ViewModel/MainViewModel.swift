@@ -23,6 +23,10 @@ final class MainViewModel: BaseViewModel {
     func pushCreateStu() {
         coordinator.pushCreateStuVC()
     }
+    
+    func pushSearch() {
+        coordinator.pushSearchVC()
+    }
 
 }
 

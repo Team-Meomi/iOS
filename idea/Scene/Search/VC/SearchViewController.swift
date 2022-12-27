@@ -13,14 +13,16 @@ class SearchViewController: BaseViewController<SearchViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.topItem?.title = ""
     }
 
     override func addView() {
-        <#code#>
+        [].forEach {
+            view.addSubview($0)
+        }
     }
     
     override func setLayout() {
-        <#code#>
+        
     }
 }

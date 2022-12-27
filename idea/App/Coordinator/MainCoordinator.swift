@@ -65,4 +65,10 @@ class MainCoordinator:Coordinator {
         let stuVC = CreateStuViewController(stuVM)
         navigationController.pushViewController(stuVC, animated: true)
     }
+    
+    func pushSearchVC() {
+        let searchVM = SearchViewModel(coordinator: self)
+        let searchVC = SearchViewController(searchVM)
+        navigationController.pushViewController(searchVC, animated: true)
+    }
 }
