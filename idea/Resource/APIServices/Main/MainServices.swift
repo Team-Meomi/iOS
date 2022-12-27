@@ -10,7 +10,7 @@ import Moya
 
 
 enum MainServices{
-    case getList
+    case getList(authorization: String)
     case checkAudiovisual(param: CheckAudiovisualRequest, authorization: String)
     case checkHomebase(param: CheckHomebaseRequest, authorization: String)
     case create(param:CreateRequest, authorization: String)
@@ -70,7 +70,7 @@ extension MainServices: TargetType{
     var headers: [String : String]? {
         switch self {
         case .checkHomebase(_,let authorization), .checkAudiovisual(_, authorization: let authorization)
-            ,.create(_ , let authorization):
+            ,.create(_ , let authorization),.getList(let authorization):
             return["Content-Type" :"application/json","Authorization" : authorization]
         default:
             return["Content-Type" :"application/json"]

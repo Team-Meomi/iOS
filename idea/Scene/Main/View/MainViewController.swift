@@ -12,15 +12,13 @@ import SnapKit
 class MainViewController: BaseViewController<MainViewModel> {
     
     override func viewDidLoad() {
+        List()
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         addScrollView()
         setScrollViewLayout()
         configureVC()
     }
-    
-    let cells = ["동아리 잡탕 컨퍼런스입니다.","백엔드 공부해보실 분 구해요"]
-    
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .Background
     }
@@ -183,7 +181,7 @@ class MainViewController: BaseViewController<MainViewModel> {
         mainTableView.snp.makeConstraints {
             $0.top.equalTo(searchTextField.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(33)
-            $0.height.equalTo(75 * (cells.count))
+            $0.height.equalTo(75 * 3)
             $0.bottom.equalToSuperview().inset(0)
         }
     }
@@ -193,13 +191,15 @@ class MainViewController: BaseViewController<MainViewModel> {
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTabelViewCell", for: indexPath) as? MainTabelViewCell else { return UITableViewCell()}
-        
-        cell.titleText.text = cells[indexPath.row]
+        cell.titleText.text = BaseVC.decodedData?[0].title
+        cell.categoryText.text = BaseVC.decodedData?[0].category
+        cell.typeText.text = BaseVC.decodedData?[0].type
+        cell.dateText.text = BaseVC.decodedData?[0].date
         cell.accessoryType = .disclosureIndicator
         return cell
     }

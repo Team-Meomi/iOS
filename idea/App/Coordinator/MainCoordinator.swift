@@ -22,12 +22,12 @@ class MainCoordinator:Coordinator {
     }
     
     func start() {
-//        let introVM = IntroViewModel(coordinator: self)
-//        let introVC = IntroViewController(introVM)
-//        navigationController.setViewControllers([introVC], animated: true)
-        let mainVM = MainViewModel(coordinator: self)
-        let mainVC = MainViewController(mainVM)
-        navigationController.setViewControllers([mainVC], animated: true)
+        let introVM = IntroViewModel(coordinator: self)
+        let introVC = IntroViewController(introVM)
+        navigationController.setViewControllers([introVC], animated: true)
+//        let mainVM = MainViewModel(coordinator: self)
+//        let mainVC = MainViewController(mainVM)
+//        navigationController.setViewControllers([mainVC], animated: true)
     }
     
     func pushLoginVC() {
