@@ -19,8 +19,20 @@ class MainViewController: BaseViewController<MainViewModel> {
         setScrollViewLayout()
         configureVC()
     }
+    
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .Background
+    }
+    
+    lazy var profileBtn = UIButton().then {
+        $0.setImage(UIImage(named: "profileIcon.svg"), for: .normal)
+        $0.tintColor = .Main
+    }
+    
+    lazy var searchBtn = UIButton().then {
+        $0.setImage(UIImage(named: "searchIcon.svg"), for: .normal)
+        $0.tintColor = .Main
+        $0.layer.cornerRadius = 50
     }
     
     lazy var createconBtn = UIButton().then {
@@ -65,20 +77,6 @@ class MainViewController: BaseViewController<MainViewModel> {
         $0.tintColor = .black
     }
     
-    let searchTextField = UITextField().then {
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.Main?.cgColor
-        $0.backgroundColor = .white
-        $0.layer.cornerRadius = 10
-        $0.addRightImage(UIImage(systemName: "magnifyingglass")!, x: -5.5, y: 3.5)
-        $0.addLeftPadding(width: 18)
-    }
-    
-    let profileIcon = UIImageView().then {
-        $0.image = UIImage(systemName: "person.circle.fill")
-        $0.tintColor = .Main
-    }
-    
     let myText = UILabel().then {
         $0.text = "My"
         $0.font = UIFont.SCFont(size:12,family:.Medium)
@@ -113,7 +111,7 @@ class MainViewController: BaseViewController<MainViewModel> {
     }
     
     func addScrollView() {
-        [profileIcon,createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage,searchTextField,myText,mainTableView].forEach {
+        [profileBtn,searchBtn,createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage,myText,mainTableView].forEach {
             scrollView.addSubview($0)
         }
     }
@@ -126,15 +124,21 @@ class MainViewController: BaseViewController<MainViewModel> {
     }
     
     func setScrollViewLayout() {
-        profileIcon.snp.makeConstraints {
+        profileBtn.snp.makeConstraints {
             $0.top.equalTo(scrollView.snp.top).offset(0)
-            $0.trailing.equalToSuperview().inset(33)
+            $0.trailing.equalTo(view.snp.trailing).inset(33)
+            $0.height.equalTo(31)
+            $0.width.equalTo(31)
+        }
+        searchBtn.snp.makeConstraints {
+            $0.top.equalTo(scrollView.snp.top).offset(0)
+            $0.trailing.equalTo(profileBtn.snp.leading).inset(-8)
             $0.height.equalTo(31)
             $0.width.equalTo(31)
         }
         myText.snp.makeConstraints {
-            $0.top.equalTo(profileIcon.snp.bottom).offset(0)
-            $0.centerX.equalTo(profileIcon.snp.centerX).offset(0)
+            $0.top.equalTo(profileBtn.snp.bottom).offset(0)
+            $0.centerX.equalTo(profileBtn.snp.centerX).offset(0)
         }
         createconBtn.snp.makeConstraints {
             $0.top.equalTo(myText.snp.bottom).offset(25)
@@ -172,14 +176,8 @@ class MainViewController: BaseViewController<MainViewModel> {
             $0.trailing.equalTo(createstudyBtn.snp.trailing).inset(7)
             $0.height.width.equalTo(28)
         }
-        searchTextField.snp.makeConstraints {
-            $0.top.equalTo(createconBtn.snp.bottom).offset(40)
-            $0.centerX.equalToSuperview()
-            $0.trailing.leading.equalToSuperview().inset(33)
-            $0.height.equalTo(40)
-        }
         mainTableView.snp.makeConstraints {
-            $0.top.equalTo(searchTextField.snp.bottom).offset(40)
+            $0.top.equalTo(createstudyBtn.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(33)
             $0.height.equalTo(75 * 3)
             $0.bottom.equalToSuperview().inset(0)
@@ -190,6 +188,7 @@ class MainViewController: BaseViewController<MainViewModel> {
 
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
