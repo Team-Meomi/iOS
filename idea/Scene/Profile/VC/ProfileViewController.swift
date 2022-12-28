@@ -8,10 +8,12 @@
 import UIKit
 import Then
 import MSGLayout
+import Moya
 
 class ProfileViewController: BaseViewController<ProfileViewModel> {
-
+    
     override func viewDidLoad() {
+        getMyData()
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationItem.logoutImage()
