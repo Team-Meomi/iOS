@@ -31,6 +31,10 @@ final class MainViewModel: BaseViewModel {
     func pushProfile() {
         coordinator.pushProfileVC()
     }
+    
+    func pushLogin() {
+        coordinator.pushLoginVC()
+    }
 
 }
 

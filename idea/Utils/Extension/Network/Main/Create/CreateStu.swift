@@ -26,6 +26,10 @@ extension CreateStuViewController {
         createFailureAlert.addAction(createFailureAction)
         self.present(createFailureAlert, animated: true, completion: nil)
     }
+    private func accessTokenError() {
+        Refresh()
+        self.createStu()
+    }
     
     func createError() {
         let createErrorAlert = UIAlertController(title: nil, message: "에러", preferredStyle: .alert)
@@ -35,7 +39,7 @@ extension CreateStuViewController {
         self.present(createErrorAlert, animated: true, completion: nil)
     }
     
-    func CreateStu() {
+    func createStu() {
         let count:Int = 5
         let studyType:String = "스터디"
         let param = CreateRequest.init(BaseVC.userData!.accessToken,
@@ -58,6 +62,8 @@ extension CreateStuViewController {
                     self.createSuccess()
                 case 400:
                     self.createFailure()
+                case 403:
+                    self.accessTokenError()
                 default:
                     self.createError()
                 }

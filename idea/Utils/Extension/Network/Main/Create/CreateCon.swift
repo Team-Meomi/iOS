@@ -26,6 +26,11 @@ extension CreateConViewController {
         self.present(createFailureAlert, animated: true, completion: nil)
     }
     
+    private func accessTokenError() {
+        Refresh()
+        self.createCon()
+    }
+    
     func createError() {
         let createErrorAlert = UIAlertController(title: nil, message: "에러", preferredStyle: .alert)
         let createErrorAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
@@ -34,7 +39,7 @@ extension CreateConViewController {
         self.present(createErrorAlert, animated: true, completion: nil)
     }
     
-    func CreateCon() {
+    func createCon() {
         let count = Int(countTextField.text!) ?? 0
         let studyType:String = "컨퍼런스"
         let param = CreateRequest.init(BaseVC.userData!.accessToken,
@@ -57,8 +62,10 @@ extension CreateConViewController {
                     self.createSuccess()
                 case 400:
                     self.createFailure()
+                case 403:
+                    self.accessTokenError()
                 default:
-                    self.CreateCon ()
+                    self.createError()
                 }
             case .failure(let err):
                 print(err.localizedDescription)

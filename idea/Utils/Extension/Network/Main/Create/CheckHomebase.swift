@@ -21,7 +21,7 @@ extension CreateStuViewController {
         self.present(cantborrowAlert, animated: true, completion: nil)
     }
     
-    func accessTokenError() {
+    private func accessTokenError() {
         Refresh()
         self.checkHomebase()
     }

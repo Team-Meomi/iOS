@@ -14,7 +14,17 @@ extension MainViewController {
     }
     
     func failureList() {
+        let failureListAlert = UIAlertController(title: nil, message: "사용자를 찾을 수 없습니다.", preferredStyle: .alert)
+        let failureListAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
+            self.viewModel.pushLogin()
+        }
+        failureListAlert.addAction(failureListAction)
+        self.present(failureListAlert, animated: true, completion: nil)
         print("failure")
+    }
+    private func accessTokenError() {
+        Refresh()
+        self.List()
     }
     
     func List() {
@@ -33,6 +43,8 @@ extension MainViewController {
                 switch statusCode {
                 case 200..<300:
                     self.successList()
+                case 403:
+                    self.accessTokenError()
                 default:
                     self.failureList()
                 }

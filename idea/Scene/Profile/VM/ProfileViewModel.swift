@@ -15,6 +15,10 @@ final class ProfileViewModel: BaseViewModel {
     init(coordinator: MainCoordinator){
         self.coordinator = coordinator
     }
+    
+    func pushLogin() {
+        coordinator.pushLoginVC()
+    }
 
 }
 

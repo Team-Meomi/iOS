@@ -14,8 +14,19 @@ extension ProfileViewController {
         userNameText.text = String(BaseVC.decodedMyData?.stuNum ?? 0)+(BaseVC.decodedMyData?.name ?? "")
     }
     
-    func failure() {
+    private func failure() {
+        let failureAlert = UIAlertController(title: nil, message: "사용자를 찾을 수 없습니다.", preferredStyle: .alert)
+        let failureAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
+            self.viewModel.pushLogin()
+        }
+        failureAlert.addAction(failureAction)
+        self.present(failureAlert, animated: true, completion: nil)
         print("failure")
+    }
+    
+    private func accessTokenError() {
+        Refresh()
+        self.getMyData()
     }
     
     func getMyData() {
@@ -35,6 +46,8 @@ extension ProfileViewController {
                 switch statusCode {
                 case 200..<300:
                     self.success()
+                case 403:
+                    self.accessTokenError()
                 default:
                     self.failure()
                 }

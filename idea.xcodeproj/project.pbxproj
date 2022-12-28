@@ -68,6 +68,7 @@
 		7753E6BD295BDDC10067A263 /* GetMyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6BC295BDDC10067A263 /* GetMyData.swift */; };
 		7753E6BF295C1BA70067A263 /* UserWrittenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6BE295C1BA70067A263 /* UserWrittenModel.swift */; };
 		7753E6C1295C1BB40067A263 /* UserWrittenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6C0295C1BB40067A263 /* UserWrittenRequest.swift */; };
+		7753E6C3295C1F540067A263 /* UserWritten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6C2295C1F540067A263 /* UserWritten.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -144,6 +145,7 @@
 		7753E6BC295BDDC10067A263 /* GetMyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyData.swift; sourceTree = "<group>"; };
 		7753E6BE295C1BA70067A263 /* UserWrittenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrittenModel.swift; sourceTree = "<group>"; };
 		7753E6C0295C1BB40067A263 /* UserWrittenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrittenRequest.swift; sourceTree = "<group>"; };
+		7753E6C2295C1F540067A263 /* UserWritten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritten.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -287,7 +289,7 @@
 		7753E651295024A40067A263 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7753E6BB295BDD970067A263 /* Profile */,
+				7753E6BB295BDD970067A263 /* User */,
 				7753E68429554DED0067A263 /* Main */,
 				7753E68329554DE50067A263 /* Auth */,
 			);
@@ -544,12 +546,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		7753E6BB295BDD970067A263 /* Profile */ = {
+		7753E6BB295BDD970067A263 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				7753E6BC295BDDC10067A263 /* GetMyData.swift */,
+				7753E6C2295C1F540067A263 /* UserWritten.swift */,
 			);
-			path = Profile;
+			path = User;
 			sourceTree = "<group>";
 		};
 		77BF4CFE29400DC800330346 = {
@@ -777,6 +780,7 @@
 				7753E64829500E3F0067A263 /* LoginModel.swift in Sources */,
 				77BF4D1F2940645B00330346 /* MainCoordinator.swift in Sources */,
 				77BF4D2C294064E300330346 /* Coordinator.swift in Sources */,
+				7753E6C3295C1F540067A263 /* UserWritten.swift in Sources */,
 				7753E696295921FD0067A263 /* CreateCon.swift in Sources */,
 				77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */,
 				7753E69B295970230067A263 /* MainTableViewCell.swift in Sources */,
