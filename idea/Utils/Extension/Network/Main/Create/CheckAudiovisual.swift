@@ -28,14 +28,6 @@ extension CreateConViewController{
         self.checkAudiovisual()
     }
     
-    func notFind() {
-        print("404")
-    }
-    
-    func error() {
-        print("error")
-    }
-    
     func checkAudiovisual() {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let param = CheckHomebaseRequest.init(BaseVC.userData!.accessToken, date)
@@ -57,9 +49,9 @@ extension CreateConViewController{
                     self.accessTokenError()
                 case 404:
                     self.date = ""
-                    self.notFind()
+                    self.err()
                 default:
-                    self.error()
+                    self.err()
                 }
             case .failure(let err):
                 print(err.localizedDescription)

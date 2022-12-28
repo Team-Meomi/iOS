@@ -18,6 +18,9 @@ final class CreateConViewModel: BaseViewModel {
     func pushMainVC() {
         coordinator.pushMainVC()
     }
+    func pushLogin() {
+        coordinator.pushLoginVC()
+    }
 
 }
 

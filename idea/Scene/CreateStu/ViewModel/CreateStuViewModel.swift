@@ -18,6 +18,10 @@ final class CreateStuViewModel: BaseViewModel {
     func pushMainVC() {
         coordinator.pushMainVC()
     }
+    
+    func pushLogin() {
+        coordinator.pushLoginVC()
+    }
 
 }
 

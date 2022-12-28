@@ -39,6 +39,16 @@ extension CreateConViewController {
         self.present(createErrorAlert, animated: true, completion: nil)
     }
     
+    func err() {
+        let errAlert = UIAlertController(title: nil, message: "사용자를 찾을 수 없습니다.", preferredStyle: .alert)
+        let errAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
+            self.viewModel.pushLogin()
+        }
+        errAlert.addAction(errAction)
+        self.present(errAlert, animated: true, completion: nil)
+        print("failure")
+    }
+    
     func createCon() {
         let count = Int(countTextField.text!) ?? 0
         let studyType:String = "컨퍼런스"
@@ -64,6 +74,8 @@ extension CreateConViewController {
                     self.createFailure()
                 case 403:
                     self.accessTokenError()
+                case 404:
+                    self.err()
                 default:
                     self.createError()
                 }

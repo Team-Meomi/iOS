@@ -26,14 +26,6 @@ extension CreateStuViewController {
         self.checkHomebase()
     }
     
-    func notFind() {
-        print("404")
-    }
-    
-    func error() {
-        print("error")
-    }
-    
     func checkHomebase() {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         var date = dateFormatter.string(from: datePicker.date)
@@ -55,10 +47,10 @@ extension CreateStuViewController {
                 case 403:
                     self.accessTokenError()
                 case 404:
-                    self.notFind()
+                    self.err()
                 default:
                     date = ""
-                    self.error()
+                    self.err()
                 }
             case .failure(let err):
                 print(err.localizedDescription)

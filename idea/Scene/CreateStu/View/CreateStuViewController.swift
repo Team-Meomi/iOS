@@ -172,7 +172,7 @@ class CreateStuViewController: BaseViewController<CreateStuViewModel>,UITextView
     }
     
     @objc func makeBtnDidTap() {
-        CreateStu()
+        createStu()
     }
     
     

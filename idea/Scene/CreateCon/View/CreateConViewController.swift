@@ -179,7 +179,7 @@ class CreateConViewController: BaseViewController<CreateConViewModel>,UITextView
     }
     
     @objc func makeBtnDidTap() {
-        CreateCon()
+        createCon()
     }
     
     @objc func feBtnDidTap() {
