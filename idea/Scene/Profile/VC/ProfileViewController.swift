@@ -7,13 +7,14 @@
 
 import UIKit
 import Then
-import SnapKit
+import MSGLayout
 
 class ProfileViewController: BaseViewController<ProfileViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationItem.logoutImage()
     }
 
     override func addView() {

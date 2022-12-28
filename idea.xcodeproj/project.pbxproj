@@ -60,6 +60,11 @@
 		7753E6A5295B143F0067A263 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6A4295B143F0067A263 /* SearchViewModel.swift */; };
 		7753E6AB295B45D10067A263 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6AA295B45D10067A263 /* ProfileViewController.swift */; };
 		7753E6AD295B45E20067A263 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6AC295B45E20067A263 /* ProfileViewModel.swift */; };
+		7753E6B0295BD17B0067A263 /* MSGLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 7753E6AF295BD17B0067A263 /* MSGLayout */; };
+		7753E6B3295BD5720067A263 /* S&CNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6B2295BD5720067A263 /* S&CNavigation.swift */; };
+		7753E6B6295BD89C0067A263 /* GetMyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6B5295BD89C0067A263 /* GetMyDataModel.swift */; };
+		7753E6B8295BD8B10067A263 /* GetMyDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6B7295BD8B10067A263 /* GetMyDataRequest.swift */; };
+		7753E6BA295BD9610067A263 /* ProfileServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6B9295BD9610067A263 /* ProfileServices.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -129,6 +134,10 @@
 		7753E6A4295B143F0067A263 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		7753E6AA295B45D10067A263 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7753E6AC295B45E20067A263 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		7753E6B2295BD5720067A263 /* S&CNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "S&CNavigation.swift"; sourceTree = "<group>"; };
+		7753E6B5295BD89C0067A263 /* GetMyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyDataModel.swift; sourceTree = "<group>"; };
+		7753E6B7295BD8B10067A263 /* GetMyDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyDataRequest.swift; sourceTree = "<group>"; };
+		7753E6B9295BD9610067A263 /* ProfileServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServices.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +161,7 @@
 				77BF4D222940647500330346 /* SnapKit in Frameworks */,
 				77BF4D2A294064BF00330346 /* RxSwift in Frameworks */,
 				7753E63F294C3E020067A263 /* Moya in Frameworks */,
+				7753E6B0295BD17B0067A263 /* MSGLayout in Frameworks */,
 				77BF4D252940649B00330346 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,11 +206,8 @@
 		7753E609294B311F0067A263 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7753E6B1295BD54A0067A263 /* S&C */,
 				7753E651295024A40067A263 /* Network */,
-				7753E60A294B31310067A263 /* S&CFont.swift */,
-				7753E61F294B345E0067A263 /* S&CColor.swift */,
-				7753E632294B5A5A0067A263 /* S&CShadow.swift */,
-				7753E634294B67A60067A263 /* S&CTextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -262,6 +269,7 @@
 		7753E641294C3E890067A263 /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
+				7753E6B4295BD7DD0067A263 /* Profile */,
 				7753E677295535A70067A263 /* Create */,
 				7753E676295535950067A263 /* Main */,
 				7753E675295535840067A263 /* General */,
@@ -505,6 +513,28 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		7753E6B1295BD54A0067A263 /* S&C */ = {
+			isa = PBXGroup;
+			children = (
+				7753E60A294B31310067A263 /* S&CFont.swift */,
+				7753E61F294B345E0067A263 /* S&CColor.swift */,
+				7753E632294B5A5A0067A263 /* S&CShadow.swift */,
+				7753E634294B67A60067A263 /* S&CTextField.swift */,
+				7753E6B2295BD5720067A263 /* S&CNavigation.swift */,
+			);
+			path = "S&C";
+			sourceTree = "<group>";
+		};
+		7753E6B4295BD7DD0067A263 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7753E6B5295BD89C0067A263 /* GetMyDataModel.swift */,
+				7753E6B7295BD8B10067A263 /* GetMyDataRequest.swift */,
+				7753E6B9295BD9610067A263 /* ProfileServices.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		77BF4CFE29400DC800330346 = {
 			isa = PBXGroup;
 			children = (
@@ -651,6 +681,7 @@
 				77BF4D27294064BF00330346 /* RxCocoa */,
 				77BF4D29294064BF00330346 /* RxSwift */,
 				7753E63E294C3E020067A263 /* Moya */,
+				7753E6AF295BD17B0067A263 /* MSGLayout */,
 			);
 			productName = idea;
 			productReference = 77BF4D0729400DC800330346 /* idea.app */;
@@ -685,6 +716,7 @@
 				77BF4D232940649B00330346 /* XCRemoteSwiftPackageReference "Then" */,
 				77BF4D26294064BF00330346 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				7753E63D294C3E020067A263 /* XCRemoteSwiftPackageReference "Moya" */,
+				7753E6AE295BD17B0067A263 /* XCRemoteSwiftPackageReference "MSGLayout" */,
 			);
 			productRefGroup = 77BF4D0829400DC800330346 /* Products */;
 			projectDirPath = "";
@@ -735,16 +767,20 @@
 				7753E69D295AB7510067A263 /* List.swift in Sources */,
 				7753E66F29546D950067A263 /* RefreshModel.swift in Sources */,
 				7753E65B295146520067A263 /* ListRequest.swift in Sources */,
+				7753E6B8295BD8B10067A263 /* GetMyDataRequest.swift in Sources */,
 				7753E6732954715D0067A263 /* Refresh.swift in Sources */,
+				7753E6B6295BD89C0067A263 /* GetMyDataModel.swift in Sources */,
 				7753E6A5295B143F0067A263 /* SearchViewModel.swift in Sources */,
 				7753E67B295535CC0067A263 /* CheckHomebaseModel.swift in Sources */,
 				7753E650295010050067A263 /* SignUpRequest.swift in Sources */,
+				7753E6BA295BD9610067A263 /* ProfileServices.swift in Sources */,
 				7753E682295535F50067A263 /* CheckAudiovisualRequest.swift in Sources */,
 				7753E659295146420067A263 /* ListModel.swift in Sources */,
 				7753E660295178E10067A263 /* CreateConViewController.swift in Sources */,
 				7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */,
 				7753E62E294B3ECF0067A263 /* SignUpViewModel.swift in Sources */,
 				7753E64A29500EC60067A263 /* LoginRequest.swift in Sources */,
+				7753E6B3295BD5720067A263 /* S&CNavigation.swift in Sources */,
 				7753E643294C3EB30067A263 /* GeneralAPI.swift in Sources */,
 				7753E64C29500FD20067A263 /* LoginServices.swift in Sources */,
 				7753E64E29500FF60067A263 /* SignUpModel.swift in Sources */,
@@ -987,6 +1023,14 @@
 				kind = branch;
 			};
 		};
+		7753E6AE295BD17B0067A263 /* XCRemoteSwiftPackageReference "MSGLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GSM-MSG/MSGLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		77BF4D202940647500330346 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -1018,6 +1062,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7753E63D294C3E020067A263 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		7753E6AF295BD17B0067A263 /* MSGLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7753E6AE295BD17B0067A263 /* XCRemoteSwiftPackageReference "MSGLayout" */;
+			productName = MSGLayout;
 		};
 		77BF4D212940647500330346 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

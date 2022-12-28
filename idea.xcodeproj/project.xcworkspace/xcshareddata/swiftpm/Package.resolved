@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "msglayout",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GSM-MSG/MSGLayout",
+      "state" : {
+        "revision" : "96e31941a8321ef8b0d9c986fd8ee906031c5d4e",
+        "version" : "1.0.1"
+      }
+    },
+    {
       "identity" : "reactiveswift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ReactiveCocoa/ReactiveSwift.git",
