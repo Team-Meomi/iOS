@@ -66,6 +66,8 @@
 		7753E6B8295BD8B10067A263 /* GetMyDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6B7295BD8B10067A263 /* GetMyDataRequest.swift */; };
 		7753E6BA295BD9610067A263 /* ProfileServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6B9295BD9610067A263 /* ProfileServices.swift */; };
 		7753E6BD295BDDC10067A263 /* GetMyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6BC295BDDC10067A263 /* GetMyData.swift */; };
+		7753E6BF295C1BA70067A263 /* UserWrittenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6BE295C1BA70067A263 /* UserWrittenModel.swift */; };
+		7753E6C1295C1BB40067A263 /* UserWrittenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6C0295C1BB40067A263 /* UserWrittenRequest.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -140,6 +142,8 @@
 		7753E6B7295BD8B10067A263 /* GetMyDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyDataRequest.swift; sourceTree = "<group>"; };
 		7753E6B9295BD9610067A263 /* ProfileServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServices.swift; sourceTree = "<group>"; };
 		7753E6BC295BDDC10067A263 /* GetMyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyData.swift; sourceTree = "<group>"; };
+		7753E6BE295C1BA70067A263 /* UserWrittenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrittenModel.swift; sourceTree = "<group>"; };
+		7753E6C0295C1BB40067A263 /* UserWrittenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrittenRequest.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -534,6 +538,8 @@
 				7753E6B5295BD89C0067A263 /* GetMyDataModel.swift */,
 				7753E6B7295BD8B10067A263 /* GetMyDataRequest.swift */,
 				7753E6B9295BD9610067A263 /* ProfileServices.swift */,
+				7753E6BE295C1BA70067A263 /* UserWrittenModel.swift */,
+				7753E6C0295C1BB40067A263 /* UserWrittenRequest.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -783,6 +789,7 @@
 				7753E6732954715D0067A263 /* Refresh.swift in Sources */,
 				7753E6B6295BD89C0067A263 /* GetMyDataModel.swift in Sources */,
 				7753E6A5295B143F0067A263 /* SearchViewModel.swift in Sources */,
+				7753E6C1295C1BB40067A263 /* UserWrittenRequest.swift in Sources */,
 				7753E67B295535CC0067A263 /* CheckHomebaseModel.swift in Sources */,
 				7753E650295010050067A263 /* SignUpRequest.swift in Sources */,
 				7753E6BA295BD9610067A263 /* ProfileServices.swift in Sources */,
@@ -803,6 +810,7 @@
 				7753E66729517B230067A263 /* CreateStuViewController.swift in Sources */,
 				7753E60B294B31310067A263 /* S&CFont.swift in Sources */,
 				7753E620294B345E0067A263 /* S&CColor.swift in Sources */,
+				7753E6BF295C1BA70067A263 /* UserWrittenModel.swift in Sources */,
 				77BF4D332940659000330346 /* BaseViewController.swift in Sources */,
 				7753E631294B41320067A263 /* ViewModelProtocol.swift in Sources */,
 				7753E633294B5A5A0067A263 /* S&CShadow.swift in Sources */,

@@ -11,6 +11,7 @@ import Moya
 
 enum ProfileServices{
     case getMyData(authorization: String)
+    case userWritten(param: UserWrittenRequest,authorization: String)
 }
 
 extension ProfileServices: TargetType{
@@ -23,12 +24,16 @@ extension ProfileServices: TargetType{
         switch self{
         case .getMyData:
             return "/user/"
+        case .userWritten(let param,_):
+            return "/user/written/\(param)"
         }
     }
     
     var method: Moya.Method {
         switch self {
         case .getMyData:
+            return .get
+        case .userWritten:
             return .get
         }
     }
@@ -39,14 +44,14 @@ extension ProfileServices: TargetType{
     
     var task: Moya.Task {
         switch self {
-        case .getMyData:
+        case .getMyData, .userWritten:
             return .requestPlain
         }
     }
         
     var headers: [String : String]? {
         switch self {
-        case .getMyData(let authorization):
+        case .getMyData(let authorization),.userWritten(_, let authorization):
             return["Content-Type" :"application/json","Authorization" : authorization]
         default:
             return["Content-Type" :"application/json"]
