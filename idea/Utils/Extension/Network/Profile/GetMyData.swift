@@ -9,11 +9,12 @@ import UIKit
 import Moya
 
 extension ProfileViewController {
-    func successList() {
+    func success() {
         print("success")
+        userNameText.text = String(BaseVC.decodedMyData?.stuNum ?? 0)+(BaseVC.decodedMyData?.name ?? "")
     }
     
-    func failureList() {
+    func failure() {
         print("failure")
     }
     
@@ -25,16 +26,17 @@ extension ProfileViewController {
             case let .success(result):
                 let responseData = result.data
                 do {
-                    BaseVC.decodedMyData = try JSONDecoder().decode([GetMyDataResponse].self, from: responseData)
+                    BaseVC.decodedMyData = try JSONDecoder().decode(GetMyDataResponse.self, from: responseData)
                 } catch(let err) {
                     print(err.localizedDescription)
+                    print(String(describing: err))
                 }
                 let statusCode = result.statusCode
                 switch statusCode {
                 case 200..<300:
-                    self.successList()
+                    self.success()
                 default:
-                    self.failureList()
+                    self.failure()
                 }
             case .failure(let err):
                 print(err.localizedDescription)

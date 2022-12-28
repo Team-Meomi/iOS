@@ -22,7 +22,7 @@ extension ProfileServices: TargetType{
     var path: String {
         switch self{
         case .getMyData:
-            return "/uesr/"
+            return "/user/"
         }
     }
     

@@ -9,14 +9,11 @@ import Foundation
 
 
 struct GetMyDataModel: Codable {
-    let status: Int
-    let success: Bool
-    let message: String
     let data: GetMyDataResponse
 }
 
 struct GetMyDataResponse: Codable {
     let id: Int
     let name: String
-    let stuNum: String
+    let stuNum: Int
 }

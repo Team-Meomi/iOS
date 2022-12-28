@@ -49,5 +49,5 @@ struct BaseVC {
     static var mainProvider = MoyaProvider<MainServices>(plugins: [NetworkLoggerPlugin()])
     static var decodedData: [ListResponse]?
     static var profileProvider = MoyaProvider<ProfileServices>(plugins: [NetworkLoggerPlugin()])
-    static var decodedMyData: [GetMyDataResponse]?
+    static var decodedMyData: GetMyDataResponse?
 }
