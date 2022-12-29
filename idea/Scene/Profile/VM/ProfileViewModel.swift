@@ -29,6 +29,11 @@ final class ProfileViewModel: BaseViewModel {
     func pushLogin() {
         coordinator.pushLoginVC()
     }
+    
+    func pushIntro() {
+        coordinator.pushIntroVC()
+    }
+    
     struct Input {
         var viewWillAppear: Observable<Void>
         var selectButtonDidTap: Observable<userSelected>

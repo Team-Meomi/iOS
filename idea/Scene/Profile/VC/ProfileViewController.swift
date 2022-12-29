@@ -18,9 +18,16 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         super.viewDidLoad()
         getOpenedData()
         self.navigationController?.navigationBar.topItem?.title = ""
-        self.navigationItem.logoutImage()
+        self.navigationItem.rightBarButtonItem = logoutBtn
         view.backgroundColor = .Background
     }
+    
+    lazy var logoutBtn: UIBarButtonItem = {
+        var logout = UIImage(named: "logoutIcon.svg")
+        logout = logout?.withRenderingMode(.alwaysOriginal)
+        let logoutBtn = UIBarButtonItem(image: logout, style:.plain, target: self, action: #selector(logoutBtnDidTap))
+        return logoutBtn
+    }()
     
     let userImage = UIImageView().then {
         $0.image = UIImage(named: "profileImage.svg")
@@ -61,6 +68,10 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         $0.separatorStyle = .none
         $0.rowHeight = 75
         $0.layer.cornerRadius = 8
+    }
+    
+    @objc func logoutBtnDidTap() {
+        viewModel.pushIntro()
     }
     
     @objc func openedBtnDidTap() {
