@@ -74,6 +74,7 @@
 		779A69F2295DA03B00496839 /* SinglePostListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69F1295DA03B00496839 /* SinglePostListResponse.swift */; };
 		779A69F8295DA7C200496839 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69F7295DA7C200496839 /* DetailViewController.swift */; };
 		779A69FA295DA7CF00496839 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69F9295DA7CF00496839 /* DetailViewModel.swift */; };
+		779A69FC295DD5FA00496839 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69FB295DD5FA00496839 /* DetailTableViewCell.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -156,6 +157,7 @@
 		779A69F1295DA03B00496839 /* SinglePostListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostListResponse.swift; sourceTree = "<group>"; };
 		779A69F7295DA7C200496839 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		779A69F9295DA7CF00496839 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		779A69FB295DD5FA00496839 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 		779A69F6295DA7B300496839 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				779A69FB295DD5FA00496839 /* DetailTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 				7753E6BA295BD9610067A263 /* ProfileServices.swift in Sources */,
 				7753E682295535F50067A263 /* CheckAudiovisualRequest.swift in Sources */,
 				7753E659295146420067A263 /* ListModel.swift in Sources */,
+				779A69FC295DD5FA00496839 /* DetailTableViewCell.swift in Sources */,
 				7753E660295178E10067A263 /* CreateConViewController.swift in Sources */,
 				7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */,
 				7753E62E294B3ECF0067A263 /* SignUpViewModel.swift in Sources */,

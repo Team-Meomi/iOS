@@ -36,8 +36,41 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         $0.textColor = .black
     }
     
+    let countText = UILabel().then {
+        $0.font = UIFont.SCFont(size: 14,family: .Regular)
+        $0.textColor = .black
+    }
+    
+    let writerText = UILabel().then {
+        $0.text = "개설자:"
+        $0.font = UIFont.SCFont(size: 14,family: .Regular)
+        $0.textColor = .black
+    }
+    
+    let writer = UILabel().then {
+        $0.font = UIFont.SCFont(size: 14,family: .Regular)
+        $0.textColor = UIColor(red: 0, green: 117/255, blue: 1, alpha: 1)
+    }
+    
+    let listTableView = UITableView().then {
+        $0.register(DetailTableViewCell.self, forCellReuseIdentifier: "DetailTableViewCell")
+        $0.separatorStyle = .none
+        $0.rowHeight = 75
+        $0.layer.cornerRadius = 8
+    }
+    
+    lazy var joinBtn = UIButton().then {
+        let text = NSAttributedString(string: "신청하기")
+        $0.setAttributedTitle(text, for: .normal)
+        $0.titleLabel?.font = UIFont.SCFont(size: 14, family: .Bold)
+        $0.setTitleColor(UIColor.white, for: .normal)
+        $0.backgroundColor = .Main
+        $0.layer.cornerRadius = 4
+//        $0.addTarget(self, action: #selector(openedBtnDidTap), for: .touchUpInside)
+    }
+    
     override func addView() {
-        [titleText,contentText,categoryText,dateText].forEach {
+        [titleText,contentText,categoryText,dateText,countText,writerText,writer,listTableView,joinBtn].forEach {
             view.addSubview($0)
         }
     }
@@ -56,6 +89,27 @@ class DetailViewController: BaseViewController<DetailViewModel> {
             dateText.layout
                 .top(.to(categoryText).bottom,.equal(13))
                 .leading(.to(view).leading, .equal(26))
+            countText.layout
+                .top(.to(dateText).bottom, .equal(13))
+                .leading(.to(view).leading, .equal(26))
+            writerText.layout
+                .top(.to(countText).bottom, .equal(13))
+                .leading(.to(view).leading, .equal(26))
+            writer.layout
+                .top(.to(countText).bottom ,.equal(13))
+                .leading(.to(writerText).trailing, .equal(10))
+            listTableView.layout
+                .top(.to(writer).bottom, .equal(20))
+                .bottom(.to(view).bottom, .equal((bounds.height) / 4.86))
+                .leading(.to(view).leading, .equal(27))
+                .trailing(.to(view).trailing, .equal(-27))
+                .centerX(.toSuperview())
+            joinBtn.layout
+                .top(.to(listTableView).bottom,.equal(45))
+                .centerX(.toSuperview())
+                .leading(.to(view).leading, .equal(27))
+                .trailing(.to(view).trailing, .equal(-27))
+                .height(47)
         }
     }
 
