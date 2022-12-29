@@ -13,6 +13,7 @@ class MainTabelViewCell: UITableViewCell {
     
     let titleText = UILabel().then {
         $0.font = UIFont.SCFont(size: 14, family:.Medium)
+        $0.numberOfLines = 1
     }
     
     let typeText = UILabel().then {
@@ -27,7 +28,7 @@ class MainTabelViewCell: UITableViewCell {
     
     let categoryView = UIView().then {
         $0.backgroundColor = .AOS
-        $0.layer.cornerRadius = 8
+        $0.layer.cornerRadius = 5
     }
     
     let categoryText = UILabel().then {
@@ -38,7 +39,6 @@ class MainTabelViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         addView()
         setLayout()
     }
@@ -48,33 +48,34 @@ class MainTabelViewCell: UITableViewCell {
     }
     
     func addView() {
-        [titleText,typeText,dateText,categoryView,categoryText].forEach{
+        [typeText,titleText,dateText,categoryText,categoryView].forEach{
             contentView.addSubview($0)
         }
     }
     
     func setLayout() {
-        titleText.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(13)
-            $0.leading.equalToSuperview().inset(14)
-        }
         typeText.snp.makeConstraints {
             $0.top.equalToSuperview().offset(14)
             $0.trailing.equalToSuperview().inset(24)
+        }
+        titleText.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(13)
+            $0.leading.equalToSuperview().inset(14)
+            $0.trailing.equalToSuperview().inset(75)
         }
         dateText.snp.makeConstraints {
             $0.top.equalTo(typeText.snp.bottom).offset(14)
             $0.trailing.equalToSuperview().inset(14)
         }
-        categoryView.snp.makeConstraints {
-            $0.top.equalTo(titleText.snp.bottom).offset(18)
-            $0.leading.equalToSuperview().offset(14)
-            $0.height.equalTo(6)
-            $0.width.equalTo(6)
-        }
         categoryText.snp.makeConstraints {
             $0.top.equalTo(titleText.snp.bottom).offset(12)
             $0.leading.equalTo(categoryView.snp.trailing).offset(4)
+        }
+        categoryView.snp.makeConstraints {
+            $0.centerY.equalTo(categoryText.snp.centerY).offset(0)
+            $0.leading.equalToSuperview().offset(14)
+            $0.height.equalTo(10)
+            $0.width.equalTo(10)
         }
     }
 }

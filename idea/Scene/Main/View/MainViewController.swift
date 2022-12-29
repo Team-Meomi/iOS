@@ -17,21 +17,25 @@ class MainViewController: BaseViewController<MainViewModel> {
         List()
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        self.navigationItem.rightBarButtonItem = profileImage
+        self.navigationItem.leftBarButtonItem = searchImage
+        self.navigationItem.title = "S&C"
         getData()
     }
     
-    lazy var profileBtn = UIButton().then {
-        $0.setImage(UIImage(named: "profileIcon.svg"), for: .normal)
-        $0.tintColor = .Main
-        $0.addTarget(self, action: #selector(profileBtnDidTap), for: .touchUpInside)
-    }
+    lazy var profileImage: UIBarButtonItem = {
+        var profile = UIImage(named: "profileIcon.svg")
+        profile = profile?.withRenderingMode(.alwaysOriginal)
+        let profileBtn = UIBarButtonItem(image: profile, style:.plain, target: self, action: #selector(profileBtnDidTap(_:)))
+        return profileBtn
+    }()
     
-    lazy var searchBtn = UIButton().then {
-        $0.setImage(UIImage(named: "searchIcon.svg"), for: .normal)
-        $0.tintColor = .Main
-        $0.layer.cornerRadius = 50
-        $0.addTarget(self, action: #selector(searchBtnDidTap), for: .touchUpInside)
-    }
+    lazy var searchImage: UIBarButtonItem = {
+        var search = UIImage(named: "searchIcon.svg")
+        search = search?.withRenderingMode(.alwaysOriginal)
+        let searchBtn = UIBarButtonItem(image: search, style:.plain, target: self, action: #selector(searchBtnDidTap(_:)))
+        return searchBtn
+    }()
     
     lazy var createconBtn = UIButton().then {
         $0.backgroundColor = .LightMain
@@ -75,12 +79,6 @@ class MainViewController: BaseViewController<MainViewModel> {
         $0.tintColor = .black
     }
     
-    let myText = UILabel().then {
-        $0.text = "My"
-        $0.font = UIFont.SCFont(size:12,family:.Medium)
-        $0.textColor = .Main
-    }
-    
     let mainTableView = UITableView().then {
         $0.register(MainTabelViewCell.self, forCellReuseIdentifier: "MainTabelViewCell")
         $0.separatorStyle = .none
@@ -95,17 +93,19 @@ class MainViewController: BaseViewController<MainViewModel> {
     @objc func createstudyBtnDidTap() {
         viewModel.pushCreateStu()
     }
-
-    @objc func searchBtnDidTap() {
+    
+    @objc func searchBtnDidTap(_ sender: Any) {
+        print("h1")
         viewModel.pushSearch()
     }
     
-    @objc func profileBtnDidTap() {
+    @objc func profileBtnDidTap(_ sender: Any) {
+        print("h2")
         viewModel.pushProfile()
     }
     
     override func addView() {
-        [profileBtn,searchBtn,createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage,myText,mainTableView].forEach {
+        [createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage,mainTableView].forEach {
             view.addSubview($0)
         }
     }
@@ -137,24 +137,8 @@ class MainViewController: BaseViewController<MainViewModel> {
     }
     
     override func setLayout() {
-        profileBtn.snp.makeConstraints {
-            $0.top.equalTo(view.snp.top).offset(61)
-            $0.trailing.equalTo(view.snp.trailing).inset(33)
-            $0.height.equalTo(31)
-            $0.width.equalTo(31)
-        }
-        searchBtn.snp.makeConstraints {
-            $0.top.equalTo(view.snp.top).offset(61)
-            $0.trailing.equalTo(profileBtn.snp.leading).inset(-10)
-            $0.height.equalTo(31)
-            $0.width.equalTo(31)
-        }
-        myText.snp.makeConstraints {
-            $0.top.equalTo(profileBtn.snp.bottom).offset(0)
-            $0.centerX.equalTo(profileBtn.snp.centerX).offset(0)
-        }
         createconBtn.snp.makeConstraints {
-            $0.top.equalTo(myText.snp.bottom).offset(25)
+            $0.top.equalTo(view.snp.top).offset(127)
             $0.leading.equalTo(view.snp.leading).offset(33)
             $0.height.width.equalTo(140)
         }
@@ -172,7 +156,7 @@ class MainViewController: BaseViewController<MainViewModel> {
             $0.height.width.equalTo(28)
         }
         createstudyBtn.snp.makeConstraints {
-            $0.top.equalTo(myText.snp.bottom).offset(25)
+            $0.top.equalTo(view.snp.top).offset(127)
             $0.trailing.equalTo(view.snp.trailing).inset(33)
             $0.height.width.equalTo(140)
         }

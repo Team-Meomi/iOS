@@ -13,7 +13,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "스터디"
+        self.navigationItem.title = "검색하기"
         self.navigationController?.navigationBar.topItem?.title = ""
         addScrollView()
         setScrollViewLayout()
