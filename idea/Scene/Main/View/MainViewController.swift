@@ -14,7 +14,6 @@ class MainViewController: BaseViewController<MainViewModel> {
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
-        List()
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         self.navigationItem.rightBarButtonItem = profileImage

@@ -11,7 +11,7 @@ import Moya
 
 enum ProfileServices{
     case getMyData(authorization: String)
-    case userWritten(param: UserWrittenRequest,authorization: String)
+    case userWritten(id:Int,authorization: String)
 }
 
 extension ProfileServices: TargetType{
@@ -24,8 +24,8 @@ extension ProfileServices: TargetType{
         switch self{
         case .getMyData:
             return "/user/"
-        case .userWritten(let param,_):
-            return "/user/written/\(param)"
+        case .userWritten(let id,_):
+            return "/user/written/\(id)"
         }
     }
     
@@ -48,6 +48,8 @@ extension ProfileServices: TargetType{
             return .requestPlain
         }
     }
+    
+    var validationType: ValidationType { .successCodes }
         
     var headers: [String : String]? {
         switch self {

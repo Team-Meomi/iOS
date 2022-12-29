@@ -29,9 +29,7 @@ extension ProfileViewController {
     }
     
     func userWritten() {
-        let param = UserWrittenRequest.init(BaseVC.userData!.accessToken, BaseVC.decodedMyData!.id)
-        print(param)
-        BaseVC.profileProvider.request(.userWritten(param: param, authorization: BaseVC.userData!.accessToken)) {response in
+        BaseVC.profileProvider.request(.userWritten(id: BaseVC.decodedMyData?.id ?? 0, authorization: BaseVC.userData!.accessToken)) {response in
             switch response {
             case let .success(result):
                 let responseData = result.data
@@ -44,7 +42,7 @@ extension ProfileViewController {
                 let statusCode = result.statusCode
                 switch statusCode {
                 case 200..<300:
-                    self.success()
+                    self.successUserWritten()
                 case 403:
                     self.accessTokenError()
                 default:

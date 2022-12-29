@@ -12,6 +12,7 @@ extension ProfileViewController {
     func success() {
         print("success")
         userNameText.text = String(BaseVC.decodedMyData?.stuNum ?? 0)+(BaseVC.decodedMyData?.name ?? "")
+//        getData()
     }
     
     private func failure() {
@@ -30,8 +31,6 @@ extension ProfileViewController {
     }
     
     func getMyData() {
-        let param = GetMyDataRequest.init(BaseVC.userData!.accessToken)
-        print(param)
         BaseVC.profileProvider.request(.getMyData(authorization: BaseVC.userData!.accessToken)) {response in
             switch response {
             case let .success(result):

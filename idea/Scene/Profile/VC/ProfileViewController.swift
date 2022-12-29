@@ -9,14 +9,17 @@ import UIKit
 import Then
 import MSGLayout
 import Moya
+import RxSwift
 
 class ProfileViewController: BaseViewController<ProfileViewModel> {
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
-        getMyData()
         super.viewDidLoad()
+        getData()
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationItem.logoutImage()
+        view.backgroundColor = .Background
     }
     
     let userImage = UIImageView().then {
@@ -53,6 +56,13 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         $0.layer.cornerRadius = 4
     }
     
+    let userTableView = UITableView().then {
+        $0.register(MainTabelViewCell.self, forCellReuseIdentifier: "MainTabelViewCell")
+        $0.separatorStyle = .none
+        $0.rowHeight = 75
+        $0.layer.cornerRadius = 8
+    }
+    
     @objc func openedBtnDidTap() {
         openedBtn.setTitleColor(UIColor.Main, for: .normal)
         appliedBtn.setTitleColor(UIColor(red: 153/255, green: 153/255, blue: 153/255, alpha: 1), for: .normal)
@@ -64,9 +74,67 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
     }
     
     override func addView() {
-        [userImage,userNameText,openedBtn,appliedBtn,divisionLine].forEach {
+        [userImage,userNameText,openedBtn,appliedBtn,divisionLine,userTableView].forEach {
             view.addSubview($0)
         }
+    }
+    
+    func getData() {
+        // MARK: Input
+        let viewWillApeearObservable = self.rx.methodInvoked(#selector(viewWillAppear))
+            .map { _ in }
+            .asObservable()
+        
+        // MARK: Output
+        let output = viewModel.transform(
+            .init(
+                viewWillAppear: viewWillApeearObservable
+            )
+        )
+        
+        output.list
+            .catch({ err in
+                
+                return .empty()
+            })
+            .bind(
+                to: userTableView.rx.items(cellIdentifier: "MainTabelViewCell", cellType: MainTabelViewCell.self)
+            ) { ip, item, cell in
+                cell.titleText.text = item.title
+                cell.categoryText.text = item.category
+                cell.typeText.text = item.type
+                cell.dateText.text = item.date
+                switch item.category {
+                case "FE":
+                    cell.categoryView.backgroundColor = .FE
+                    break
+                case "BE":
+                    cell.categoryView.backgroundColor = .BE
+                    break
+                case "iOS":
+                    cell.categoryView.backgroundColor = .iOS
+                    break
+                case "AOS":
+                    cell.categoryView.backgroundColor = .AOS
+                    break
+                case "기타":
+                    cell.categoryView.backgroundColor = .Etc
+                    break
+                default:
+                    cell.categoryView.backgroundColor = .Etc
+                    break
+                }
+                cell.accessoryType = .disclosureIndicator
+            }
+            .disposed(by: disposeBag)
+        
+        output.profile
+            .catch({ err in
+                return .empty()
+            })
+            .map { "\($0.stuNum)\($0.name)" }
+            .bind(to: userNameText.rx.text)
+            .disposed(by: disposeBag)
     }
     
     override func setLayout() {
@@ -88,6 +156,12 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
                 .centerX(.toSuperview())
                 .width(3)
                 .height(30)
+            userTableView.layout
+                .top(.to(divisionLine).bottom, .equal(18))
+                .centerX(.toSuperview())
+                .leading(.to(view).leading, .equal(33))
+                .trailing(.to(view).trailing, .equal(-33))
+                .bottom(.toSuperview())
         }
     }
 }
