@@ -18,7 +18,7 @@ enum ProfileServices{
 extension ProfileServices: TargetType{
     
     public var baseURL: URL {
-        return URL(string: GeneralAPI.baseURL)!
+        return URL(string: GeneralAPI.userBaseURL)!
     }
     
     var path: String {

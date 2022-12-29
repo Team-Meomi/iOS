@@ -88,13 +88,28 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         // MARK: Output
         let output = viewModel.transform(
             .init(
-                viewWillAppear: viewWillApeearObservable
+                viewWillAppear: viewWillApeearObservable,
+                selectButtonDidTap: Observable.create { [weak self] observer in
+                    guard let self = self else { return Disposables.create() }
+                    var disposables = [Disposable]()
+                    disposables.append(
+                        self.openedBtn.rx.tap
+                            .bind(with: self) { owner, _ in
+                                observer.onNext(.opened)
+                            }
+                    )
+                    disposables.append(
+                        self.appliedBtn.rx.tap
+                            .bind(with: self) { owner, _ in
+                                observer.onNext(.joined)
+                            }
+                    )
+                    return Disposables.create(disposables)
+                }
             )
         )
-        output.list
-            .catch({ err in
-                return .empty()
-            })
+        output.currentSelected
+            .flatMap { $0 == .opened ? output.writtenList : output.joinedList }
             .bind(
                 to: userTableView.rx.items(cellIdentifier: "MainTabelViewCell", cellType: MainTabelViewCell.self)
             ) { ip, item, cell in
@@ -127,9 +142,7 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
             .disposed(by: disposeBag)
         
         output.profile
-            .catch({ err in
-                return .empty()
-            })
+            .catchAndReturn(.init(id: 0, name: "", stuNum: 0))
             .map { "\($0.stuNum)\($0.name)" }
             .bind(to: userNameText.rx.text)
             .disposed(by: disposeBag)

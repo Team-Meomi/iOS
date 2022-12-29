@@ -14,6 +14,11 @@ enum CustomError: Error {
     case underlying
 }
 
+enum userSelected {
+    case opened
+    case joined
+}
+
 final class ProfileViewModel: BaseViewModel {
     var coordinator: MainCoordinator
     
@@ -26,28 +31,32 @@ final class ProfileViewModel: BaseViewModel {
     }
     struct Input {
         var viewWillAppear: Observable<Void>
+        var selectButtonDidTap: Observable<userSelected>
     }
 
     struct Output {
-        var writtenList: Observable<[UserWrittenResponse]>
+        var writtenList: Observable<[SinglePostListResponse]>
+        var joinedList: Observable<[SinglePostListResponse]>
         var profile: Observable<GetMyDataResponse>
-        var joinedList: Observable<[UserJoinedResponse]>
+        var currentSelected: Observable<userSelected>
     }
     
     func transform(_ input: Input) -> Output {
         let provider = MoyaProvider<ProfileServices>(plugins: [NetworkLoggerPlugin()])
         
-        let writtenRelay = BehaviorRelay<[UserWrittenResponse]>(value: [])
+        let writtenRelay = BehaviorRelay<[SinglePostListResponse]>(value: [])
         let profileRelay = PublishRelay<GetMyDataResponse>()
-        let joinedRelay = BehaviorRelay<[UserJoinedResponse]>(value: [])
+        let joinedRelay = BehaviorRelay<[SinglePostListResponse]>(value: [])
+        let currentSelected = BehaviorRelay(value: userSelected.opened)
         
         input.viewWillAppear
             .flatMap {
-                Observable<[UserWrittenResponse]>.create { observer in
+                Observable<[SinglePostListResponse]>.create { observer in
                     provider.request(.userWritten(id: BaseVC.decodedMyData?.id ?? 1, authorization: BaseVC.userData!.accessToken)) { result in
                         switch result {
                         case let .success(res):
-                            let data = try? JSONDecoder().decode([UserWrittenResponse].self, from: res.data)
+                            let data = try? JSONDecoder().decode([SinglePostListResponse].self, from: res.data)
+                            print("WRITTEN", data)
                             observer.onNext(data ?? [])
                         case let .failure(err):
                             observer.onError(err)
@@ -83,11 +92,11 @@ final class ProfileViewModel: BaseViewModel {
         
         input.viewWillAppear
             .flatMap {
-                Observable<[UserJoinedResponse]>.create { observer in
-                    provider.request(.userWritten(id: BaseVC.decodedMyData?.id ?? 1, authorization: BaseVC.userData!.accessToken)) { result in
+                Observable<[SinglePostListResponse]>.create { observer in
+                    provider.request(.userJoined(id: BaseVC.decodedMyData?.id ?? 1, authorization: BaseVC.userData!.accessToken)) { result in
                         switch result {
                         case let .success(res):
-                            let data = try? JSONDecoder().decode([UserJoinedResponse].self, from: res.data)
+                            let data = try? JSONDecoder().decode([SinglePostListResponse].self, from: res.data)
                             observer.onNext(data ?? [])
                         case let .failure(err):
                             observer.onError(err)
@@ -99,10 +108,15 @@ final class ProfileViewModel: BaseViewModel {
             .bind(to: joinedRelay)
             .disposed(by: disposeBag)
         
+        input.selectButtonDidTap
+            .bind(to: currentSelected)
+            .disposed(by: disposeBag)
+        
         return Output(
             writtenList: writtenRelay.asObservable(),
+            joinedList: joinedRelay.asObservable(),
             profile: profileRelay.asObservable(),
-            joinedList: joinedRelay.asObservable()
+            currentSelected: currentSelected.asObservable()
         )
     }
 
