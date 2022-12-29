@@ -19,7 +19,7 @@ enum MainServices{
 extension MainServices: TargetType{
     
     public var baseURL: URL {
-        return URL(string: GeneralAPI.baseURL)!
+        return URL(string: GeneralAPI.userBaseURL)!
     }
     
     var path: String {

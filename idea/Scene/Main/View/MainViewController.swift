@@ -131,6 +131,26 @@ class MainViewController: BaseViewController<MainViewModel> {
                 cell.categoryText.text = item.category
                 cell.typeText.text = item.type
                 cell.dateText.text = item.date
+                switch item.category {
+                case "FE":
+                    cell.categoryView.backgroundColor = .FE
+                    break
+                case "BE":
+                    cell.categoryView.backgroundColor = .BE
+                    break
+                case "iOS":
+                    cell.categoryView.backgroundColor = .iOS
+                    break
+                case "AOS":
+                    cell.categoryView.backgroundColor = .AOS
+                    break
+                case "기타":
+                    cell.categoryView.backgroundColor = .Etc
+                    break
+                default:
+                    cell.categoryView.backgroundColor = .Etc
+                    break
+                }
                 cell.accessoryType = .disclosureIndicator
             }
             .disposed(by: disposeBag)
