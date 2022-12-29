@@ -14,6 +14,7 @@ enum MainServices{
     case checkAudiovisual(param: CheckAudiovisualRequest, authorization: String)
     case checkHomebase(param: CheckHomebaseRequest, authorization: String)
     case create(param:CreateRequest, authorization: String)
+    case search(param:SearchRequest, authorization: String)
 }
 
 extension MainServices: TargetType{
@@ -30,12 +31,14 @@ extension MainServices: TargetType{
             return "/study/audiovisual"
         case .checkHomebase:
             return "/study/homebase"
+        case .search:
+            return "/study/search"
         } 
     }
     
     var method: Moya.Method {
         switch self {
-        case .getList:
+        case .getList, .search:
             return .get
         case .checkAudiovisual,
             .checkHomebase,
@@ -62,6 +65,10 @@ extension MainServices: TargetType{
             return .requestParameters(parameters: [
                 "date": param.date
             ], encoding: URLEncoding.queryString)
+        case .search(let param, _):
+            return .requestParameters(parameters: [
+                "keyword": param.keyword,
+                "category": param.category], encoding: URLEncoding.queryString)
         case .create(let param,_):
             return .requestJSONEncodable(param)
         }
@@ -70,7 +77,7 @@ extension MainServices: TargetType{
     var headers: [String : String]? {
         switch self {
         case .checkHomebase(_,let authorization), .checkAudiovisual(_, authorization: let authorization)
-            ,.create(_ , let authorization),.getList(let authorization):
+            ,.create(_ , let authorization),.getList(let authorization), .search(_, let authorization):
             return["Content-Type" :"application/json","Authorization" : authorization]
         default:
             return["Content-Type" :"application/json"]

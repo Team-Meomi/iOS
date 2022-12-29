@@ -39,6 +39,7 @@ final class MainViewModel: BaseViewModel {
     
     struct Input {
         var viewWillAppear: Observable<Void>
+        var conferenceCellDidselect: Observable<Int>
     }
 
     struct Output {
@@ -67,6 +68,12 @@ final class MainViewModel: BaseViewModel {
                 }
             }
             .bind(to: listRelay)
+            .disposed(by: disposeBag)
+        
+        input.conferenceCellDidselect
+            .bind(with: self) { owner, id in
+                owner.coordinator.pushDetailVC(id: id)
+            }
             .disposed(by: disposeBag)
         
         return Output(

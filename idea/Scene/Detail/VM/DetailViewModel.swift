@@ -9,9 +9,15 @@ import UIKit
 
 final class DetailViewModel: BaseViewModel {
     var coordinator: MainCoordinator
+    let id: Int
     
-    init(coordinator: MainCoordinator){
+    init(id: Int, coordinator: MainCoordinator){
+        self.id = id
         self.coordinator = coordinator
+    }
+    
+    func pushIntro() {
+        coordinator.pushIntroVC()
     }
 
 }

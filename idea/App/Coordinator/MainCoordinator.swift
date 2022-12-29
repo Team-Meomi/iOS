@@ -77,4 +77,10 @@ class MainCoordinator:Coordinator {
         let profileVC = ProfileViewController(profileVM)
         navigationController.pushViewController(profileVC, animated: true)
     }
+
+    func pushDetailVC(id: Int) {
+        let vm = DetailViewModel(id: id, coordinator: self)
+        let vc = DetailViewController(vm)
+        navigationController.pushViewController(vc, animated: true)
+    }
 }

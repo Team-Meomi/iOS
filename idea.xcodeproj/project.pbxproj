@@ -75,6 +75,12 @@
 		779A69F8295DA7C200496839 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69F7295DA7C200496839 /* DetailViewController.swift */; };
 		779A69FA295DA7CF00496839 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69F9295DA7CF00496839 /* DetailViewModel.swift */; };
 		779A69FC295DD5FA00496839 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69FB295DD5FA00496839 /* DetailTableViewCell.swift */; };
+		779A69FF295DDD4100496839 /* GetDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69FE295DDD4100496839 /* GetDetailModel.swift */; };
+		779A6A01295DDD5600496839 /* GetDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A00295DDD5600496839 /* GetDetailRequest.swift */; };
+		779A6A03295DDD6900496839 /* DetailServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A02295DDD6900496839 /* DetailServices.swift */; };
+		779A6A06295DE55A00496839 /* GetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A05295DE55A00496839 /* GetDetail.swift */; };
+		779A6A09295DF60100496839 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A08295DF60100496839 /* SearchModel.swift */; };
+		779A6A0B295DF61000496839 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A0A295DF61000496839 /* SearchRequest.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -158,6 +164,12 @@
 		779A69F7295DA7C200496839 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		779A69F9295DA7CF00496839 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		779A69FB295DD5FA00496839 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		779A69FE295DDD4100496839 /* GetDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailModel.swift; sourceTree = "<group>"; };
+		779A6A00295DDD5600496839 /* GetDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailRequest.swift; sourceTree = "<group>"; };
+		779A6A02295DDD6900496839 /* DetailServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailServices.swift; sourceTree = "<group>"; };
+		779A6A05295DE55A00496839 /* GetDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetail.swift; sourceTree = "<group>"; };
+		779A6A08295DF60100496839 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		779A6A0A295DF61000496839 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -289,6 +301,8 @@
 		7753E641294C3E890067A263 /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
+				779A6A07295DF5EF00496839 /* Search */,
+				779A69FD295DDD3400496839 /* Detail */,
 				7753E6B4295BD7DD0067A263 /* Profile */,
 				7753E677295535A70067A263 /* Create */,
 				7753E676295535950067A263 /* Main */,
@@ -301,6 +315,7 @@
 		7753E651295024A40067A263 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				779A6A04295DE54B00496839 /* Detail */,
 				7753E6BB295BDD970067A263 /* User */,
 				7753E68429554DED0067A263 /* Main */,
 				7753E68329554DE50067A263 /* Auth */,
@@ -596,6 +611,33 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		779A69FD295DDD3400496839 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				779A69FE295DDD4100496839 /* GetDetailModel.swift */,
+				779A6A00295DDD5600496839 /* GetDetailRequest.swift */,
+				779A6A02295DDD6900496839 /* DetailServices.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		779A6A04295DE54B00496839 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				779A6A05295DE55A00496839 /* GetDetail.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		779A6A07295DF5EF00496839 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				779A6A08295DF60100496839 /* SearchModel.swift */,
+				779A6A0A295DF61000496839 /* SearchRequest.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		77BF4CFE29400DC800330346 = {
 			isa = PBXGroup;
 			children = (
@@ -820,6 +862,7 @@
 				7753E66929517B300067A263 /* CreateStuViewModel.swift in Sources */,
 				7753E6BD295BDDC10067A263 /* GetMyData.swift in Sources */,
 				7753E64829500E3F0067A263 /* LoginModel.swift in Sources */,
+				779A6A01295DDD5600496839 /* GetDetailRequest.swift in Sources */,
 				77BF4D1F2940645B00330346 /* MainCoordinator.swift in Sources */,
 				77BF4D2C294064E300330346 /* Coordinator.swift in Sources */,
 				7753E6C3295C1F540067A263 /* UserWritten.swift in Sources */,
@@ -837,8 +880,10 @@
 				7753E6B6295BD89C0067A263 /* GetMyDataModel.swift in Sources */,
 				7753E6A5295B143F0067A263 /* SearchViewModel.swift in Sources */,
 				7753E6C1295C1BB40067A263 /* UserWrittenRequest.swift in Sources */,
+				779A6A03295DDD6900496839 /* DetailServices.swift in Sources */,
 				7753E67B295535CC0067A263 /* CheckHomebaseModel.swift in Sources */,
 				7753E650295010050067A263 /* SignUpRequest.swift in Sources */,
+				779A69FF295DDD4100496839 /* GetDetailModel.swift in Sources */,
 				7753E6BA295BD9610067A263 /* ProfileServices.swift in Sources */,
 				7753E682295535F50067A263 /* CheckAudiovisualRequest.swift in Sources */,
 				7753E659295146420067A263 /* ListModel.swift in Sources */,
@@ -854,6 +899,7 @@
 				7753E64E29500FF60067A263 /* SignUpModel.swift in Sources */,
 				7753E6AD295B45E20067A263 /* ProfileViewModel.swift in Sources */,
 				7753E698295939EE0067A263 /* CreateStu.swift in Sources */,
+				779A6A06295DE55A00496839 /* GetDetail.swift in Sources */,
 				77BF4D35294065A000330346 /* BaseViewModel.swift in Sources */,
 				7753E6AB295B45D10067A263 /* ProfileViewController.swift in Sources */,
 				7753E66729517B230067A263 /* CreateStuViewController.swift in Sources */,
@@ -861,6 +907,7 @@
 				7753E620294B345E0067A263 /* S&CColor.swift in Sources */,
 				7753E6BF295C1BA70067A263 /* UserWrittenModel.swift in Sources */,
 				77BF4D332940659000330346 /* BaseViewController.swift in Sources */,
+				779A6A0B295DF61000496839 /* SearchRequest.swift in Sources */,
 				7753E631294B41320067A263 /* ViewModelProtocol.swift in Sources */,
 				7753E633294B5A5A0067A263 /* S&CShadow.swift in Sources */,
 				7753E69129591DEC0067A263 /* CreateModel.swift in Sources */,
@@ -868,6 +915,7 @@
 				7753E67129546DF80067A263 /* RefreshRequest.swift in Sources */,
 				7753E62C294B3EC50067A263 /* SignUpViewController.swift in Sources */,
 				7753E68929554E740067A263 /* MainViewController.swift in Sources */,
+				779A6A09295DF60100496839 /* SearchModel.swift in Sources */,
 				7753E68B29554E920067A263 /* MainViewModel.swift in Sources */,
 				77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */,
 				779A69F2295DA03B00496839 /* SinglePostListResponse.swift in Sources */,

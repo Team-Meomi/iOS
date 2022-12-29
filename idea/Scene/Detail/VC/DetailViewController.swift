@@ -12,6 +12,7 @@ import Then
 class DetailViewController: BaseViewController<DetailViewModel> {
 
     override func viewDidLoad() {
+        getDetail()
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
     }
@@ -67,6 +68,14 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         $0.backgroundColor = .Main
         $0.layer.cornerRadius = 4
 //        $0.addTarget(self, action: #selector(openedBtnDidTap), for: .touchUpInside)
+    }
+    
+    func getDetailAPI() {
+        titleText.text = BaseVC.decodedDetailData?.title
+        contentText.text = BaseVC.decodedDetailData?.content
+        dateText.text = BaseVC.decodedDetailData?.date
+        countText.text = "\(BaseVC.decodedDetailData?.count.count ?? 0)/\(BaseVC.decodedDetailData?.count.maxCount ?? 0)"
+        writer.text = "\(BaseVC.decodedDetailData?.writer.stuNum ?? 0)\(BaseVC.decodedDetailData?.writer.name ?? "")"
     }
     
     override func addView() {

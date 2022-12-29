@@ -115,10 +115,15 @@ class MainViewController: BaseViewController<MainViewModel> {
             .map { _ in }
             .asObservable()
         
+        let mainCellSelectedObservable = mainTableView.rx.modelSelected(ListResponse.self)
+            .asObservable()
+            .map(\.id)
+        
         // MARK: Output
         let output = viewModel.transform(
             .init(
-                viewWillAppear: viewWillApeearObservable
+                viewWillAppear: viewWillApeearObservable,
+                conferenceCellDidselect: mainCellSelectedObservable
             )
         )
         
