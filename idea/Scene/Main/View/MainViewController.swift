@@ -7,21 +7,17 @@
 
 import UIKit
 import Then
+import RxSwift
 import SnapKit
 
 class MainViewController: BaseViewController<MainViewModel> {
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         List()
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        addScrollView()
-        setScrollViewLayout()
-        configureVC()
-    }
-    
-    let scrollView = UIScrollView().then {
-        $0.backgroundColor = .Background
+        getData()
     }
     
     lazy var profileBtn = UIButton().then {
@@ -92,12 +88,6 @@ class MainViewController: BaseViewController<MainViewModel> {
         $0.layer.cornerRadius = 8
     }
     
-    func configureVC() {
-        view.backgroundColor = .white
-        mainTableView.dataSource = self
-        mainTableView.delegate = self
-    }
-    
     @objc func createconBtnDidTap() {
         viewModel.pushCreateCon()
     }
@@ -115,33 +105,46 @@ class MainViewController: BaseViewController<MainViewModel> {
     }
     
     override func addView() {
-        [scrollView].forEach {
+        [profileBtn,searchBtn,createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage,myText,mainTableView].forEach {
             view.addSubview($0)
         }
     }
     
-    func addScrollView() {
-        [profileBtn,searchBtn,createconBtn,conText,conImage,conPlusImage,createstudyBtn,studyText,studyImage,studyPlusImage,myText,mainTableView].forEach {
-            scrollView.addSubview($0)
-        }
+    func getData() {
+        // MARK: Input
+        let viewWillApeearObservable = self.rx.methodInvoked(#selector(viewWillAppear))
+            .map { _ in }
+            .asObservable()
+        
+        // MARK: Output
+        let output = viewModel.transform(
+            .init(
+                viewWillAppear: viewWillApeearObservable
+            )
+        )
+        
+        output.list
+            .bind(
+                to: mainTableView.rx.items(cellIdentifier: "MainTabelViewCell", cellType: MainTabelViewCell.self)
+            ) { ip, item, cell in
+                cell.titleText.text = item.title
+                cell.categoryText.text = item.category
+                cell.typeText.text = item.type
+                cell.dateText.text = item.date
+                cell.accessoryType = .disclosureIndicator
+            }
+            .disposed(by: disposeBag)
     }
     
     override func setLayout() {
-        scrollView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
-        }
-    }
-    
-    func setScrollViewLayout() {
         profileBtn.snp.makeConstraints {
-            $0.top.equalTo(scrollView.snp.top).offset(0)
+            $0.top.equalTo(view.snp.top).offset(61)
             $0.trailing.equalTo(view.snp.trailing).inset(33)
             $0.height.equalTo(31)
             $0.width.equalTo(31)
         }
         searchBtn.snp.makeConstraints {
-            $0.top.equalTo(scrollView.snp.top).offset(0)
+            $0.top.equalTo(view.snp.top).offset(61)
             $0.trailing.equalTo(profileBtn.snp.leading).inset(-10)
             $0.height.equalTo(31)
             $0.width.equalTo(31)
@@ -190,31 +193,7 @@ class MainViewController: BaseViewController<MainViewModel> {
             $0.top.equalTo(createstudyBtn.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(33)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(75 * 3)
-            $0.bottom.equalToSuperview().inset(0)
+            $0.bottom.equalToSuperview()
         }
-    }
-
-}
-
-
-extension MainViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTabelViewCell", for: indexPath) as? MainTabelViewCell else { return UITableViewCell()}
-        cell.titleText.text = BaseVC.decodedData?[0].title
-        cell.categoryText.text = BaseVC.decodedData?[0].category
-        cell.typeText.text = BaseVC.decodedData?[0].type
-        cell.dateText.text = BaseVC.decodedData?[0].date
-        cell.accessoryType = .disclosureIndicator
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        viewModel.cellDidSelect(index: indexPath.row)
     }
 }

@@ -11,6 +11,7 @@ import Moya
 extension MainViewController {
     func successList() {
         print("success")
+        print()
     }
     
     func failureList() {

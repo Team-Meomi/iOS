@@ -27,7 +27,7 @@ class MainTabelViewCell: UITableViewCell {
     
     let categoryView = UIView().then {
         $0.backgroundColor = .AOS
-        $0.layer.cornerRadius = 50
+        $0.layer.cornerRadius = 8
     }
     
     let categoryText = UILabel().then {
