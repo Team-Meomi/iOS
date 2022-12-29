@@ -15,8 +15,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         super.viewDidLoad()
         self.navigationItem.title = "검색하기"
         self.navigationController?.navigationBar.topItem?.title = ""
-        addScrollView()
-        setScrollViewLayout()
+        configureVC()
     }
     
     var postMajor:String = ""
@@ -26,10 +25,6 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     var guardAosTap:Bool = false
     var guardEtcTap:Bool = false
     
-    let scrollView = UIScrollView().then {
-        $0.backgroundColor = .Background
-    }
-    
     let searchTextField = UITextField().then {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.Main?.cgColor
@@ -37,8 +32,15 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         $0.layer.cornerRadius = 10
         $0.font = UIFont.SCFont(size: 12,family:.Regular)
         $0.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
-        $0.addRightImage(UIImage(systemName: "magnifyingglass")!, x: -5.5, y: 3.5)
         $0.addLeftPadding(width: 18)
+        $0.addRightPadding(width: 50)
+    }
+    
+    lazy var searchBtn = UIButton().then {
+        $0.setImage(UIImage(named: "searchIcon.svg"), for: .normal)
+        $0.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+        $0.layer.cornerRadius = 10
+        $0.addTarget(self, action: #selector(searchBtnDidTap), for: .touchUpInside)
     }
     
     lazy var feBtn = UIButton().then {
@@ -99,6 +101,23 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         $0.layer.borderColor = UIColor.Main?.cgColor
         $0.layer.borderWidth = 1
         $0.addTarget(self, action: #selector(etcBtnDidTap), for: .touchUpInside)
+    }
+    
+    let searchTableView = UITableView().then {
+        $0.register(DetailTableViewCell.self, forCellReuseIdentifier: "DetailTableViewCell")
+        $0.separatorStyle = .none
+        $0.rowHeight = 75
+        $0.layer.cornerRadius = 8
+    }
+    
+    func configureVC() {
+        view.backgroundColor = .white
+        searchTableView.dataSource = self
+        searchTableView.delegate = self
+    }
+    
+    @objc func searchBtnDidTap() {
+        self.search()
     }
     
     @objc func feBtnDidTap() {
@@ -192,31 +211,23 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     }
 
     override func addView() {
-        [scrollView].forEach {
+        [searchTextField,searchBtn,feBtn,beBtn,iosBtn,aosBtn,etcBtn].forEach {
             view.addSubview($0)
         }
     }
     
-    
-    func addScrollView() {
-        [searchTextField,feBtn,beBtn,iosBtn,aosBtn,etcBtn].forEach {
-            scrollView.addSubview($0)
-        }
-    }
-    
     override func setLayout() {
-        scrollView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
-        }
-    }
-    
-    func setScrollViewLayout() {
         searchTextField.snp.makeConstraints {
-            $0.top.equalTo(scrollView.snp.top).offset(15)
+            $0.top.equalTo(view.snp.top).offset((bounds.height) / 7.38)
             $0.centerX.equalToSuperview()
             $0.trailing.leading.equalToSuperview().inset(33)
             $0.height.equalTo(40)
+        }
+        searchBtn.snp.makeConstraints {
+            $0.centerY.equalTo(searchTextField.snp.centerY).offset(0)
+            $0.trailing.equalTo(view.snp.trailing).inset(33)
+            $0.leading.equalTo(searchTextField.snp.trailing).inset(40)
+            $0.height.width.equalTo(40)
         }
         feBtn.snp.makeConstraints {
             $0.top.equalTo(searchTextField.snp.bottom).offset(24)
@@ -249,4 +260,5 @@ class SearchViewController: BaseViewController<SearchViewModel> {
             $0.width.equalTo(52)
         }
     }
+    
 }

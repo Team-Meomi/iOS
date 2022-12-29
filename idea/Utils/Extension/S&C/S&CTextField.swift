@@ -13,6 +13,12 @@ extension UITextField {
         self.leftView = paddingView
         self.leftViewMode = ViewMode.always
     }
+    
+    func addRightPadding(width:Float) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat(width), height: self.frame.height))
+        self.rightView = paddingView
+        self.rightViewMode = ViewMode.always
+    }
 
     func addRightImage(_ image: UIImage, x: Float, y: Float) {
         let iconView = UIImageView(frame:CGRect(x: CGFloat(x), y: CGFloat(y), width: image.size.width, height: image.size.height))

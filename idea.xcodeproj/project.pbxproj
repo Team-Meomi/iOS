@@ -489,7 +489,6 @@
 		7753E6A0295B141D0067A263 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				7753E6A3295B142C0067A263 /* Cell */,
 				7753E6A2295B14260067A263 /* VM */,
 				7753E6A1295B14220067A263 /* VC */,
 			);
@@ -510,13 +509,6 @@
 				7753E6A4295B143F0067A263 /* SearchViewModel.swift */,
 			);
 			path = VM;
-			sourceTree = "<group>";
-		};
-		7753E6A3295B142C0067A263 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		7753E6A6295B45670067A263 /* Profile */ = {
