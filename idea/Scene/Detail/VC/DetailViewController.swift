@@ -15,6 +15,7 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         getDetail()
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
+        configureVC()
     }
     
     let titleText = UILabel().then {
@@ -70,6 +71,12 @@ class DetailViewController: BaseViewController<DetailViewModel> {
 //        $0.addTarget(self, action: #selector(openedBtnDidTap), for: .touchUpInside)
     }
     
+    func configureVC() {
+        view.backgroundColor = .white
+        listTableView.dataSource = self
+        listTableView.delegate = self
+    }
+    
     func getDetailAPI() {
         titleText.text = BaseVC.decodedDetailData?.title
         contentText.text = BaseVC.decodedDetailData?.content
@@ -122,4 +129,21 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         }
     }
 
+}
+
+extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as? DetailTableViewCell else { return UITableViewCell()}
+        cell.listUser.text = "\(BaseVC.decodedDetailData?.list[indexPath.row].stuNum ?? 0)\(BaseVC.decodedDetailData?.list[indexPath.row].name ?? "")"
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        viewModel.cellDidSelect(index: indexPath.row)
+    }
 }
