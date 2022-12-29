@@ -72,6 +72,8 @@
 		779A69EE295D8AA500496839 /* UserJoinedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69ED295D8AA500496839 /* UserJoinedModel.swift */; };
 		779A69F0295D8AB100496839 /* UserJoinedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69EF295D8AB100496839 /* UserJoinedRequest.swift */; };
 		779A69F2295DA03B00496839 /* SinglePostListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69F1295DA03B00496839 /* SinglePostListResponse.swift */; };
+		779A69F8295DA7C200496839 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69F7295DA7C200496839 /* DetailViewController.swift */; };
+		779A69FA295DA7CF00496839 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69F9295DA7CF00496839 /* DetailViewModel.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -152,6 +154,8 @@
 		779A69ED295D8AA500496839 /* UserJoinedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJoinedModel.swift; sourceTree = "<group>"; };
 		779A69EF295D8AB100496839 /* UserJoinedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJoinedRequest.swift; sourceTree = "<group>"; };
 		779A69F1295DA03B00496839 /* SinglePostListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostListResponse.swift; sourceTree = "<group>"; };
+		779A69F7295DA7C200496839 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		779A69F9295DA7CF00496839 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -556,6 +560,39 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		779A69F3295DA79E00496839 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				779A69F6295DA7B300496839 /* Cell */,
+				779A69F5295DA7A900496839 /* VC */,
+				779A69F4295DA7A500496839 /* VM */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		779A69F4295DA7A500496839 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				779A69F9295DA7CF00496839 /* DetailViewModel.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		779A69F5295DA7A900496839 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				779A69F7295DA7C200496839 /* DetailViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		779A69F6295DA7B300496839 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		77BF4CFE29400DC800330346 = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +654,7 @@
 		77BF4D362940660500330346 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				779A69F3295DA79E00496839 /* Detail */,
 				7753E6A6295B45670067A263 /* Profile */,
 				7753E6A0295B141D0067A263 /* Search */,
 				7753E68529554E3F0067A263 /* Main */,
@@ -804,6 +842,7 @@
 				7753E660295178E10067A263 /* CreateConViewController.swift in Sources */,
 				7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */,
 				7753E62E294B3ECF0067A263 /* SignUpViewModel.swift in Sources */,
+				779A69F8295DA7C200496839 /* DetailViewController.swift in Sources */,
 				7753E64A29500EC60067A263 /* LoginRequest.swift in Sources */,
 				7753E6B3295BD5720067A263 /* S&CNavigation.swift in Sources */,
 				7753E643294C3EB30067A263 /* GeneralAPI.swift in Sources */,
@@ -833,6 +872,7 @@
 				7753E68D29554EE50067A263 /* CheckHomebase.swift in Sources */,
 				779A69EE295D8AA500496839 /* UserJoinedModel.swift in Sources */,
 				7753E662295178ED0067A263 /* CreateConViewModel.swift in Sources */,
+				779A69FA295DA7CF00496839 /* DetailViewModel.swift in Sources */,
 				7753E653295024B60067A263 /* SignUp.swift in Sources */,
 				7753E69329591E1E0067A263 /* CreateRequest.swift in Sources */,
 				7753E635294B67A60067A263 /* S&CTextField.swift in Sources */,
