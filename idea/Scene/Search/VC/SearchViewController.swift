@@ -262,3 +262,25 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     }
     
 }
+
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTabelViewCell", for: indexPath) as? MainTabelViewCell else { return UITableViewCell()}
+        cell.titleText.text = BaseVC.searchDecoedeData?[indexPath.row].title
+        cell.categoryText.text = BaseVC.searchDecoedeData?[indexPath.row].category
+        cell.typeText.text = BaseVC.searchDecoedeData?[indexPath.row].type
+        cell.dateText.text = BaseVC.searchDecoedeData?[indexPath.row].date
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        viewModel.cellDidSelect(index: indexPath.row)
+    }
+}
+
+
