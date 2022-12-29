@@ -54,4 +54,5 @@ struct BaseVC {
     static var decodedUserWritten: [UserWrittenResponse]?
     static var detailProvider = MoyaProvider<DetailServices>(plugins: [NetworkLoggerPlugin()])
     static var decodedDetailData: GetDetailResponse?
+    static var searchDecoedeData: [SearchResponse]?
 }
