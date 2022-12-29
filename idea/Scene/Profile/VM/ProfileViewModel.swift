@@ -29,8 +29,9 @@ final class ProfileViewModel: BaseViewModel {
     }
 
     struct Output {
-        var list: Observable<[UserWrittenResponse]>
+        var writtenList: Observable<[UserWrittenResponse]>
         var profile: Observable<GetMyDataResponse>
+        var joinedList: Observable<[UserJoinedResponse]>
     }
     
     func transform(_ input: Input) -> Output {
@@ -38,6 +39,7 @@ final class ProfileViewModel: BaseViewModel {
         
         let writtenRelay = BehaviorRelay<[UserWrittenResponse]>(value: [])
         let profileRelay = PublishRelay<GetMyDataResponse>()
+        let joinedRelay = BehaviorRelay<[UserJoinedResponse]>(value: [])
         
         input.viewWillAppear
             .flatMap {
@@ -47,9 +49,7 @@ final class ProfileViewModel: BaseViewModel {
                         case let .success(res):
                             let data = try? JSONDecoder().decode([UserWrittenResponse].self, from: res.data)
                             observer.onNext(data ?? [])
-
                         case let .failure(err):
-                            
                             observer.onError(err)
                         }
                     }
@@ -81,9 +81,28 @@ final class ProfileViewModel: BaseViewModel {
             .bind(to: profileRelay)
             .disposed(by: disposeBag)
         
+        input.viewWillAppear
+            .flatMap {
+                Observable<[UserJoinedResponse]>.create { observer in
+                    provider.request(.userWritten(id: BaseVC.decodedMyData?.id ?? 1, authorization: BaseVC.userData!.accessToken)) { result in
+                        switch result {
+                        case let .success(res):
+                            let data = try? JSONDecoder().decode([UserJoinedResponse].self, from: res.data)
+                            observer.onNext(data ?? [])
+                        case let .failure(err):
+                            observer.onError(err)
+                        }
+                    }
+                    return Disposables.create()
+                }
+            }
+            .bind(to: joinedRelay)
+            .disposed(by: disposeBag)
+        
         return Output(
-            list: writtenRelay.asObservable(),
-            profile: profileRelay.asObservable()
+            writtenList: writtenRelay.asObservable(),
+            profile: profileRelay.asObservable(),
+            joinedList: joinedRelay.asObservable()
         )
     }
 

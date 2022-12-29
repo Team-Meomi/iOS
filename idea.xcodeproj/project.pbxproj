@@ -69,6 +69,8 @@
 		7753E6BF295C1BA70067A263 /* UserWrittenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6BE295C1BA70067A263 /* UserWrittenModel.swift */; };
 		7753E6C1295C1BB40067A263 /* UserWrittenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6C0295C1BB40067A263 /* UserWrittenRequest.swift */; };
 		7753E6C3295C1F540067A263 /* UserWritten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753E6C2295C1F540067A263 /* UserWritten.swift */; };
+		779A69EE295D8AA500496839 /* UserJoinedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69ED295D8AA500496839 /* UserJoinedModel.swift */; };
+		779A69F0295D8AB100496839 /* UserJoinedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A69EF295D8AB100496839 /* UserJoinedRequest.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -146,6 +148,8 @@
 		7753E6BE295C1BA70067A263 /* UserWrittenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrittenModel.swift; sourceTree = "<group>"; };
 		7753E6C0295C1BB40067A263 /* UserWrittenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrittenRequest.swift; sourceTree = "<group>"; };
 		7753E6C2295C1F540067A263 /* UserWritten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritten.swift; sourceTree = "<group>"; };
+		779A69ED295D8AA500496839 /* UserJoinedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJoinedModel.swift; sourceTree = "<group>"; };
+		779A69EF295D8AB100496839 /* UserJoinedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJoinedRequest.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -492,7 +496,6 @@
 		7753E6A6295B45670067A263 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				7753E6A9295B45800067A263 /* Cell */,
 				7753E6A8295B45750067A263 /* VM */,
 				7753E6A7295B456F0067A263 /* VC */,
 			);
@@ -515,13 +518,6 @@
 			path = VM;
 			sourceTree = "<group>";
 		};
-		7753E6A9295B45800067A263 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		7753E6B1295BD54A0067A263 /* S&C */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +538,8 @@
 				7753E6B9295BD9610067A263 /* ProfileServices.swift */,
 				7753E6BE295C1BA70067A263 /* UserWrittenModel.swift */,
 				7753E6C0295C1BB40067A263 /* UserWrittenRequest.swift */,
+				779A69ED295D8AA500496839 /* UserJoinedModel.swift */,
+				779A69EF295D8AB100496839 /* UserJoinedRequest.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -789,6 +787,7 @@
 				7753E69D295AB7510067A263 /* List.swift in Sources */,
 				7753E66F29546D950067A263 /* RefreshModel.swift in Sources */,
 				7753E65B295146520067A263 /* ListRequest.swift in Sources */,
+				779A69F0295D8AB100496839 /* UserJoinedRequest.swift in Sources */,
 				7753E6B8295BD8B10067A263 /* GetMyDataRequest.swift in Sources */,
 				7753E6732954715D0067A263 /* Refresh.swift in Sources */,
 				7753E6B6295BD89C0067A263 /* GetMyDataModel.swift in Sources */,
@@ -828,6 +827,7 @@
 				7753E67E295535DA0067A263 /* CheckHomebaseRequest.swift in Sources */,
 				7753E657295145080067A263 /* MainServices.swift in Sources */,
 				7753E68D29554EE50067A263 /* CheckHomebase.swift in Sources */,
+				779A69EE295D8AA500496839 /* UserJoinedModel.swift in Sources */,
 				7753E662295178ED0067A263 /* CreateConViewModel.swift in Sources */,
 				7753E653295024B60067A263 /* SignUp.swift in Sources */,
 				7753E69329591E1E0067A263 /* CreateRequest.swift in Sources */,

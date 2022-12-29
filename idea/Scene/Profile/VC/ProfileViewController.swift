@@ -16,7 +16,7 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+        getOpenedData()
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationItem.logoutImage()
         view.backgroundColor = .Background
@@ -79,7 +79,7 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
         }
     }
     
-    func getData() {
+    func getOpenedData() {
         // MARK: Input
         let viewWillApeearObservable = self.rx.methodInvoked(#selector(viewWillAppear))
             .map { _ in }
@@ -91,10 +91,8 @@ class ProfileViewController: BaseViewController<ProfileViewModel> {
                 viewWillAppear: viewWillApeearObservable
             )
         )
-        
         output.list
             .catch({ err in
-                
                 return .empty()
             })
             .bind(
