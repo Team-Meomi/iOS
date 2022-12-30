@@ -104,7 +104,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     }
     
     let searchTableView = UITableView().then {
-        $0.register(DetailTableViewCell.self, forCellReuseIdentifier: "DetailTableViewCell")
+        $0.register(MainTabelViewCell.self, forCellReuseIdentifier: "MainTabelViewCell")
         $0.separatorStyle = .none
         $0.rowHeight = 75
         $0.layer.cornerRadius = 8
@@ -211,7 +211,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     }
 
     override func addView() {
-        [searchTextField,searchBtn,feBtn,beBtn,iosBtn,aosBtn,etcBtn].forEach {
+        [searchTextField,searchBtn,feBtn,beBtn,iosBtn,aosBtn,etcBtn,searchTableView].forEach {
             view.addSubview($0)
         }
     }
@@ -259,13 +259,19 @@ class SearchViewController: BaseViewController<SearchViewModel> {
             $0.height.equalTo(35)
             $0.width.equalTo(52)
         }
+        searchTableView.snp.makeConstraints {
+            $0.top.equalTo(etcBtn.snp.bottom).offset(22)
+            $0.leading.trailing.equalToSuperview().inset(33)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
     }
     
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        BaseVC.searchDecoedeData?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

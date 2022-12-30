@@ -39,6 +39,7 @@ extension SearchViewController {
                     BaseVC.searchDecoedeData = try JSONDecoder().decode([SearchResponse].self, from: responseData)
                 } catch(let err) {
                     print(err.localizedDescription)
+                    print(String(describing: err))
                 }
                 let statusCode = result.statusCode
                 switch statusCode {

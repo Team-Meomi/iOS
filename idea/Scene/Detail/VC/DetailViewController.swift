@@ -8,6 +8,7 @@
 import UIKit
 import MSGLayout
 import Then
+import Foundation
 
 class DetailViewController: BaseViewController<DetailViewModel> {
 
