@@ -30,9 +30,10 @@ extension CreateConViewController{
     
     func checkAudiovisual() {
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let param = CheckHomebaseRequest.init(BaseVC.userData!.accessToken, date)
+        var date = dateFormatter.string(from: datePicker.date)
+        let param = CheckAudiovisualRequest.init(BaseVC.userData!.accessToken, date)
         print(param)
-        BaseVC.mainProvider.request(.checkHomebase(
+        BaseVC.mainProvider.request(.checkAudiovisual(
             param: param,
             authorization: BaseVC.userData!.accessToken
         )) { response in

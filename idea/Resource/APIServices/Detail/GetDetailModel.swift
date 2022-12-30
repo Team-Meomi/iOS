@@ -16,14 +16,15 @@ struct GetDetailResponse: Codable {
     let id: Int
     let title: String
     let content: String
+    let category: String
     let date: String
-    let studytype: String
+    let studyType: String
     let isMine: Bool
     let isStatus: Bool
     let writer: Writer
     let count: Count
     let list: [SingleApplier]
-
+    
     struct Writer: Codable {
         let id: Int
         let stuNum: Int

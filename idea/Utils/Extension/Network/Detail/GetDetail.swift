@@ -33,10 +33,13 @@ extension DetailViewController {
         BaseVC.detailProvider.request(.getDetail(id: viewModel.id                                              , authorization: BaseVC.userData!.accessToken)) {response in
             switch response {
             case let .success(result):
+                print(String(data: result.data, encoding: .utf8))
                 let responseData = result.data
                 do {
+                    print("A")
                     BaseVC.decodedDetailData = try JSONDecoder().decode(GetDetailResponse.self, from: responseData)
                 } catch(let err) {
+                    print("B")
                     print(err.localizedDescription)
                     print(String(describing: err))
                 }

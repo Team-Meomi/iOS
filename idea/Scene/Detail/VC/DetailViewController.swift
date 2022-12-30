@@ -38,6 +38,11 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         $0.textColor = .black
     }
     
+    let positionText = UILabel().then {
+        $0.font = UIFont.SCFont(size: 14,family: .Regular)
+        $0.textColor = .black
+    }
+    
     let countText = UILabel().then {
         $0.font = UIFont.SCFont(size: 14,family: .Regular)
         $0.textColor = .black
@@ -80,9 +85,20 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     func getDetailAPI() {
         titleText.text = BaseVC.decodedDetailData?.title
         contentText.text = BaseVC.decodedDetailData?.content
-        dateText.text = BaseVC.decodedDetailData?.date
-        countText.text = "\(BaseVC.decodedDetailData?.count.count ?? 0)/\(BaseVC.decodedDetailData?.count.maxCount ?? 0)"
-        writer.text = "\(BaseVC.decodedDetailData?.writer.stuNum ?? 0)\(BaseVC.decodedDetailData?.writer.name ?? "")"
+        categoryText.text = "전공: \(BaseVC.decodedDetailData?.category ?? "")"
+        dateText.text = "날짜: \(BaseVC.decodedDetailData?.date ?? "")"
+        switch BaseVC.decodedDetailData?.studyType {
+        case "컨퍼런스":
+            positionText.text = "장소: 시청각실"
+            break
+        case "스터디":
+            positionText.text = "장소: 홈베이스"
+            break
+        default:
+            positionText.text = "장소: 에러"
+        }
+        countText.text = "현재인원: \(BaseVC.decodedDetailData?.count.count ?? 0)/\(BaseVC.decodedDetailData?.count.maxCount ?? 0)"
+        writer.text = "개설자: \(BaseVC.decodedDetailData?.writer.stuNum ?? 0)\(BaseVC.decodedDetailData?.writer.name ?? "")"
     }
     
     override func addView() {
