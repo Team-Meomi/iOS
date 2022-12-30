@@ -11,6 +11,8 @@ import Moya
 
 enum DetailServices{
     case getDetail(id: Int,authorization: String)
+    case join(id: Int, authorization: String)
+    case delete(id: Int, authorization: String)
 }
 
 extension DetailServices: TargetType{
@@ -21,8 +23,10 @@ extension DetailServices: TargetType{
     
     var path: String {
         switch self{
-        case .getDetail(let id, _):
+        case .getDetail(let id, _), .join(let id, _):
             return "/study/\(id)"
+        case .delete(let id,_):
+            return "/study/cancel/\(id)"
         }
     }
     
@@ -30,6 +34,10 @@ extension DetailServices: TargetType{
         switch self {
         case .getDetail:
             return .get
+        case .join:
+            return .post
+        case .delete:
+            return .delete
         }
     }
     
@@ -39,14 +47,14 @@ extension DetailServices: TargetType{
     
     var task: Moya.Task {
         switch self {
-        case .getDetail:
+        case .getDetail, .join, .delete:
             return .requestPlain
         }
     }
         
     var headers: [String : String]? {
         switch self {
-        case .getDetail(_,let authorization):
+        case .getDetail(_,let authorization), .join(_,let authorization), .delete(_,let authorization):
             return["Content-Type" :"application/json","Authorization" : authorization]
         default:
             return["Content-Type" :"application/json"]

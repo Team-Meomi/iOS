@@ -82,6 +82,10 @@
 		779A6A09295DF60100496839 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A08295DF60100496839 /* SearchModel.swift */; };
 		779A6A0B295DF61000496839 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A0A295DF61000496839 /* SearchRequest.swift */; };
 		779A6A0D295DFC5300496839 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A0C295DFC5300496839 /* Search.swift */; };
+		779A6A13295EB65A00496839 /* JoinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A12295EB65A00496839 /* JoinRequest.swift */; };
+		779A6A15295EB75E00496839 /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A14295EB75E00496839 /* Join.swift */; };
+		779A6A18295EBE9E00496839 /* DeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A17295EBE9E00496839 /* DeleteRequest.swift */; };
+		779A6A1A295EBF2700496839 /* Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A19295EBF2700496839 /* Delete.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -172,6 +176,10 @@
 		779A6A08295DF60100496839 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		779A6A0A295DF61000496839 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
 		779A6A0C295DFC5300496839 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		779A6A12295EB65A00496839 /* JoinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRequest.swift; sourceTree = "<group>"; };
+		779A6A14295EB75E00496839 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
+		779A6A17295EBE9E00496839 /* DeleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRequest.swift; sourceTree = "<group>"; };
+		779A6A19295EBF2700496839 /* Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delete.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -612,6 +620,8 @@
 				779A69FE295DDD4100496839 /* GetDetailModel.swift */,
 				779A6A00295DDD5600496839 /* GetDetailRequest.swift */,
 				779A6A02295DDD6900496839 /* DetailServices.swift */,
+				779A6A12295EB65A00496839 /* JoinRequest.swift */,
+				779A6A17295EBE9E00496839 /* DeleteRequest.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -620,6 +630,8 @@
 			isa = PBXGroup;
 			children = (
 				779A6A05295DE55A00496839 /* GetDetail.swift */,
+				779A6A14295EB75E00496839 /* Join.swift */,
+				779A6A19295EBF2700496839 /* Delete.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -854,6 +866,7 @@
 				77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */,
 				7753E69F295B141A0067A263 /* SearchViewController.swift in Sources */,
 				77BF4D312940655E00330346 /* IntroViewModel.swift in Sources */,
+				779A6A1A295EBF2700496839 /* Delete.swift in Sources */,
 				7753E66929517B300067A263 /* CreateStuViewModel.swift in Sources */,
 				7753E6BD295BDDC10067A263 /* GetMyData.swift in Sources */,
 				7753E64829500E3F0067A263 /* LoginModel.swift in Sources */,
@@ -866,6 +879,7 @@
 				7753E69B295970230067A263 /* MainTableViewCell.swift in Sources */,
 				7753E680295535E40067A263 /* CheckAudiovisualModel.swift in Sources */,
 				7753E655295027BE0067A263 /* Login.swift in Sources */,
+				779A6A15295EB75E00496839 /* Join.swift in Sources */,
 				7753E69D295AB7510067A263 /* List.swift in Sources */,
 				7753E66F29546D950067A263 /* RefreshModel.swift in Sources */,
 				7753E65B295146520067A263 /* ListRequest.swift in Sources */,
@@ -893,6 +907,7 @@
 				7753E64C29500FD20067A263 /* LoginServices.swift in Sources */,
 				7753E64E29500FF60067A263 /* SignUpModel.swift in Sources */,
 				7753E6AD295B45E20067A263 /* ProfileViewModel.swift in Sources */,
+				779A6A13295EB65A00496839 /* JoinRequest.swift in Sources */,
 				7753E698295939EE0067A263 /* CreateStu.swift in Sources */,
 				779A6A06295DE55A00496839 /* GetDetail.swift in Sources */,
 				77BF4D35294065A000330346 /* BaseViewModel.swift in Sources */,
@@ -901,6 +916,7 @@
 				7753E60B294B31310067A263 /* S&CFont.swift in Sources */,
 				7753E620294B345E0067A263 /* S&CColor.swift in Sources */,
 				7753E6BF295C1BA70067A263 /* UserWrittenModel.swift in Sources */,
+				779A6A18295EBE9E00496839 /* DeleteRequest.swift in Sources */,
 				77BF4D332940659000330346 /* BaseViewController.swift in Sources */,
 				779A6A0B295DF61000496839 /* SearchRequest.swift in Sources */,
 				7753E631294B41320067A263 /* ViewModelProtocol.swift in Sources */,

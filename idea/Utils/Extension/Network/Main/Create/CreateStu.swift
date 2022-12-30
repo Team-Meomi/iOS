@@ -50,7 +50,7 @@ extension CreateStuViewController {
     }
     
     func createStu() {
-        let count:Int = 5
+        let count:Int = 4
         let studyType:String = "스터디"
         let param = CreateRequest.init(BaseVC.userData!.accessToken,
                                        self.titleTextField.text!,

@@ -67,13 +67,21 @@ class DetailViewController: BaseViewController<DetailViewModel> {
     }
     
     lazy var joinBtn = UIButton().then {
-        let text = NSAttributedString(string: "신청하기")
-        $0.setAttributedTitle(text, for: .normal)
+        $0.setTitle("신청하기", for: .normal)
         $0.titleLabel?.font = UIFont.SCFont(size: 14, family: .Bold)
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .Main
         $0.layer.cornerRadius = 4
-//        $0.addTarget(self, action: #selector(openedBtnDidTap), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(joinBtnDidTap), for: .touchUpInside)
+    }
+    
+    @objc func joinBtnDidTap() {
+        if BaseVC.decodedDetailData?.isStatus == false {
+            join()
+        }
+        else if BaseVC.decodedDetailData?.isStatus == true {
+            delete()
+        }
     }
     
     func configureVC() {
@@ -98,7 +106,15 @@ class DetailViewController: BaseViewController<DetailViewModel> {
             positionText.text = "장소: 에러"
         }
         countText.text = "현재인원: \(BaseVC.decodedDetailData?.count.count ?? 0)/\(BaseVC.decodedDetailData?.count.maxCount ?? 0)"
-        writer.text = "개설자: \(BaseVC.decodedDetailData?.writer.stuNum ?? 0)\(BaseVC.decodedDetailData?.writer.name ?? "")"
+        writer.text = "\(BaseVC.decodedDetailData?.writer.stuNum ?? 0)\(BaseVC.decodedDetailData?.writer.name ?? "")"
+        if BaseVC.decodedDetailData?.isStatus == true {
+            joinBtn.setTitle("취소하기", for: .normal)
+            joinBtn.backgroundColor = UIColor(red: 248/255, green: 112/255, blue: 112/255, alpha: 1)
+        }
+        if BaseVC.decodedDetailData?.isMine == true {
+            joinBtn.setTitle("개설자", for: .normal)
+            joinBtn.backgroundColor = UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)
+        }
     }
     
     override func addView() {
@@ -137,7 +153,7 @@ class DetailViewController: BaseViewController<DetailViewModel> {
                 .trailing(.to(view).trailing, .equal(-27))
                 .centerX(.toSuperview())
             joinBtn.layout
-                .top(.to(listTableView).bottom,.equal(45))
+                .bottom(.to(view).bottom,.equal(-74))
                 .centerX(.toSuperview())
                 .leading(.to(view).leading, .equal(27))
                 .trailing(.to(view).trailing, .equal(-27))
@@ -149,7 +165,7 @@ class DetailViewController: BaseViewController<DetailViewModel> {
 
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return BaseVC.decodedDetailData?.list.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

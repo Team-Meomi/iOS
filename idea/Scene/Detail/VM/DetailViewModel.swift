@@ -19,6 +19,10 @@ final class DetailViewModel: BaseViewModel {
     func pushIntro() {
         coordinator.pushIntroVC()
     }
+    
+    func pushMain() {
+        coordinator.pushMainVC()
+    }
 
 }
 

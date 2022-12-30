@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import Foundation
-import Moya
-
 
 struct SignupModel: Codable {
     let status: Int
