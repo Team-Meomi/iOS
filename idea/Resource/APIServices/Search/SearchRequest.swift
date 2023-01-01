@@ -9,12 +9,12 @@ import Foundation
 
 struct SearchRequest: Codable {
     let Authorization: String
-    let keyword: String
+    let title: String
     let category: String
     
-    init(_ Authorization: String,_ keyword:String, _ category: String) {
+    init(_ Authorization: String,_ title:String, _ category: String) {
         self.Authorization = Authorization
-        self.keyword = keyword
+        self.title = title
         self.category = category
     }
 }

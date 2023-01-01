@@ -12,7 +12,7 @@ struct GeneralAPI{
 //    static let baseURL = "http://10.82.20.18:8080/api/v1"
 //    static let adminBaseURL = "http://10.82.20.18:8080/api/v1/admin"
     
-    static let userBaseURL = "https://port-0-server-3sojxk2ilbyavxer.gksl2.cloudtype.app/api/v1/user"
-    static let baseURL = "https://port-0-server-3sojxk2ilbyavxer.gksl2.cloudtype.app/api/v1"
-    static let adminBaseURL = "https://port-0-server-3sojxk2ilbyavxer.gksl2.cloudtype.app/api/v1/admin"
+    static let userBaseURL = "\(baseURL)/user"
+    static let baseURL = "http://54.180.93.157:8080/api/v1"
+    static let adminBaseURL = "\(baseURL)/admin"
 }

@@ -67,7 +67,7 @@ extension MainServices: TargetType{
             ], encoding: URLEncoding.queryString)
         case .search(let param, _):
             return .requestParameters(parameters: [
-                "keyword": param.keyword,
+                "title": param.title,
                 "category": param.category], encoding: URLEncoding.queryString)
         case .create(let param,_):
             return .requestJSONEncodable(param)

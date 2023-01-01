@@ -86,6 +86,9 @@
 		779A6A15295EB75E00496839 /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A14295EB75E00496839 /* Join.swift */; };
 		779A6A18295EBE9E00496839 /* DeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A17295EBE9E00496839 /* DeleteRequest.swift */; };
 		779A6A1A295EBF2700496839 /* Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A19295EBF2700496839 /* Delete.swift */; };
+		779A6A232961F9EC00496839 /* AdminMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A222961F9EC00496839 /* AdminMainVC.swift */; };
+		779A6A252961F9F700496839 /* AdminMainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A242961F9F700496839 /* AdminMainVM.swift */; };
+		779A6A272961FA1600496839 /* AdminMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A262961FA1600496839 /* AdminMainTableViewCell.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -180,6 +183,9 @@
 		779A6A14295EB75E00496839 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
 		779A6A17295EBE9E00496839 /* DeleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRequest.swift; sourceTree = "<group>"; };
 		779A6A19295EBF2700496839 /* Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delete.swift; sourceTree = "<group>"; };
+		779A6A222961F9EC00496839 /* AdminMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainVC.swift; sourceTree = "<group>"; };
+		779A6A242961F9F700496839 /* AdminMainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainVM.swift; sourceTree = "<group>"; };
+		779A6A262961FA1600496839 /* AdminMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainTableViewCell.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -645,6 +651,72 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		779A6A1B2961F98100496839 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				779A69F3295DA79E00496839 /* Detail */,
+				7753E6A6295B45670067A263 /* Profile */,
+				7753E6A0295B141D0067A263 /* Search */,
+				7753E68529554E3F0067A263 /* Main */,
+				7753E66329517AFB0067A263 /* CreateStu */,
+				7753E65C2951788E0067A263 /* CreateCon */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		779A6A1C2961F99200496839 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				779A6A1E2961F9C200496839 /* Main */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		779A6A1D2961F9AB00496839 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				77BF4D382940661C00330346 /* Base */,
+				7753E627294B3E9D0067A263 /* SignUp */,
+				7753E601294B2FBD0067A263 /* Login */,
+				77BF4D372940661600330346 /* Intro */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		779A6A1E2961F9C200496839 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				779A6A212961F9D100496839 /* Cell */,
+				779A6A202961F9CD00496839 /* VC */,
+				779A6A1F2961F9C800496839 /* VM */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		779A6A1F2961F9C800496839 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				779A6A242961F9F700496839 /* AdminMainVM.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		779A6A202961F9CD00496839 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				779A6A222961F9EC00496839 /* AdminMainVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		779A6A212961F9D100496839 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				779A6A262961FA1600496839 /* AdminMainTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		77BF4CFE29400DC800330346 = {
 			isa = PBXGroup;
 			children = (
@@ -706,16 +778,9 @@
 		77BF4D362940660500330346 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				779A69F3295DA79E00496839 /* Detail */,
-				7753E6A6295B45670067A263 /* Profile */,
-				7753E6A0295B141D0067A263 /* Search */,
-				7753E68529554E3F0067A263 /* Main */,
-				7753E66329517AFB0067A263 /* CreateStu */,
-				7753E65C2951788E0067A263 /* CreateCon */,
-				7753E627294B3E9D0067A263 /* SignUp */,
-				7753E601294B2FBD0067A263 /* Login */,
-				77BF4D372940661600330346 /* Intro */,
-				77BF4D382940661C00330346 /* Base */,
+				779A6A1D2961F9AB00496839 /* General */,
+				779A6A1C2961F99200496839 /* Admin */,
+				779A6A1B2961F98100496839 /* User */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -895,7 +960,9 @@
 				779A69FF295DDD4100496839 /* GetDetailModel.swift in Sources */,
 				7753E6BA295BD9610067A263 /* ProfileServices.swift in Sources */,
 				7753E682295535F50067A263 /* CheckAudiovisualRequest.swift in Sources */,
+				779A6A252961F9F700496839 /* AdminMainVM.swift in Sources */,
 				7753E659295146420067A263 /* ListModel.swift in Sources */,
+				779A6A232961F9EC00496839 /* AdminMainVC.swift in Sources */,
 				779A69FC295DD5FA00496839 /* DetailTableViewCell.swift in Sources */,
 				7753E660295178E10067A263 /* CreateConViewController.swift in Sources */,
 				7753E645294C3FBC0067A263 /* NetworkResult.swift in Sources */,
@@ -935,6 +1002,7 @@
 				7753E68D29554EE50067A263 /* CheckHomebase.swift in Sources */,
 				779A69EE295D8AA500496839 /* UserJoinedModel.swift in Sources */,
 				7753E662295178ED0067A263 /* CreateConViewModel.swift in Sources */,
+				779A6A272961FA1600496839 /* AdminMainTableViewCell.swift in Sources */,
 				779A69FA295DA7CF00496839 /* DetailViewModel.swift in Sources */,
 				7753E653295024B60067A263 /* SignUp.swift in Sources */,
 				779A6A0D295DFC5300496839 /* Search.swift in Sources */,

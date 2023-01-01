@@ -59,7 +59,7 @@ final class MainViewModel: BaseViewModel {
                         case let .success(res):
                             let data = try? JSONDecoder().decode([ListResponse].self, from: res.data)
                             observer.onNext(data ?? [])
-
+                            
                         case let .failure(err):
                             observer.onError(err)
                         }

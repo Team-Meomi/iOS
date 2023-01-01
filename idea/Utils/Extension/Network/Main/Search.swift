@@ -29,14 +29,16 @@ extension SearchViewController {
     }
     
     func search() {
-        let param = SearchRequest.init(BaseVC.userData!.accessToken, searchTextField.text ?? "", postMajor)
+        let param = SearchRequest.init(BaseVC.userData!.accessToken, searchTextField.text ?? "",BaseVC.searchMajor)
         print(param)
         BaseVC.mainProvider.request(.search(param: param, authorization: BaseVC.userData!.accessToken)) {response in
             switch response {
             case let .success(result):
                 let responseData = result.data
+//                print(String(data: responseData, encoding: .utf8))
                 do {
-                    BaseVC.searchDecoedeData = try JSONDecoder().decode([SearchResponse].self, from: responseData)
+//                    BaseVC.searchDecoedeData = try JSONDecoder().decode([SearchResponse].self, from: responseData)
+//                    BaseVC.searchDecoedeData = try().decode([SearchResponse].self, from: responseData)
                 } catch(let err) {
                     print(err.localizedDescription)
                     print(String(describing: err))
