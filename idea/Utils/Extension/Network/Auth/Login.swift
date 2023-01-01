@@ -12,9 +12,11 @@ extension LoginViewController {
     
     func success() {
         if emailTextField.text ==  "000000" && pwTextField.text == "000000"{
-            
+            viewModel.pushAdminVC()
         }
-        viewModel.pushMainVC()
+        else{
+            viewModel.pushMainVC()
+        }
     }
     
     func failure() {

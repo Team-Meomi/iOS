@@ -10,11 +10,12 @@ import MSGLayout
 import Then
 import Foundation
 
-class AdminMainVC: BaseViewController<DetailViewModel> {
+class AdminMainVC: BaseViewController<AdminMainVM> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        view.backgroundColor = .cyan
     }
 
     override func addView() {

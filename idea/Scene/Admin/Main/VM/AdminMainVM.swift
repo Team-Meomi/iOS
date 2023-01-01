@@ -24,7 +24,7 @@ final class AdminMainVM: BaseViewModel {
 
 }
 
-extension DetailViewModel: ViewModelType{
+extension AdminMainVM: ViewModelType{
 
     struct Input {
         

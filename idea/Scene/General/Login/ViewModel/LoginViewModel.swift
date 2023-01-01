@@ -22,6 +22,9 @@ final class LoginViewModel: BaseViewModel {
     func pushSignUpVC() {
         coordinator.pushSignUpVC()
     }
+    func pushAdminVC() {
+        coordinator.pushAdminVC()
+    }
     
 }
 

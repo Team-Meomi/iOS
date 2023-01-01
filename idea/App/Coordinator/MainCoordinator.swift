@@ -83,4 +83,10 @@ class MainCoordinator:Coordinator {
         let vc = DetailViewController(vm)
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func pushAdminVC() {
+        let adminVm = AdminMainVM(coordinator: self)
+        let adminVc = AdminMainVC(adminVm)
+        navigationController.pushViewController(adminVc, animated: true)
+    }
 }
