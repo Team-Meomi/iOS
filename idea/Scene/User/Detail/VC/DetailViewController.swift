@@ -14,9 +14,10 @@ import RxSwift
 class DetailViewController: BaseViewController<DetailViewModel> {
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
-        getDetail()
+        getDetailAPI()
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
+        getList()
     }
     
     let titleText = UILabel().then {
@@ -91,31 +92,25 @@ class DetailViewController: BaseViewController<DetailViewModel> {
 //        listTableView.delegate = self
 //    }
     
-    func getOpenedData() {
+    func getList() {
         // MARK: Input
         let viewWillApeearObservable = self.rx.methodInvoked(#selector(viewWillAppear))
             .map { _ in }
             .asObservable()
-        
+
         // MARK: Output
         let output = viewModel.transform(
             .init(
                 viewWillAppear: viewWillApeearObservable
             )
         )
-        output.getDetail
+        output.list
             .bind(
                 to: listTableView.rx.items(cellIdentifier: "DetailTableViewCell", cellType: DetailTableViewCell.self)
             ) { ip, item, cell in
-                cell.listUser.text = "\(list.stuNum)"
+                cell.listUser.text = "\(item.stuNum)\(item.name)"
                 cell.accessoryType = .disclosureIndicator
             }
-            .disposed(by: disposeBag)
-        
-        output.getDetail
-            .catchAndReturn(.init(id: 0, title: "", content: "", category: "", date: "", studyType: "", isMine: false, isStatus: false, writer: .init(id: 0, stuNum: 0, name: ""), count: .init(count: 0, maxCount: 0),list: [GetDetailResponse.SingleApplier(id: 0, stuNum: 0, name: "")]))
-            .map { "\($0.title)" }
-            .bind(to: titleText.rx.text)
             .disposed(by: disposeBag)
     }
     

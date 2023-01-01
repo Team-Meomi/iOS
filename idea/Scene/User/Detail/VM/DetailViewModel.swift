@@ -19,38 +19,33 @@ final class DetailViewModel: BaseViewModel {
         self.coordinator = coordinator
     }
     
+    func pushMain() {
+        coordinator.pushMainVC()
+    }
+    
+    func pushIntro() {
+        coordinator.pushIntroVC()
+    }
+    
     struct Input {
         var viewWillAppear: Observable<Void>
     }
     
     struct Output {
-        var title: Observable<GetDetailResponse>
-        var content: Observable<GetDetailResponse>
-        var category: Observable<GetDetailResponse>
-        var date: Observable<GetDetailResponse>
-        var count: Observable<GetDetailResponse>
-        var writer: Observable<GetDetailResponse>
-        var list: Observable<GetDetailResponse>
+        var list: Observable<[GetDetailResponse.SingleApplier]>
     }
     
     func transform(_ input: Input) -> Output {
         let provider = MoyaProvider<DetailServices>(plugins: [NetworkLoggerPlugin()])
-        
-        let titleRelay = PublishRelay<GetDetailResponse>()
-        let contentRelay = PublishRelay<GetDetailResponse>()
-        let categoryRelay = PublishRelay<GetDetailResponse>()
-        let dateRelay = PublishRelay<GetDetailResponse>()
-        let countRelay = PublishRelay<GetDetailResponse>()
-        let writerRelay = PublishRelay<GetDetailResponse>()
-        let listRelay = PublishRelay<GetDetailResponse>()
+        let listRelay = PublishRelay<[GetDetailResponse.SingleApplier]>()
         
         input.viewWillAppear
             .flatMap {
-                Observable<GetDetailResponse>.create { observer in
+                Observable<[GetDetailResponse.SingleApplier]>.create { observer in
                     provider.request(.getDetail(id: self.id, authorization: BaseVC.userData?.accessToken ?? "")) { result in
                         switch result {
                         case let .success(res):
-                            guard let data = try? JSONDecoder().decode(GetDetailResponse.self, from: res.data) else {
+                            guard let data = try? JSONDecoder().decode([GetDetailResponse.SingleApplier].self, from: res.data) else {
                                 observer.onError(CustomError.underlying)
                                 return
                             }
@@ -63,16 +58,10 @@ final class DetailViewModel: BaseViewModel {
                     return Disposables.create()
                 }
             }
-            .bind(to: titleRelay,contentRelay,categoryRelay,dateRelay,countRelay,writerRelay,listRelay)
+            .bind(to: listRelay)
             .disposed(by: disposeBag)
 
         return Output (
-        title: titleRelay.asObservable(),
-        content: countRelay.asObservable(),
-        category: categoryRelay.asObservable(),
-        date: dateRelay.asObservable(),
-        count: countRelay.asObservable(),
-        writer: writerRelay.asObservable(),
         list: listRelay.asObservable()
         )
     }
