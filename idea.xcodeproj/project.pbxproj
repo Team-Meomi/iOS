@@ -90,6 +90,9 @@
 		779A6A252961F9F700496839 /* AdminMainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A242961F9F700496839 /* AdminMainVM.swift */; };
 		779A6A272961FA1600496839 /* AdminMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A262961FA1600496839 /* AdminMainTableViewCell.swift */; };
 		779A6A2A29620AC500496839 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 779A6A2929620AC500496839 /* DropDown */; };
+		779A6A2F2962168A00496839 /* AdminMainServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A2E2962168A00496839 /* AdminMainServices.swift */; };
+		779A6A312962171500496839 /* SingleGetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A302962171500496839 /* SingleGetModel.swift */; };
+		779A6A332962172100496839 /* CheckConRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A322962172100496839 /* CheckConRequest.swift */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -187,6 +190,9 @@
 		779A6A222961F9EC00496839 /* AdminMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainVC.swift; sourceTree = "<group>"; };
 		779A6A242961F9F700496839 /* AdminMainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainVM.swift; sourceTree = "<group>"; };
 		779A6A262961FA1600496839 /* AdminMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainTableViewCell.swift; sourceTree = "<group>"; };
+		779A6A2E2962168A00496839 /* AdminMainServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainServices.swift; sourceTree = "<group>"; };
+		779A6A302962171500496839 /* SingleGetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGetModel.swift; sourceTree = "<group>"; };
+		779A6A322962172100496839 /* CheckConRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckConRequest.swift; sourceTree = "<group>"; };
 		77BF4D0729400DC800330346 /* idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF4D0A29400DC800330346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BF4D0C29400DC800330346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -319,11 +325,8 @@
 		7753E641294C3E890067A263 /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
-				779A6A07295DF5EF00496839 /* Search */,
-				779A69FD295DDD3400496839 /* Detail */,
-				7753E6B4295BD7DD0067A263 /* Profile */,
-				7753E677295535A70067A263 /* Create */,
-				7753E676295535950067A263 /* Main */,
+				779A6A2C2962165400496839 /* Admin */,
+				779A6A2B2962164F00496839 /* User */,
 				7753E675295535840067A263 /* General */,
 				7753E674295535590067A263 /* auth */,
 			);
@@ -719,6 +722,28 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		779A6A2B2962164F00496839 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				779A6A07295DF5EF00496839 /* Search */,
+				779A69FD295DDD3400496839 /* Detail */,
+				7753E6B4295BD7DD0067A263 /* Profile */,
+				7753E677295535A70067A263 /* Create */,
+				7753E676295535950067A263 /* Main */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		779A6A2C2962165400496839 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				779A6A2E2962168A00496839 /* AdminMainServices.swift */,
+				779A6A302962171500496839 /* SingleGetModel.swift */,
+				779A6A322962172100496839 /* CheckConRequest.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
 		77BF4CFE29400DC800330346 = {
 			isa = PBXGroup;
 			children = (
@@ -959,6 +984,8 @@
 				7753E6A5295B143F0067A263 /* SearchViewModel.swift in Sources */,
 				7753E6C1295C1BB40067A263 /* UserWrittenRequest.swift in Sources */,
 				779A6A03295DDD6900496839 /* DetailServices.swift in Sources */,
+				779A6A312962171500496839 /* SingleGetModel.swift in Sources */,
+				779A6A332962172100496839 /* CheckConRequest.swift in Sources */,
 				7753E67B295535CC0067A263 /* CheckHomebaseModel.swift in Sources */,
 				7753E650295010050067A263 /* SignUpRequest.swift in Sources */,
 				779A69FF295DDD4100496839 /* GetDetailModel.swift in Sources */,
@@ -1004,6 +1031,7 @@
 				7753E67E295535DA0067A263 /* CheckHomebaseRequest.swift in Sources */,
 				7753E657295145080067A263 /* MainServices.swift in Sources */,
 				7753E68D29554EE50067A263 /* CheckHomebase.swift in Sources */,
+				779A6A2F2962168A00496839 /* AdminMainServices.swift in Sources */,
 				779A69EE295D8AA500496839 /* UserJoinedModel.swift in Sources */,
 				7753E662295178ED0067A263 /* CreateConViewModel.swift in Sources */,
 				779A6A272961FA1600496839 /* AdminMainTableViewCell.swift in Sources */,

@@ -8,10 +8,13 @@
 import UIKit
 import MSGLayout
 import Then
-import Foundation
 import DropDown
+import RxCocoa
+import RxSwift
+import Moya
 
 class AdminMainVC: BaseViewController<AdminMainVM> {
+    private let disposeBag = DisposeBag()
 
     let nowDate = Date()
     let dateFormatter = DateFormatter().then {
@@ -22,6 +25,7 @@ class AdminMainVC: BaseViewController<AdminMainVM> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        getConData()
     }
     
     lazy var titleDateText = UILabel().then {
@@ -82,8 +86,55 @@ class AdminMainVC: BaseViewController<AdminMainVM> {
         conBtn.setTitleColor(UIColor(red: 153/255, green: 153/255, blue: 153/255, alpha: 1), for: .normal)
     }
     
+    let userTableView = UITableView().then {
+        $0.register(AdminMainTableViewCell.self, forCellReuseIdentifier: "AdminMainTableViewCell")
+        $0.separatorStyle = .none
+        $0.rowHeight = 75
+        $0.layer.cornerRadius = 8
+    }
+    
+    func getConData() {
+        // MARK: Input
+        let viewWillApeearObservable = self.rx.methodInvoked(#selector(viewWillAppear))
+            .map { _ in }
+            .asObservable()
+        
+        // MARK: Output
+        let output = viewModel.transform(
+            .init(
+                viewWillAppear: viewWillApeearObservable,
+                selectButtonDidTap: Observable.create { [weak self] observer in
+                    guard let self = self else { return Disposables.create() }
+                    var disposables = [Disposable]()
+                    disposables.append(
+                        self.conBtn.rx.tap
+                            .bind(with: self) { owner, _ in
+                                observer.onNext(.con)
+                            }
+                    )
+                    disposables.append(
+                        self.studyBtn.rx.tap
+                            .bind(with: self) { owner, _ in
+                                observer.onNext(.study)
+                            }
+                    )
+                    return Disposables.create(disposables)
+                }
+            )
+        )
+        output.currentSelected
+            .flatMap { $0 == .con ? output.conList : output.studyList }
+            .bind(
+                to: userTableView.rx.items(cellIdentifier: "AdminMainTableViewCell", cellType: AdminMainTableViewCell.self)
+            ) { ip, item, cell in
+                cell.listUser.text = "\(item.stuNum )\(item.name)"
+                cell.accessoryType = .disclosureIndicator
+            }
+            .disposed(by: disposeBag)
+    }
+    
     override func addView() {
-        [titleDateText,explainText,conBtn,divisionLine,studyBtn].forEach {
+        [titleDateText,explainText,conBtn,divisionLine,studyBtn,userTableView].forEach {
             view.addSubview($0)
         }
     }
@@ -107,6 +158,12 @@ class AdminMainVC: BaseViewController<AdminMainVM> {
             studyBtn.layout
                 .top(.to(explainText).bottom, .equal((bounds.height) / 6.15))
                 .trailing(.to(view).trailing, .equal(-(bounds.width) / 3.9))
+            userTableView.layout
+                .top(.to(studyBtn).bottom, .equal(43))
+                .centerX(.toSuperview())
+                .leading(.to(view).leading, .equal(55))
+                .trailing(.to(view).trailing, .equal(-55))
+                .bottom(.toSuperview())
         }
     }
 
