@@ -89,6 +89,7 @@
 		779A6A232961F9EC00496839 /* AdminMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A222961F9EC00496839 /* AdminMainVC.swift */; };
 		779A6A252961F9F700496839 /* AdminMainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A242961F9F700496839 /* AdminMainVM.swift */; };
 		779A6A272961FA1600496839 /* AdminMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A6A262961FA1600496839 /* AdminMainTableViewCell.swift */; };
+		779A6A2A29620AC500496839 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 779A6A2929620AC500496839 /* DropDown */; };
 		77BF4D0B29400DC800330346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0A29400DC800330346 /* AppDelegate.swift */; };
 		77BF4D0D29400DC800330346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0C29400DC800330346 /* SceneDelegate.swift */; };
 		77BF4D0F29400DC800330346 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D0E29400DC800330346 /* IntroViewController.swift */; };
@@ -209,6 +210,7 @@
 				77BF4D222940647500330346 /* SnapKit in Frameworks */,
 				77BF4D2A294064BF00330346 /* RxSwift in Frameworks */,
 				7753E63F294C3E020067A263 /* Moya in Frameworks */,
+				779A6A2A29620AC500496839 /* DropDown in Frameworks */,
 				7753E6B0295BD17B0067A263 /* MSGLayout in Frameworks */,
 				77BF4D252940649B00330346 /* Then in Frameworks */,
 			);
@@ -858,6 +860,7 @@
 				77BF4D29294064BF00330346 /* RxSwift */,
 				7753E63E294C3E020067A263 /* Moya */,
 				7753E6AF295BD17B0067A263 /* MSGLayout */,
+				779A6A2929620AC500496839 /* DropDown */,
 			);
 			productName = idea;
 			productReference = 77BF4D0729400DC800330346 /* idea.app */;
@@ -893,6 +896,7 @@
 				77BF4D26294064BF00330346 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				7753E63D294C3E020067A263 /* XCRemoteSwiftPackageReference "Moya" */,
 				7753E6AE295BD17B0067A263 /* XCRemoteSwiftPackageReference "MSGLayout" */,
+				779A6A2829620AC500496839 /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = 77BF4D0829400DC800330346 /* Products */;
 			projectDirPath = "";
@@ -1235,6 +1239,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		779A6A2829620AC500496839 /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		77BF4D202940647500330346 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -1271,6 +1283,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7753E6AE295BD17B0067A263 /* XCRemoteSwiftPackageReference "MSGLayout" */;
 			productName = MSGLayout;
+		};
+		779A6A2929620AC500496839 /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 779A6A2829620AC500496839 /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
 		};
 		77BF4D212940647500330346 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
