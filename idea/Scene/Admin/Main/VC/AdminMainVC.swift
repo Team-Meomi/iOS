@@ -8,7 +8,6 @@
 import UIKit
 import MSGLayout
 import Then
-import DropDown
 import RxCocoa
 import RxSwift
 import Moya
@@ -39,18 +38,7 @@ class AdminMainVC: BaseViewController<AdminMainVM> {
         $0.font = UIFont.SCFont(size: 16,family:.Bold)
         $0.textColor = .black
     }
-        
-//    let gradeDropDown = DropDown().then {
-//        DropDown.appearance().textColor = UIColor.black // 아이템 텍스트 색상
-//        DropDown.appearance().selectedTextColor = UIColor.blue // 선택된 아이템 텍스트 색상
-//        DropDown.appearance().backgroundColor = UIColor.white // 아이템 팝업 배경 색상
-//        DropDown.appearance().selectionBackgroundColor = UIColor.lightGray // 선택한 아이템 배경 색상
-//        DropDown.appearance().setupCornerRadius(8)
-//        $0.backgroundColor = UIColor.init(named: "#F1F1F1")
-//        $0.layer.cornerRadius = 8
-//        $0.dataSource = ["1학년","2학년","3학년"]
-//        $0.show()
-//    }
+    
     lazy var conBtn = UIButton().then {
         let text = NSAttributedString(string: "컨퍼런스")
         $0.setAttributedTitle(text, for: .normal)

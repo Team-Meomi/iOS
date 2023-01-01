@@ -8,15 +8,15 @@
 import UIKit
 import MSGLayout
 import Then
-import Foundation
+import Moya
+import RxSwift
 
 class DetailViewController: BaseViewController<DetailViewModel> {
-
+    private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         getDetail()
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
-        configureVC()
     }
     
     let titleText = UILabel().then {
@@ -85,10 +85,38 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         }
     }
     
-    func configureVC() {
-        view.backgroundColor = .white
-        listTableView.dataSource = self
-        listTableView.delegate = self
+//    func configureVC() {
+//        view.backgroundColor = .white
+//        listTableView.dataSource = self
+//        listTableView.delegate = self
+//    }
+    
+    func getOpenedData() {
+        // MARK: Input
+        let viewWillApeearObservable = self.rx.methodInvoked(#selector(viewWillAppear))
+            .map { _ in }
+            .asObservable()
+        
+        // MARK: Output
+        let output = viewModel.transform(
+            .init(
+                viewWillAppear: viewWillApeearObservable
+            )
+        )
+        output.getDetail
+            .bind(
+                to: listTableView.rx.items(cellIdentifier: "DetailTableViewCell", cellType: DetailTableViewCell.self)
+            ) { ip, item, cell in
+                cell.listUser.text = "\(list.stuNum)"
+                cell.accessoryType = .disclosureIndicator
+            }
+            .disposed(by: disposeBag)
+        
+        output.getDetail
+            .catchAndReturn(.init(id: 0, title: "", content: "", category: "", date: "", studyType: "", isMine: false, isStatus: false, writer: .init(id: 0, stuNum: 0, name: ""), count: .init(count: 0, maxCount: 0),list: [GetDetailResponse.SingleApplier(id: 0, stuNum: 0, name: "")]))
+            .map { "\($0.title)" }
+            .bind(to: titleText.rx.text)
+            .disposed(by: disposeBag)
     }
     
     func getDetailAPI() {
@@ -149,7 +177,7 @@ class DetailViewController: BaseViewController<DetailViewModel> {
                 .leading(.to(writerText).trailing, .equal(10))
             listTableView.layout
                 .top(.to(writer).bottom, .equal(20))
-                .bottom(.to(view).bottom, .equal((bounds.height) / 4.86))
+                .bottom(.to(joinBtn).top, .equal(-50))
                 .leading(.to(view).leading, .equal(27))
                 .trailing(.to(view).trailing, .equal(-27))
                 .centerX(.toSuperview())
@@ -164,19 +192,19 @@ class DetailViewController: BaseViewController<DetailViewModel> {
 
 }
 
-extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return BaseVC.decodedDetailData?.list.count ?? 0
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as? DetailTableViewCell else { return UITableViewCell()}
-        cell.listUser.text = "\(BaseVC.decodedDetailData?.list[indexPath.row].stuNum ?? 0)\(BaseVC.decodedDetailData?.list[indexPath.row].name ?? "")"
-        cell.accessoryType = .disclosureIndicator
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        viewModel.cellDidSelect(index: indexPath.row)
-    }
-}
+//extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return BaseVC.decodedDetailData?.list.count ?? 0
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as? DetailTableViewCell else { return UITableViewCell()}
+//        cell.listUser.text = "\(BaseVC.decodedDetailData?.list[indexPath.row].stuNum ?? 0)\(BaseVC.decodedDetailData?.list[indexPath.row].name ?? "")"
+//        cell.accessoryType = .disclosureIndicator
+//        return cell
+//    }
+//    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+////        viewModel.
+//    }
+//}
