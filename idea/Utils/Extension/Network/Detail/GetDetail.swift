@@ -46,8 +46,12 @@ extension DetailViewController {
                 switch statusCode {
                 case 200..<300:
                     self.success()
+                case 400:
+                    self.fullUser()
                 case 403:
                     self.accessTokenError()
+                case 409:
+                    self.sameday()
                 default:
                     self.failure()
                 }

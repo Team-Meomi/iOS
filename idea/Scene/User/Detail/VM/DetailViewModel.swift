@@ -48,7 +48,7 @@ final class DetailViewModel: BaseViewModel {
                             guard let data = try? JSONDecoder().decode([GetDetailResponse.SingleApplier].self, from: res.data) else {
                                 observer.onError(CustomError.underlying)
                                 return
-                            }
+            }
                             observer.onNext(data)
                             
                         case let .failure(err):

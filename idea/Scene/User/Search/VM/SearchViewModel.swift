@@ -17,51 +17,52 @@ final class SearchViewModel: BaseViewModel {
         self.coordinator = coordinator
     }
     
-    struct Input {
-        var searchBtnDidTap: Observable<Void>
-        var conferenceCellDidselect: Observable<Int>
-    }
-
-    struct Output {
-        var search: Observable<[SearchResponse]>
-    }
-
-    func transform(_ input: Input) -> Output {
-        let provider = MoyaProvider<MainServices>(plugins: [NetworkLoggerPlugin()])
-
-        let searchRelay = BehaviorRelay<[SearchResponse]>(value: [])
-
-        let param = SearchRequest.init(BaseVC.userData!.accessToken, BaseVC.searchText, BaseVC.searchMajor)
-
-        input.searchBtnDidTap
-            .flatMap {
-                Observable<[SearchResponse]>.create { observer in
-                    provider.request(.search(param: param, authorization: BaseVC.userData!.accessToken)) { result in
-                        switch result {
-                        case let .success(res):
-                            let data = try? JSONDecoder().decode([SearchResponse].self, from: res.data)
-                            observer.onNext(data ?? [])
-
-                        case let .failure(err):
-                            observer.onError(err)
-                        }
-                    }
-                    return Disposables.create()
-                }
-            }
-            .bind(to: searchRelay)
-            .disposed(by: disposeBag)
-
-        input.conferenceCellDidselect
-            .bind(with: self) { owner, id in
-                owner.coordinator.pushDetailVC(id: id)
-            }
-            .disposed(by: disposeBag)
-
-
-        return Output(
-            search: searchRelay.asObservable()
-        )
-    }
+//    struct Input {
+//        var searchBtnDidTap: Observable<Void>
+//        var conferenceCellDidselect: Observable<Int>
+//    }
+//
+//    struct Output {
+//        var search: Observable<[SearchResponse]>
+//    }
+//
+//    func transform(_ input: Input) -> Output {
+//        let provider = MoyaProvider<MainServices>(plugins: [NetworkLoggerPlugin()])
+//
+//        let searchRelay = BehaviorRelay<[SearchResponse]>(value: [])
+//
+//        let param = SearchRequest.init(BaseVC.userData!.accessToken, BaseVC.searchText, self.searchMajor)
+//
+//        input.searchBtnDidTap
+//            .flatMap {
+//                Observable<[SearchResponse]>.create { observer in
+//                    provider.request(.search(param: param, authorization: BaseVC.userData!.accessToken)) { result in
+//                        switch result {
+//                        case let .success(res):
+//                            let data = try? JSONDecoder().decode([SearchResponse].self, from: res.data)
+//                            print(data)
+//                            observer.onNext(data ?? [])
+//
+//                        case let .failure(err):
+//                            observer.onError(err)
+//                        }
+//                    }
+//                    return Disposables.create()
+//                }
+//            }
+//            .bind(to: searchRelay)
+//            .disposed(by: disposeBag)
+//
+//        input.conferenceCellDidselect
+//            .bind(with: self) { owner, id in
+//                owner.coordinator.pushDetailVC(id: id)
+//            }
+//            .disposed(by: disposeBag)
+//
+//
+//        return Output(
+//            search: searchRelay.asObservable()
+//        )
+//    }
 
 }

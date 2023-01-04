@@ -14,10 +14,9 @@ import RxSwift
 class DetailViewController: BaseViewController<DetailViewModel> {
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
-        getDetailAPI()
+        getDetail()
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = ""
-        getList()
     }
     
     let titleText = UILabel().then {
@@ -84,6 +83,7 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         else if BaseVC.decodedDetailData?.isStatus == true {
             delete()
         }
+        
     }
     
 //    func configureVC() {
@@ -137,6 +137,10 @@ class DetailViewController: BaseViewController<DetailViewModel> {
         }
         if BaseVC.decodedDetailData?.isMine == true {
             joinBtn.setTitle("개설자", for: .normal)
+            joinBtn.backgroundColor = UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)
+        }
+        if BaseVC.decodedDetailData?.count.count == BaseVC.decodedDetailData?.count.maxCount {
+            joinBtn.setTitle("신청불가", for: .normal)
             joinBtn.backgroundColor = UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)
         }
     }

@@ -33,6 +33,26 @@ extension DetailViewController {
         self.join()
     }
     
+    func fullUser() {
+        let failureAlert = UIAlertController(title: nil, message: "신청인원이 전부 다 찼습니다.", preferredStyle: .alert)
+        let failureAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
+            self.viewModel.pushMain()
+        }
+        failureAlert.addAction(failureAction)
+        self.present(failureAlert, animated: true, completion: nil)
+        print("failure")
+    }
+    
+    func sameday() {
+        let failureAlert = UIAlertController(title: nil, message: "같은 날에 신청한 컨퍼런스 혹은 스터디가 있습니다.", preferredStyle: .alert)
+        let failureAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
+            self.viewModel.pushMain()
+        }
+        failureAlert.addAction(failureAction)
+        self.present(failureAlert, animated: true, completion: nil)
+        print("failure")
+    }
+    
     func join() {
         BaseVC.detailProvider.request(.join(id: BaseVC.decodedDetailData!.id, authorization: BaseVC.userData!.accessToken)) {response in
             switch response {
@@ -41,8 +61,12 @@ extension DetailViewController {
                 switch statusCode {
                 case 200..<300:
                     self.joinSuccess()
+                case 400:
+                    self.fullUser()
                 case 403:
                     self.accessTokenError()
+                case 409:
+                    self.sameday()
                 default:
                     self.failure()
                 }

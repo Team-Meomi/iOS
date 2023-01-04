@@ -23,8 +23,8 @@ class AdminMainVC: BaseViewController<AdminMainVM> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
         getConData()
+        self.navigationItem.hidesBackButton = true
     }
     
     lazy var titleDateText = UILabel().then {
@@ -115,11 +115,12 @@ class AdminMainVC: BaseViewController<AdminMainVM> {
             .bind(
                 to: userTableView.rx.items(cellIdentifier: "AdminMainTableViewCell", cellType: AdminMainTableViewCell.self)
             ) { ip, item, cell in
-                cell.listUser.text = "\(item.stuNum )\(item.name)"
+                cell.listUser.text = "\(item.stuNum)\(item.name)"
                 cell.accessoryType = .disclosureIndicator
             }
             .disposed(by: disposeBag)
     }
+    
     
     override func addView() {
         [titleDateText,explainText,conBtn,divisionLine,studyBtn,userTableView].forEach {

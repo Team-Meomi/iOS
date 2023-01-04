@@ -29,7 +29,7 @@ extension SearchViewController {
     }
     
     func search() {
-        let param = SearchRequest.init(BaseVC.userData!.accessToken, searchTextField.text ?? "",BaseVC.searchMajor)
+        let param = SearchRequest.init(BaseVC.userData!.accessToken, searchTextField.text ?? "",searchMajor)
         print(param)
         BaseVC.mainProvider.request(.search(param: param, authorization: BaseVC.userData!.accessToken)) {response in
             switch response {

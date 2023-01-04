@@ -8,11 +8,11 @@
 import Foundation
 
 struct GeneralAPI{
-//    static let userBaseURL = "http://10.82.20.18:8080/api/v1/user"
-//    static let baseURL = "http://10.82.20.18:8080/api/v1"
-//    static let adminBaseURL = "http://10.82.20.18:8080/api/v1/admin"
+//    static let userBaseURL = "\(baseURL)/user"
+//    static let baseURL = "http://172.20.10.5:8080/api/v1"
+//    static let adminBaseURL = "\(baseURL)/admin"
     
     static let userBaseURL = "\(baseURL)/user"
-    static let baseURL = "http://54.180.93.157:8080/api/v1"
+    static let baseURL = "http://43.201.9.48:8080/api/v1"
     static let adminBaseURL = "\(baseURL)/admin"
 }

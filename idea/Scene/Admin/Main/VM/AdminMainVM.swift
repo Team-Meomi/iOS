@@ -54,9 +54,12 @@ final class AdminMainVM: BaseViewModel {
                     provider.request(.checkCon(authorization: BaseVC.userData!.accessToken)) { result in
                         switch result {
                         case let .success(res):
-                            let data = try? JSONDecoder().decode([SingleGetResponse].self, from: res.data)
-                            print("WRITTEN", data)
-                            observer.onNext(data ?? [])
+                            print(
+                                String(data: res.data, encoding: .utf8)
+                            )
+                            let data = try? JSONDecoder().decode(SingleGetModel.self, from: res.data)
+                            
+                            observer.onNext(data?.list ?? [])
                         case let .failure(err):
                             observer.onError(err)
                         }
@@ -73,8 +76,11 @@ final class AdminMainVM: BaseViewModel {
                     provider.request(.checkStu(authorization: BaseVC.userData!.accessToken)) { result in
                         switch result {
                         case let .success(res):
-                            let data = try? JSONDecoder().decode([SingleGetResponse].self, from: res.data)
-                            observer.onNext(data ?? [])
+                            print(
+                                String(data: res.data, encoding: .utf8)
+                            )
+                            let data = try? JSONDecoder().decode(SingleGetModel.self, from: res.data)
+                            observer.onNext(data?.list ?? [])
                         case let .failure(err):
                             observer.onError(err)
                         }

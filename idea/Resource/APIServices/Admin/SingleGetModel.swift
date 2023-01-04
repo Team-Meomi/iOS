@@ -8,7 +8,7 @@
 import Foundation
 
 struct SingleGetModel: Codable {
-    let data: [SingleGetResponse]
+    let list: [SingleGetResponse]
 }
 
 struct SingleGetResponse: Codable {

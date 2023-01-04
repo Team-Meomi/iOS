@@ -20,7 +20,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         self.navigationController?.navigationBar.topItem?.title = ""
 //        configureVC()
     }
-    
+    var searchMajor: String = ""
     var guardFeTap:Bool = false
     var guardBeTap:Bool = false
     var guardiOSTap:Bool = false
@@ -118,63 +118,10 @@ class SearchViewController: BaseViewController<SearchViewModel> {
 //        searchTableView.delegate = self
 //    }
     
-    func getSearch() {
-        // MARK: Input
-        let viewWillApeearObservable = searchBtn.rx.tap
-            .map { _ in }
-            .asObservable()
-
-        let searchCellSelectedObservable = searchTableView.rx.modelSelected(SearchResponse.self)
-            .asObservable()
-            .map(\.id)
-
-        // MARK: Output
-        let output = viewModel.transform(
-            .init(
-                searchBtnDidTap: viewWillApeearObservable,
-                conferenceCellDidselect: searchCellSelectedObservable
-            )
-        )
-        
-        self.searchTableView.delegate = nil
-        self.searchTableView.dataSource = nil
-    
-        output.search
-            .bind(
-                to: searchTableView.rx.items(cellIdentifier: "MainTabelViewCell", cellType: MainTabelViewCell.self)
-            ) { ip, item, cell in
-                cell.titleText.text = item.title
-                cell.categoryText.text = item.category
-                cell.typeText.text = item.type
-                cell.dateText.text = item.date
-                switch item.category {
-                case "FE":
-                    cell.categoryView.backgroundColor = .FE
-                    break
-                case "BE":
-                    cell.categoryView.backgroundColor = .BE
-                    break
-                case "iOS":
-                    cell.categoryView.backgroundColor = .iOS
-                    break
-                case "AOS":
-                    cell.categoryView.backgroundColor = .AOS
-                    break
-                case "기타":
-                    cell.categoryView.backgroundColor = .Etc
-                    break
-                default:
-                    cell.categoryView.backgroundColor = .Etc
-                    break
-                }
-                cell.accessoryType = .disclosureIndicator
-            }
-            .disposed(by: disposeBag)
-    }
+ 
     
     @objc func searchBtnDidTap() {
-        BaseVC.searchText = searchTextField.text ?? ""
-        self.getSearch()
+        search()
     }
     
     @objc func feBtnDidTap() {
@@ -183,7 +130,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
             feBtn.layer.borderColor = UIColor.Main?.cgColor
             feBtn.layer.borderWidth = 1
             feBtn.backgroundColor = .white
-            BaseVC.searchMajor = ""
+            searchMajor = ""
             self.guardFeTap = false
             return
         }
@@ -191,7 +138,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         feBtn.layer.borderColor = UIColor.FE?.cgColor
         feBtn.backgroundColor = .FE
         feBtn.setTitleColor(UIColor.white,for: .normal)
-        BaseVC.searchMajor = "FE"
+        searchMajor = "FE"
         self.guardFeTap = true
     }
     
@@ -201,7 +148,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
             beBtn.layer.borderColor = UIColor.Main?.cgColor
             beBtn.layer.borderWidth = 1
             beBtn.backgroundColor = .white
-            BaseVC.searchMajor = ""
+            searchMajor = ""
             self.guardBeTap = false
             return
         }
@@ -209,7 +156,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         beBtn.layer.borderColor = UIColor.BE?.cgColor
         beBtn.backgroundColor = .BE
         beBtn.setTitleColor(UIColor.white,for: .normal)
-        BaseVC.searchMajor = "BE"
+        searchMajor = "BE"
         self.guardBeTap = true
     }
     
@@ -219,7 +166,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
             iosBtn.layer.borderColor = UIColor.Main?.cgColor
             iosBtn.layer.borderWidth = 1
             iosBtn.backgroundColor = .white
-            BaseVC.searchMajor = ""
+            searchMajor = ""
             self.guardiOSTap = false
             return
         }
@@ -227,7 +174,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         iosBtn.layer.borderColor = UIColor.iOS?.cgColor
         iosBtn.backgroundColor = .iOS
         iosBtn.setTitleColor(UIColor.white,for: .normal)
-        BaseVC.searchMajor = "iOS"
+        searchMajor = "iOS"
         self.guardiOSTap = true
     }
     
@@ -237,7 +184,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
             aosBtn.layer.borderColor = UIColor.Main?.cgColor
             aosBtn.layer.borderWidth = 1
             aosBtn.backgroundColor = .white
-            BaseVC.searchMajor = ""
+            searchMajor = ""
             self.guardAosTap = false
             return
         }
@@ -245,7 +192,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         aosBtn.layer.borderColor = UIColor.AOS?.cgColor
         aosBtn.backgroundColor = .AOS
         aosBtn.setTitleColor(UIColor.white,for: .normal)
-        BaseVC.searchMajor = "AOS"
+        searchMajor = "AOS"
         self.guardAosTap = true
     }
     
@@ -255,7 +202,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
             etcBtn.layer.borderColor = UIColor.Main?.cgColor
             etcBtn.layer.borderWidth = 1
             etcBtn.backgroundColor = .white
-            BaseVC.searchMajor = ""
+            searchMajor = ""
             self.guardEtcTap = false
             return
         }
@@ -263,7 +210,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         etcBtn.layer.borderColor = UIColor.Etc?.cgColor
         etcBtn.backgroundColor = .Etc
         etcBtn.setTitleColor(UIColor.white,for: .normal)
-        BaseVC.searchMajor = "기타"
+        searchMajor = "기타"
         self.guardEtcTap = true
     }
 
@@ -325,25 +272,3 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     }
     
 }
-
-//extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        BaseVC.searchDecoedeData?.count ?? 0
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTabelViewCell", for: indexPath) as? MainTabelViewCell else { return UITableViewCell()}
-//        cell.titleText.text = BaseVC.searchDecoedeData?[indexPath.row].title
-//        cell.categoryText.text = BaseVC.searchDecoedeData?[indexPath.row].category
-//        cell.typeText.text = BaseVC.searchDecoedeData?[indexPath.row].type
-//        cell.dateText.text = BaseVC.searchDecoedeData?[indexPath.row].date
-//        cell.accessoryType = .disclosureIndicator
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-////        viewModel.cellDidSelect(index: indexPath.row)
-//    }
-//}
-//
-//
