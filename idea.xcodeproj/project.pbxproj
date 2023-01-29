@@ -107,6 +107,7 @@
 		77BF4D312940655E00330346 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D302940655E00330346 /* IntroViewModel.swift */; };
 		77BF4D332940659000330346 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D322940659000330346 /* BaseViewController.swift */; };
 		77BF4D35294065A000330346 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D34294065A000330346 /* BaseViewModel.swift */; };
+		77F1F1872986AC5B00ED498E /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = 77F1F1862986AC5B00ED498E /* RxFlow */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77F1F1872986AC5B00ED498E /* RxFlow in Frameworks */,
 				77BF4D28294064BF00330346 /* RxCocoa in Frameworks */,
 				77BF4D222940647500330346 /* SnapKit in Frameworks */,
 				77BF4D2A294064BF00330346 /* RxSwift in Frameworks */,
@@ -886,6 +888,7 @@
 				7753E63E294C3E020067A263 /* Moya */,
 				7753E6AF295BD17B0067A263 /* MSGLayout */,
 				779A6A2929620AC500496839 /* DropDown */,
+				77F1F1862986AC5B00ED498E /* RxFlow */,
 			);
 			productName = idea;
 			productReference = 77BF4D0729400DC800330346 /* idea.app */;
@@ -922,6 +925,7 @@
 				7753E63D294C3E020067A263 /* XCRemoteSwiftPackageReference "Moya" */,
 				7753E6AE295BD17B0067A263 /* XCRemoteSwiftPackageReference "MSGLayout" */,
 				779A6A2829620AC500496839 /* XCRemoteSwiftPackageReference "DropDown" */,
+				77F1F1852986AC5B00ED498E /* XCRemoteSwiftPackageReference "RxFlow" */,
 			);
 			productRefGroup = 77BF4D0829400DC800330346 /* Products */;
 			projectDirPath = "";
@@ -1299,6 +1303,14 @@
 				kind = branch;
 			};
 		};
+		77F1F1852986AC5B00ED498E /* XCRemoteSwiftPackageReference "RxFlow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxFlow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1336,6 +1348,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 77BF4D26294064BF00330346 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		77F1F1862986AC5B00ED498E /* RxFlow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77F1F1852986AC5B00ED498E /* XCRemoteSwiftPackageReference "RxFlow" */;
+			productName = RxFlow;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
