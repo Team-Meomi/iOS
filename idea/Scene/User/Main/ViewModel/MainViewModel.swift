@@ -33,10 +33,6 @@ final class MainViewModel: BaseViewModel {
         coordinator.pushProfileVC()
     }
     
-    func pushLogin() {
-        coordinator.pushLoginVC()
-    }
-    
     struct Input {
         var viewWillAppear: Observable<Void>
         var conferenceCellDidselect: Observable<Int>

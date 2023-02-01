@@ -10,24 +10,6 @@ import RxSwift
 import RxCocoa
 
 final class LoginViewModel: BaseViewModel {
-    var coordinator: MainCoordinator
+
     
-    init(coordinator: MainCoordinator){
-        self.coordinator = coordinator
-    }
-
-    func pushAdminVC() {
-        coordinator.pushAdminVC()
-    }
-    
-}
-
-extension LoginViewModel: ViewModelType{
-
-    struct Input {
-    }
-
-    struct Output {
-        
-    }
 }

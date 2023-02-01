@@ -11,9 +11,11 @@ import SnapKit
 import RxCocoa
 import RxSwift
 import Moya
+import RxFlow
 
-class SignUpViewController: BaseViewController<SignUpViewModel> {
+class SignUpViewController: BaseViewController<SignUpViewModel>, Stepper{
     var essentialFieldList = [UITextField]()
+    var steps = PublishRelay<Step>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,7 +149,7 @@ class SignUpViewController: BaseViewController<SignUpViewModel> {
     }
     
     @objc func goLoginBtnDidTap() {
-        viewModel.pushLoginVC()
+        self.steps.accept(SCStep.signInIsRequired)
     }
     
     @objc private func textDidChange(_ notification: Notification) {

@@ -12,7 +12,7 @@ extension SignUpViewController {
     func success() {
         let successAlert = UIAlertController(title: nil, message: "회원가입이 완료되었습니다!", preferredStyle: .alert)
         let successAction = UIAlertAction(title: "확인", style: .cancel) {(action) in
-            self.viewModel.pushIntroVC()
+            self.steps.accept(SCStep.signUpIsRequired)
         }
         successAlert.addAction(successAction)
         self.present(successAlert, animated: true, completion: nil)

@@ -11,29 +11,4 @@ import RxCocoa
 import Moya
 
 final class SignUpViewModel: BaseViewModel {
-    var coordinator: MainCoordinator
-    
-    init(coordinator: MainCoordinator){
-        self.coordinator = coordinator
-    }
-    
-    func pushLoginVC() {
-        coordinator.pushLoginVC()
-    }
-    
-    func pushIntroVC() {
-        coordinator.pushIntroVC()
-    }
-    
-}
-
-extension SignUpViewModel: ViewModelType{
-
-    struct Input {
-        
-    }
-
-    struct Output {
-        
-    }
 }

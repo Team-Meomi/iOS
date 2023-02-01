@@ -21,14 +21,14 @@ class MainCoordinator:Coordinator {
         window.rootViewController = navigationController
     }
     
-//    func start() {
-//        let introVM = IntroViewModel()
-//        let introVC = IntroViewController(introVM)
-//        navigationController.setViewControllers([introVC], animated: true)
-////        let mainVM = MainViewModel(coordinator: self)
-////        let mainVC = MainViewController(mainVM)
-////        navigationController.setViewControllers([mainVC], animated: true)
-//    }
+    func start() {
+        let introVM = IntroViewModel()
+        let introVC = IntroViewController(introVM)
+        navigationController.setViewControllers([introVC], animated: true)
+//        let mainVM = MainViewModel(coordinator: self)
+//        let mainVC = MainViewController(mainVM)
+//        navigationController.setViewControllers([mainVC], animated: true)
+    }
 //
     func pushCreateConVC() {
         let conVM = CreateConViewModel(coordinator: self)
