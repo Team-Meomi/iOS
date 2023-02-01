@@ -21,39 +21,15 @@ class MainCoordinator:Coordinator {
         window.rootViewController = navigationController
     }
     
-    func start() {
-        let introVM = IntroViewModel(coordinator: self)
-        let introVC = IntroViewController(introVM)
-        navigationController.setViewControllers([introVC], animated: true)
-//        let mainVM = MainViewModel(coordinator: self)
-//        let mainVC = MainViewController(mainVM)
-//        navigationController.setViewControllers([mainVC], animated: true)
-    }
-    
-    func pushLoginVC() {
-        let loginVM = LoginViewModel(coordinator: self)
-        let loginVC = LoginViewController(loginVM)
-        navigationController.pushViewController(loginVC, animated: true)
-    }
-    
-    func pushIntroVC() {
-        let introVM = IntroViewModel(coordinator: self)
-        let introVC = IntroViewController(introVM)
-        navigationController.pushViewController(introVC, animated: true)
-    }
-    
-    func pushSignUpVC() {
-        let signUpVM = SignUpViewModel(coordinator: self)
-        let signUpVC = SignUpViewController(signUpVM)
-        navigationController.pushViewController(signUpVC, animated: true)
-    }
-    
-    func pushMainVC() {
-        let mainVM = MainViewModel(coordinator: self)
-        let mainVC = MainViewController(mainVM)
-        navigationController.pushViewController(mainVC, animated: true)
-    }
-    
+//    func start() {
+//        let introVM = IntroViewModel()
+//        let introVC = IntroViewController(introVM)
+//        navigationController.setViewControllers([introVC], animated: true)
+////        let mainVM = MainViewModel(coordinator: self)
+////        let mainVC = MainViewController(mainVM)
+////        navigationController.setViewControllers([mainVC], animated: true)
+//    }
+//
     func pushCreateConVC() {
         let conVM = CreateConViewModel(coordinator: self)
         let conVC = CreateConViewController(conVM)

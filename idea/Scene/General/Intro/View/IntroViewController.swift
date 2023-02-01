@@ -8,23 +8,15 @@
 import UIKit
 import Then
 import SnapKit
-import RxSwift
 import RxCocoa
+import RxFlow
 
-class IntroViewController: BaseViewController<IntroViewModel> {
-    
+class IntroViewController: BaseViewController<IntroViewModel>, Stepper{
+    var steps = PublishRelay<Step>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        bindViewModel()
-    }
-    
-    private func bindViewModel() {
-        let input = IntroViewModel.Input(
-            loginButtonTap: loginButton.rx.tap.asObservable(),
-            signUpButtonTap: signUpButton.rx.tap.asObservable()
-        )
-        viewModel.transVC(input: input)
     }
     
     let studyText = UILabel().then {
@@ -54,6 +46,7 @@ class IntroViewController: BaseViewController<IntroViewModel> {
         $0.layer.borderColor = UIColor.Main?.cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 5
+        $0.addTarget(self, action: #selector(signInBtnDidTap), for: .touchUpInside)
     }
     
     lazy var signUpButton = UIButton().then {
@@ -63,6 +56,15 @@ class IntroViewController: BaseViewController<IntroViewModel> {
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.backgroundColor = .Main
         $0.layer.cornerRadius = 5
+        $0.addTarget(self, action: #selector(signUpBtnDidTap), for: .touchUpInside)
+    }
+    
+    @objc func signInBtnDidTap() {
+        self.steps.accept(SCStep.signInIsRequired)
+    }
+    
+    @objc func signUpBtnDidTap() {
+        self.steps.accept(SCStep.signUpIsRequired)
     }
     
     override func addView() {

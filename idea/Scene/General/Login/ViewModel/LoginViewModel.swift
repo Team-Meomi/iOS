@@ -15,13 +15,7 @@ final class LoginViewModel: BaseViewModel {
     init(coordinator: MainCoordinator){
         self.coordinator = coordinator
     }
-    
-    func pushMainVC() {
-        coordinator.pushMainVC()
-    }
-    func pushSignUpVC() {
-        coordinator.pushSignUpVC()
-    }
+
     func pushAdminVC() {
         coordinator.pushAdminVC()
     }

@@ -6,24 +6,41 @@
 //
 
 import UIKit
+import RxFlow
+import RxCocoa
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if let windowScene = scene as? UIWindowScene {
-            
-            let window = UIWindow(windowScene: windowScene)
-            self.window = window
-            
-            let navigationController = UINavigationController()
-            
-            let coordinator = MainCoordinator(navigationController: navigationController, window: window)
-            coordinator.start()
-            
-            self.window?.makeKeyAndVisible()
+    private let coordinator = FlowCoordinator()
+    
+    let appFlow = AppFlow()
+    let appStepper = AppStepper()
+    
+    
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
+        guard let s = (scene as? UIWindowScene) else { return }
+    
+        window = UIWindow(windowScene: s)
+        
+        coordinateToAppFlow(with: s)
+    }
+        
+    private func coordinateToAppFlow(with scene: UIWindowScene){
+        let window = UIWindow(windowScene: scene)
+        self.window = window
+        
+        coordinator.coordinate(flow: appFlow, with: appStepper)
+        Flows.use(
+            appFlow,
+            when: .created
+        ) { [weak self] root in
+            self?.window?.rootViewController = root
+            self?.window?.makeKeyAndVisible()
         }
     }
 

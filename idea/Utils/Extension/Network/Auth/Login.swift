@@ -15,7 +15,7 @@ extension LoginViewController {
             viewModel.pushAdminVC()
         }
         else{
-            viewModel.pushMainVC()
+            self.steps.accept(SCStep.homeIsRequired)
         }
     }
     

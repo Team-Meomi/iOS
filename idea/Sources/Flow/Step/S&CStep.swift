@@ -7,7 +7,7 @@
 
 import RxFlow
 
-enum SCStep {
+enum SCStep: Step {
     // Mark: Login
     case loginIsRequired
     

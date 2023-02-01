@@ -108,6 +108,8 @@
 		77BF4D332940659000330346 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D322940659000330346 /* BaseViewController.swift */; };
 		77BF4D35294065A000330346 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF4D34294065A000330346 /* BaseViewModel.swift */; };
 		77C22ECD298A72CA004CC9EC /* S&CStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C22ECC298A72CA004CC9EC /* S&CStep.swift */; };
+		77C22ECF298A760F004CC9EC /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C22ECE298A760F004CC9EC /* LoginFlow.swift */; };
+		77C22ED1298A7629004CC9EC /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C22ED0298A7629004CC9EC /* AppFlow.swift */; };
 		77F1F1872986AC5B00ED498E /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = 77F1F1862986AC5B00ED498E /* RxFlow */; };
 /* End PBXBuildFile section */
 
@@ -208,6 +210,8 @@
 		77BF4D322940659000330346 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		77BF4D34294065A000330346 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		77C22ECC298A72CA004CC9EC /* S&CStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "S&CStep.swift"; sourceTree = "<group>"; };
+		77C22ECE298A760F004CC9EC /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
+		77C22ED0298A7629004CC9EC /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -876,6 +880,9 @@
 		77C22EC9298A7212004CC9EC /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				77C22ED0298A7629004CC9EC /* AppFlow.swift */,
+				77BF4D0A29400DC800330346 /* AppDelegate.swift */,
+				77BF4D0C29400DC800330346 /* SceneDelegate.swift */,
 				77C22ECB298A722B004CC9EC /* Step */,
 				77C22ECA298A7218004CC9EC /* Flows */,
 			);
@@ -885,8 +892,7 @@
 		77C22ECA298A7218004CC9EC /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				77BF4D0A29400DC800330346 /* AppDelegate.swift */,
-				77BF4D0C29400DC800330346 /* SceneDelegate.swift */,
+				77C22ECE298A760F004CC9EC /* LoginFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -1005,6 +1011,7 @@
 				7753E64829500E3F0067A263 /* LoginModel.swift in Sources */,
 				779A6A01295DDD5600496839 /* GetDetailRequest.swift in Sources */,
 				77BF4D1F2940645B00330346 /* MainCoordinator.swift in Sources */,
+				77C22ECF298A760F004CC9EC /* LoginFlow.swift in Sources */,
 				77BF4D2C294064E300330346 /* Coordinator.swift in Sources */,
 				7753E6C3295C1F540067A263 /* UserWritten.swift in Sources */,
 				7753E696295921FD0067A263 /* CreateCon.swift in Sources */,
@@ -1018,6 +1025,7 @@
 				7753E65B295146520067A263 /* ListRequest.swift in Sources */,
 				779A69F0295D8AB100496839 /* UserJoinedRequest.swift in Sources */,
 				7753E6B8295BD8B10067A263 /* GetMyDataRequest.swift in Sources */,
+				77C22ED1298A7629004CC9EC /* AppFlow.swift in Sources */,
 				7753E6732954715D0067A263 /* Refresh.swift in Sources */,
 				7753E6B6295BD89C0067A263 /* GetMyDataModel.swift in Sources */,
 				7753E6A5295B143F0067A263 /* SearchViewModel.swift in Sources */,
